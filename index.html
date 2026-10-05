@@ -520,22 +520,17 @@
   <!-- HEADER -->
 
   <header>
-
     <div class="header-inner">
 
       <div class="logo">
         iCliGo
       </div>
 
-      <a
-        href="#quiz"
-        class="header-link"
-      >
+      <a href="#quiz" class="header-link">
         Descobrir oportunidade
       </a>
 
     </div>
-
   </header>
 
 
@@ -561,10 +556,7 @@
           com flexibilidade.
         </p>
 
-        <a
-          href="#quiz"
-          class="primary-button"
-        >
+        <a href="#quiz" class="primary-button">
           DESCOBRIR COMO FUNCIONA
         </a>
 
@@ -592,10 +584,7 @@
       <div class="steps">
 
         <div>
-
-          <div class="step-number">
-            01
-          </div>
+          <div class="step-number">01</div>
 
           <div class="step-title">
             Viaja
@@ -605,14 +594,10 @@
             Planeia as tuas próprias viagens e aproveita condições e
             ferramentas disponíveis através da plataforma.
           </p>
-
         </div>
 
         <div>
-
-          <div class="step-number">
-            02
-          </div>
+          <div class="step-number">02</div>
 
           <div class="step-title">
             Recomenda
@@ -622,14 +607,10 @@
             Partilha experiências, destinos e soluções de viagem com pessoas
             da tua rede.
           </p>
-
         </div>
 
         <div>
-
-          <div class="step-number">
-            03
-          </div>
+          <div class="step-number">03</div>
 
           <div class="step-title">
             Constrói
@@ -639,7 +620,6 @@
             Se fizer sentido para ti, podes desenvolver uma atividade comercial
             e criar uma equipa ao longo do tempo.
           </p>
-
         </div>
 
       </div>
@@ -666,10 +646,7 @@
       <div class="benefits">
 
         <div class="benefit">
-
-          <div class="benefit-number">
-            01
-          </div>
+          <div class="benefit-number">01</div>
 
           <h3>
             Rendimento adicional
@@ -679,14 +656,10 @@
             Para quem procura desenvolver uma fonte de rendimento complementar
             através do setor das viagens.
           </p>
-
         </div>
 
         <div class="benefit">
-
-          <div class="benefit-number">
-            02
-          </div>
+          <div class="benefit-number">02</div>
 
           <h3>
             Gostas de viajar
@@ -696,14 +669,10 @@
             Se viagens, destinos e novas experiências fazem parte dos teus
             interesses, podes transformar esse interesse numa atividade.
           </p>
-
         </div>
 
         <div class="benefit">
-
-          <div class="benefit-number">
-            03
-          </div>
+          <div class="benefit-number">03</div>
 
           <h3>
             Flexibilidade
@@ -713,14 +682,10 @@
             Desenvolve a atividade de acordo com a tua disponibilidade e
             objetivos pessoais.
           </p>
-
         </div>
 
         <div class="benefit">
-
-          <div class="benefit-number">
-            04
-          </div>
+          <div class="benefit-number">04</div>
 
           <h3>
             Queres construir
@@ -730,7 +695,6 @@
             Para quem procura desenvolver algo próprio e, com o tempo,
             construir uma equipa.
           </p>
-
         </div>
 
       </div>
@@ -742,10 +706,7 @@
 
   <!-- QUIZ -->
 
-  <section
-    class="quiz-section"
-    id="quiz"
-  >
+  <section class="quiz-section" id="quiz">
 
     <div class="container">
 
@@ -791,10 +752,7 @@
 
   <!-- CONTACT -->
 
-  <section
-    class="contact-section"
-    id="contact"
-  >
+  <section class="contact-section" id="contact">
 
     <div class="container">
 
@@ -891,10 +849,7 @@
 
   <!-- RESULT -->
 
-  <section
-    class="result-section"
-    id="result"
-  >
+  <section class="result-section" id="result">
 
     <div class="container">
 
@@ -921,7 +876,7 @@
         <a
           href="#"
           class="primary-button"
-          onclick="window.scrollTo({top:0,behavior:'smooth'); return false;"
+          onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;"
         >
           VOLTAR AO INÍCIO
         </a>
@@ -948,7 +903,6 @@
       </h2>
 
       <div class="faq">
-
 
         <div class="faq-item">
 
@@ -1007,8 +961,6 @@
         </div>
 
 
-        <!-- NOVA FAQ SOBRE A LICENÇA -->
-
         <div class="faq-item">
 
           <div class="faq-question">
@@ -1022,7 +974,6 @@
           </div>
 
         </div>
-
 
       </div>
 
@@ -1076,17 +1027,13 @@
 
   <script>
 
-    /*
-     * GOOGLE SHEETS
-     */
+    /* GOOGLE SHEETS */
 
     const GOOGLE_SCRIPT_URL =
       "https://script.google.com/macros/s/AKfycbyVEGLswtrRbbkY6Pm6SL0mxmh3xwlWtLuKAPqK62nqB94cWEbYftpCKKdS9MxKy1S9Ug/exec";
 
 
-    /*
-     * QUIZ
-     */
+    /* QUIZ */
 
     const questions = [
 
@@ -1390,9 +1337,7 @@
     }
 
 
-    /*
-     * PROFILE
-     */
+    /* PROFILE */
 
     function getProfile(score) {
 
@@ -1433,9 +1378,7 @@
     }
 
 
-    /*
-     * GOOGLE SHEETS
-     */
+    /* GOOGLE SHEETS */
 
     async function sendLeadToGoogleSheets(lead) {
 
@@ -1499,9 +1442,7 @@
     }
 
 
-    /*
-     * FORM SUBMIT
-     */
+    /* FORM SUBMIT */
 
     const leadForm =
       document.getElementById("leadForm");
@@ -1575,28 +1516,16 @@
         };
 
 
-        /*
-         * Guardar localmente
-         */
-
         localStorage.setItem(
           "icligo_last_lead",
           JSON.stringify(lead)
         );
 
 
-        /*
-         * Enviar para Google Sheets
-         */
-
         await sendLeadToGoogleSheets(
           lead
         );
 
-
-        /*
-         * Mostrar resultado
-         */
 
         document
           .getElementById("contact")
@@ -1637,9 +1566,7 @@
     );
 
 
-    /*
-     * START
-     */
+    /* START */
 
     renderQuestion();
 
