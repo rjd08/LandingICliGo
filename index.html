@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Descobre a oportunidade iCliGo</title>
+  <title>iCliGo | Travel Partner</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,6 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700&family=Inter:wght@300;700&display=swap" rel="stylesheet">
 
   <style>
+
     * {
       box-sizing: border-box;
       margin: 0;
@@ -25,7 +26,7 @@
     body {
       font-family: 'Figtree', sans-serif;
       color: #171717;
-      background: #ffffff;
+      background: #fff;
       line-height: 1.5;
     }
 
@@ -33,15 +34,9 @@
     h2,
     h3,
     .logo,
-    .button,
-    .quiz-number {
+    .button {
       font-family: 'Inter', sans-serif;
       font-weight: 700;
-    }
-
-    .light {
-      font-family: 'Inter', sans-serif;
-      font-weight: 300;
     }
 
     /* =========================
@@ -49,14 +44,14 @@
     ========================= */
 
     header {
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
       padding: 28px 6%;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      position: absolute;
-      top: 0;
-      left: 0;
       z-index: 10;
     }
 
@@ -70,9 +65,9 @@
     }
 
     .header-link {
-      font-size: 13px;
-      text-decoration: none;
       color: #171717;
+      text-decoration: none;
+      font-size: 12px;
       border-bottom: 1px solid #171717;
       padding-bottom: 3px;
     }
@@ -83,12 +78,12 @@
 
     .hero {
       min-height: 720px;
-      padding: 170px 6% 100px;
+      background: #f7f6f3;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      background: #f7f6f3;
+      padding: 150px 6% 100px;
     }
 
     .hero-content {
@@ -96,11 +91,11 @@
     }
 
     .eyebrow {
-      font-size: 12px;
+      font-size: 11px;
       letter-spacing: 2.5px;
-      text-transform: uppercase;
-      margin-bottom: 25px;
       color: #777;
+      margin-bottom: 22px;
+      text-transform: uppercase;
     }
 
     .hero h1 {
@@ -117,8 +112,8 @@
     .hero p {
       max-width: 650px;
       margin: 0 auto 40px;
+      color: #666;
       font-size: 18px;
-      color: #5f5f5f;
       font-weight: 300;
     }
 
@@ -126,15 +121,15 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      border: none;
       background: #171717;
-      color: white;
+      color: #fff;
       padding: 17px 30px;
       text-decoration: none;
-      font-size: 12px;
-      letter-spacing: 1px;
-      transition: 0.25s ease;
-      border: none;
       cursor: pointer;
+      font-size: 11px;
+      letter-spacing: 1px;
+      transition: 0.25s;
     }
 
     .button:hover {
@@ -143,7 +138,7 @@
     }
 
     /* =========================
-       HOW IT WORKS
+       GENERAL SECTIONS
     ========================= */
 
     .section {
@@ -151,9 +146,9 @@
     }
 
     .section-header {
-      text-align: center;
       max-width: 700px;
-      margin: 0 auto 65px;
+      text-align: center;
+      margin: 0 auto 60px;
     }
 
     .section-header h2 {
@@ -169,6 +164,10 @@
       font-size: 17px;
     }
 
+    /* =========================
+       STEPS
+    ========================= */
+
     .steps {
       max-width: 1050px;
       margin: auto;
@@ -178,14 +177,14 @@
     }
 
     .step {
-      padding: 35px;
       border: 1px solid #e5e5e5;
+      padding: 35px;
       min-height: 250px;
     }
 
     .step-number {
-      font-size: 13px;
       color: #888;
+      font-size: 12px;
       margin-bottom: 45px;
     }
 
@@ -206,7 +205,11 @@
 
     .benefits {
       background: #171717;
-      color: white;
+      color: #fff;
+    }
+
+    .benefits .eyebrow {
+      color: #999;
     }
 
     .benefits .section-header p {
@@ -218,8 +221,8 @@
       margin: auto;
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      border-top: 1px solid #383838;
       border-left: 1px solid #383838;
+      border-top: 1px solid #383838;
     }
 
     .benefit {
@@ -239,7 +242,7 @@
     }
 
     /* =========================
-       QUIZ
+       QUIZ SECTION
     ========================= */
 
     .quiz-section {
@@ -250,32 +253,35 @@
     .quiz-wrapper {
       max-width: 760px;
       margin: auto;
-      background: white;
+      background: #fff;
       padding: 55px;
       box-shadow: 0 20px 70px rgba(0,0,0,0.06);
     }
 
+    /* INTRO */
+
     .quiz-intro {
       text-align: center;
-      margin-bottom: 45px;
-    }
-
-    .quiz-intro .eyebrow {
-      margin-bottom: 15px;
     }
 
     .quiz-intro h2 {
       font-size: clamp(34px, 5vw, 52px);
       line-height: 1.05;
       letter-spacing: -2px;
-      margin-bottom: 18px;
+      margin-bottom: 20px;
     }
 
     .quiz-intro p {
+      max-width: 580px;
+      margin: 0 auto 35px;
       color: #777;
       font-weight: 300;
-      max-width: 580px;
-      margin: auto;
+    }
+
+    /* PROGRESS */
+
+    .quiz-content {
+      display: none;
     }
 
     .progress-container {
@@ -285,51 +291,57 @@
     .progress-top {
       display: flex;
       justify-content: space-between;
-      font-size: 12px;
+      font-size: 11px;
       color: #888;
-      margin-bottom: 10px;
+      margin-bottom: 9px;
     }
 
     .progress-bar {
-      width: 100%;
       height: 4px;
-      background: #e7e7e7;
-      overflow: hidden;
+      width: 100%;
+      background: #e8e8e8;
     }
 
     .progress-fill {
       height: 100%;
       width: 20%;
       background: #171717;
-      transition: width 0.35s ease;
+      transition: width 0.3s ease;
     }
 
+    /* QUESTION */
+
     .question {
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
       font-size: 28px;
       line-height: 1.15;
       letter-spacing: -1px;
-      margin-bottom: 25px;
+      margin-bottom: 28px;
     }
 
+    /* ANSWER CARDS */
+
     .answers {
-      display: grid;
+      display: flex;
+      flex-direction: column;
       gap: 12px;
     }
 
     .answer-card {
       width: 100%;
-      padding: 20px 22px;
-      background: white;
+      background: #fff;
       border: 1px solid #dedede;
+      padding: 20px;
       display: flex;
       align-items: center;
-      gap: 17px;
+      gap: 16px;
       text-align: left;
       cursor: pointer;
-      transition: all 0.2s ease;
       font-family: 'Figtree', sans-serif;
       font-size: 15px;
       color: #222;
+      transition: all 0.2s ease;
     }
 
     .answer-card:hover {
@@ -338,34 +350,34 @@
     }
 
     .answer-letter {
-      min-width: 32px;
-      height: 32px;
-      border: 1px solid #d4d4d4;
+      width: 34px;
+      height: 34px;
+      min-width: 34px;
+      border: 1px solid #d3d3d3;
       display: flex;
       align-items: center;
       justify-content: center;
       font-family: 'Inter', sans-serif;
       font-weight: 700;
-      font-size: 12px;
+      font-size: 11px;
     }
 
     .answer-card.selected {
       background: #171717;
-      color: white;
+      color: #fff;
       border-color: #171717;
     }
 
     .answer-card.selected .answer-letter {
-      border-color: white;
+      border-color: #fff;
     }
 
     /* =========================
-       CONTACT
+       CONTACT FORM
     ========================= */
 
     .contact-form {
       display: none;
-      animation: fadeIn 0.4s ease;
     }
 
     .contact-form.active {
@@ -373,27 +385,28 @@
     }
 
     .contact-form h3 {
-      font-size: 30px;
+      font-size: 32px;
       line-height: 1.1;
-      letter-spacing: -1px;
-      margin-bottom: 12px;
+      letter-spacing: -1.5px;
+      margin-bottom: 15px;
     }
 
-    .contact-form > p {
+    .contact-intro {
       color: #777;
       font-weight: 300;
       margin-bottom: 30px;
     }
 
     .form-group {
-      margin-bottom: 16px;
+      margin-bottom: 18px;
     }
 
     .form-group label {
       display: block;
-      font-size: 12px;
-      margin-bottom: 7px;
+      font-size: 11px;
       color: #555;
+      margin-bottom: 7px;
+      letter-spacing: 0.5px;
     }
 
     .form-group input {
@@ -403,7 +416,6 @@
       outline: none;
       font-family: 'Figtree', sans-serif;
       font-size: 15px;
-      transition: border 0.2s;
     }
 
     .form-group input:focus {
@@ -411,10 +423,10 @@
     }
 
     .privacy {
-      font-size: 11px;
       color: #888;
-      margin: 18px 0 25px;
+      font-size: 11px;
       line-height: 1.5;
+      margin: 20px 0 25px;
     }
 
     .submit-button {
@@ -428,7 +440,6 @@
     .result {
       display: none;
       text-align: center;
-      animation: fadeIn 0.4s ease;
     }
 
     .result.active {
@@ -436,8 +447,8 @@
     }
 
     .result-icon {
-      width: 65px;
-      height: 65px;
+      width: 60px;
+      height: 60px;
       margin: 0 auto 25px;
       border: 1px solid #171717;
       display: flex;
@@ -448,6 +459,15 @@
       font-size: 20px;
     }
 
+    .result-profile {
+      display: inline-block;
+      background: #f1f1ef;
+      padding: 8px 14px;
+      font-size: 10px;
+      letter-spacing: 1px;
+      margin-bottom: 22px;
+    }
+
     .result h3 {
       font-size: 34px;
       line-height: 1.05;
@@ -456,20 +476,10 @@
     }
 
     .result p {
-      max-width: 550px;
+      max-width: 560px;
       margin: 0 auto 30px;
       color: #707070;
       font-weight: 300;
-    }
-
-    .result-profile {
-      display: inline-block;
-      padding: 9px 15px;
-      background: #f1f1ef;
-      font-size: 11px;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      margin-bottom: 30px;
     }
 
     /* =========================
@@ -507,8 +517,8 @@
 
     .final-cta {
       padding: 120px 6%;
-      text-align: center;
       background: #f7f6f3;
+      text-align: center;
     }
 
     .final-cta h2 {
@@ -531,27 +541,11 @@
 
     footer {
       padding: 35px 6%;
+      border-top: 1px solid #eee;
       display: flex;
       justify-content: space-between;
-      border-top: 1px solid #eee;
-      font-size: 12px;
       color: #888;
-    }
-
-    /* =========================
-       ANIMATION
-    ========================= */
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(10px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      font-size: 12px;
     }
 
     /* =========================
@@ -619,884 +613,908 @@
         gap: 10px;
       }
     }
+
   </style>
 </head>
 
+
 <body>
 
-  <!-- =========================
-       HEADER
-  ========================= -->
 
-  <header>
-    <div class="logo">
-      iCliGo<span>.</span>
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header>
+
+  <div class="logo">
+    iCliGo<span>.</span>
+  </div>
+
+  <a href="#quiz" class="header-link">
+    DESCOBRIR OPORTUNIDADE
+  </a>
+
+</header>
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero">
+
+  <div class="hero-content">
+
+    <div class="eyebrow">
+      TORNA-TE TRAVEL PARTNER
     </div>
 
-    <a href="#quiz" class="header-link">
-      DESCOBRIR OPORTUNIDADE
+    <h1>
+      E se a tua paixão por viajar também pudesse
+      <span>gerar rendimento?</span>
+    </h1>
+
+    <p>
+      Descobre como podes transformar o teu gosto por viagens
+      numa atividade flexível e explorar uma nova fonte
+      de rendimento através da iCliGo.
+    </p>
+
+    <a href="#quiz" class="button">
+      DESCOBRIR COMO FUNCIONA
     </a>
-  </header>
+
+  </div>
+
+</section>
 
 
-  <!-- =========================
-       HERO
-  ========================= -->
+<!-- =====================================================
+     COMO FUNCIONA
+===================================================== -->
 
-  <section class="hero">
+<section class="section">
 
-    <div class="hero-content">
+  <div class="section-header">
 
-      <div class="eyebrow">
-        TORNA-TE TRAVEL PARTNER
+    <div class="eyebrow">
+      COMO FUNCIONA
+    </div>
+
+    <h2>
+      Uma forma diferente de viver as viagens.
+    </h2>
+
+    <p>
+      O modelo iCliGo permite-te começar de forma flexível
+      e desenvolver a atividade ao teu próprio ritmo.
+    </p>
+
+  </div>
+
+
+  <div class="steps">
+
+    <div class="step">
+
+      <div class="step-number">
+        01
       </div>
 
-      <h1>
-        E se a tua paixão por viajar também pudesse
-        <span>gerar rendimento?</span>
-      </h1>
+      <h3>
+        Viaja
+      </h3>
 
       <p>
-        Descobre como podes transformar o teu gosto por viagens
-        numa atividade flexível, criando uma nova fonte de rendimento
-        através da iCliGo.
+        Utiliza a plataforma para organizar
+        as tuas próprias viagens e experiências.
       </p>
 
-      <a href="#quiz" class="button">
-        DESCOBRIR COMO FUNCIONA
+    </div>
+
+
+    <div class="step">
+
+      <div class="step-number">
+        02
+      </div>
+
+      <h3>
+        Recomenda
+      </h3>
+
+      <p>
+        Partilha viagens, destinos e experiências
+        com pessoas da tua rede.
+      </p>
+
+    </div>
+
+
+    <div class="step">
+
+      <div class="step-number">
+        03
+      </div>
+
+      <h3>
+        Constrói
+      </h3>
+
+      <p>
+        Se fizer sentido para ti, podes desenvolver
+        uma atividade comercial e construir uma equipa.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     BENEFÍCIOS
+===================================================== -->
+
+<section class="section benefits">
+
+  <div class="section-header">
+
+    <div class="eyebrow">
+      PORQUÊ CONSIDERAR?
+    </div>
+
+    <h2>
+      Criado para quem procura mais flexibilidade.
+    </h2>
+
+    <p>
+      Não existe um único perfil. O importante é perceber
+      se este modelo encaixa nos teus objetivos.
+    </p>
+
+  </div>
+
+
+  <div class="benefit-grid">
+
+    <div class="benefit">
+
+      <h3>
+        Rendimento adicional
+      </h3>
+
+      <p>
+        Uma atividade que podes desenvolver
+        paralelamente ao teu trabalho ou projeto atual.
+      </p>
+
+    </div>
+
+
+    <div class="benefit">
+
+      <h3>
+        Gostas de viajar
+      </h3>
+
+      <p>
+        Transforma o teu interesse por viagens
+        numa atividade que podes explorar.
+      </p>
+
+    </div>
+
+
+    <div class="benefit">
+
+      <h3>
+        Flexibilidade
+      </h3>
+
+      <p>
+        Define o ritmo e o tempo que queres
+        dedicar à atividade.
+      </p>
+
+    </div>
+
+
+    <div class="benefit">
+
+      <h3>
+        Queres construir
+      </h3>
+
+      <p>
+        Desenvolve uma atividade comercial
+        e cria uma equipa ao longo do tempo.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     QUIZ
+===================================================== -->
+
+<section class="quiz-section" id="quiz">
+
+  <div class="quiz-wrapper">
+
+
+    <!-- INTRO DO QUIZ -->
+
+    <div class="quiz-intro" id="quizIntro">
+
+      <div class="eyebrow">
+        QUESTIONÁRIO DE 2 MINUTOS
+      </div>
+
+      <h2>
+        Descobre se este modelo pode fazer sentido para ti.
+      </h2>
+
+      <p>
+        Responde a 5 perguntas rápidas.
+        As tuas respostas ajudam-nos a perceber
+        qual a melhor forma de te apresentar a oportunidade.
+      </p>
+
+      <button
+        class="button"
+        type="button"
+        onclick="startQuiz()">
+
+        COMEÇAR →
+
+      </button>
+
+    </div>
+
+
+    <!-- QUIZ -->
+
+    <div
+      class="quiz-content"
+      id="quizContent">
+
+      <div class="progress-container">
+
+        <div class="progress-top">
+
+          <span id="questionCounter">
+            1 / 5
+          </span>
+
+          <span>
+            PROGRESSO
+          </span>
+
+        </div>
+
+        <div class="progress-bar">
+
+          <div
+            class="progress-fill"
+            id="progressFill">
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div id="questionContainer"></div>
+
+    </div>
+
+
+    <!-- FORMULÁRIO DE CONTACTO -->
+
+    <div
+      class="contact-form"
+      id="contactForm">
+
+      <div class="eyebrow">
+        ÚLTIMO PASSO
+      </div>
+
+      <h3>
+        Onde podemos enviar-te os próximos passos?
+      </h3>
+
+      <p class="contact-intro">
+        Deixa os teus dados para receberes mais informação
+        sobre a oportunidade e, se quiseres, falar com alguém
+        da equipa.
+      </p>
+
+
+      <form id="leadForm">
+
+        <div class="form-group">
+
+          <label for="name">
+            NOME
+          </label>
+
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="O teu nome"
+            required>
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="whatsapp">
+            WHATSAPP
+          </label>
+
+          <input
+            type="tel"
+            id="whatsapp"
+            name="whatsapp"
+            placeholder="+351 9XX XXX XXX"
+            required>
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="email">
+            EMAIL
+          </label>
+
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="o.teu@email.com"
+            required>
+
+        </div>
+
+
+        <p class="privacy">
+          Os teus dados serão utilizados para entrar em contacto
+          contigo relativamente à oportunidade iCliGo.
+        </p>
+
+
+        <button
+          type="submit"
+          class="button submit-button">
+
+          QUERO CONHECER A OPORTUNIDADE →
+
+        </button>
+
+      </form>
+
+    </div>
+
+
+    <!-- RESULTADO -->
+
+    <div
+      class="result"
+      id="result">
+
+      <div class="result-icon">
+        ✓
+      </div>
+
+      <div
+        class="result-profile"
+        id="resultProfile">
+      </div>
+
+      <h3 id="resultTitle">
+        Obrigado!
+      </h3>
+
+      <p id="resultText">
+      </p>
+
+      <a
+        href="#quiz"
+        class="button"
+        id="finalButton">
+
+        VOLTAR AO INÍCIO
+
       </a>
 
     </div>
 
-  </section>
+  </div>
 
+</section>
 
-  <!-- =========================
-       COMO FUNCIONA
-  ========================= -->
 
-  <section class="section">
+<!-- =====================================================
+     FAQ
+===================================================== -->
 
-    <div class="section-header">
+<section class="section">
 
-      <div class="eyebrow">
-        COMO FUNCIONA
-      </div>
-
-      <h2>
-        Uma forma diferente de viver as viagens.
-      </h2>
-
-      <p>
-        O modelo iCliGo permite-te começar de forma flexível
-        e desenvolver a atividade ao teu próprio ritmo.
-      </p>
-
-    </div>
-
-
-    <div class="steps">
-
-      <div class="step">
-
-        <div class="step-number">
-          01
-        </div>
-
-        <h3>
-          Viaja
-        </h3>
-
-        <p>
-          Tenhas ou não experiência no setor,
-          podes utilizar a plataforma para organizar
-          as tuas próprias viagens.
-        </p>
-
-      </div>
-
-
-      <div class="step">
-
-        <div class="step-number">
-          02
-        </div>
-
-        <h3>
-          Recomenda
-        </h3>
-
-        <p>
-          Partilha experiências, destinos e oportunidades
-          de viagem com pessoas da tua rede.
-        </p>
-
-      </div>
-
-
-      <div class="step">
-
-        <div class="step-number">
-          03
-        </div>
-
-        <h3>
-          Constrói
-        </h3>
-
-        <p>
-          Se fizer sentido para ti, podes desenvolver
-          uma atividade comercial e construir uma equipa.
-        </p>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- =========================
-       BENEFÍCIOS
-  ========================= -->
-
-  <section class="section benefits">
-
-    <div class="section-header">
-
-      <div class="eyebrow">
-        PORQUÊ CONSIDERAR?
-      </div>
-
-      <h2>
-        Criado para quem procura mais flexibilidade.
-      </h2>
-
-      <p>
-        Não existe um único perfil. O importante é perceber
-        se este modelo encaixa nos teus objetivos.
-      </p>
-
-    </div>
-
-
-    <div class="benefit-grid">
-
-      <div class="benefit">
-
-        <h3>
-          Rendimento adicional
-        </h3>
-
-        <p>
-          Uma atividade que podes desenvolver
-          paralelamente ao teu trabalho ou projeto atual.
-        </p>
-
-      </div>
-
-
-      <div class="benefit">
-
-        <h3>
-          Gostas de viajar
-        </h3>
-
-        <p>
-          Transforma o teu interesse por viagens
-          numa atividade que podes explorar.
-        </p>
-
-      </div>
-
-
-      <div class="benefit">
-
-        <h3>
-          Flexibilidade
-        </h3>
-
-        <p>
-          Define o ritmo e o tempo que queres
-          dedicar à atividade.
-        </p>
-
-      </div>
-
-
-      <div class="benefit">
-
-        <h3>
-          Queres construir
-        </h3>
-
-        <p>
-          Para quem pretende desenvolver uma atividade
-          comercial e criar uma equipa ao longo do tempo.
-        </p>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- =========================
-       QUIZ
-  ========================= -->
-
-  <section class="quiz-section" id="quiz">
-
-    <div class="quiz-wrapper">
-
-      <!-- INTRO -->
-
-      <div class="quiz-intro" id="quizIntro">
-
-        <div class="eyebrow">
-          2 MINUTOS
-        </div>
-
-        <h2>
-          Descobre se este modelo pode fazer sentido para ti.
-        </h2>
-
-        <p>
-          Responde a 5 perguntas rápidas.
-          As tuas respostas ajudam-nos a perceber
-          qual a melhor forma de te apresentar a oportunidade.
-        </p>
-
-        <br>
-
-        <button
-          class="button"
-          onclick="startQuiz()">
-          COMEÇAR →
-        </button>
-
-      </div>
-
-
-      <!-- QUIZ -->
-
-      <div id="quizContent" style="display:none;">
-
-        <div class="progress-container">
-
-          <div class="progress-top">
-
-            <span id="questionCounter">
-              1 / 5
-            </span>
-
-            <span>
-              PROGRESSO
-            </span>
-
-          </div>
-
-          <div class="progress-bar">
-
-            <div
-              class="progress-fill"
-              id="progressFill">
-            </div>
-
-          </div>
-
-        </div>
-
-
-        <div id="questionContainer">
-
-          <!-- Pergunta inserida pelo JavaScript -->
-
-        </div>
-
-      </div>
-
-
-      <!-- CONTACTO -->
-
-      <div class="contact-form" id="contactForm">
-
-        <h3>
-          Parece que pode existir um bom alinhamento.
-        </h3>
-
-        <p>
-          Deixa os teus dados para perceberes melhor
-          como funciona e falares com alguém da equipa.
-        </p>
-
-
-        <form onsubmit="submitLead(event)">
-
-          <div class="form-group">
-
-            <label for="name">
-              NOME
-            </label>
-
-            <input
-              type="text"
-              id="name"
-              placeholder="O teu nome"
-              required>
-
-          </div>
-
-
-          <div class="form-group">
-
-            <label for="whatsapp">
-              WHATSAPP
-            </label>
-
-            <input
-              type="tel"
-              id="whatsapp"
-              placeholder="+351 9XX XXX XXX"
-              required>
-
-          </div>
-
-
-          <div class="form-group">
-
-            <label for="email">
-              EMAIL
-            </label>
-
-            <input
-              type="email"
-              id="email"
-              placeholder="o.teu@email.com"
-              required>
-
-          </div>
-
-
-          <div class="privacy">
-            Ao enviares os teus dados, estás a autorizar o contacto
-            relativamente à oportunidade iCliGo. Os teus dados devem
-            ser tratados de acordo com a política de privacidade
-            aplicável.
-          </div>
-
-
-          <button
-            type="submit"
-            class="button submit-button">
-
-            RECEBER OS PRÓXIMOS PASSOS →
-
-          </button>
-
-        </form>
-
-      </div>
-
-
-      <!-- RESULTADO -->
-
-      <div class="result" id="result">
-
-        <div class="result-icon">
-          ✓
-        </div>
-
-        <div class="result-profile" id="resultProfile">
-          PERFIL
-        </div>
-
-        <h3 id="resultTitle">
-          Obrigado!
-        </h3>
-
-        <p id="resultText">
-          Vamos analisar as tuas respostas.
-        </p>
-
-        <a
-          href="#"
-          class="button"
-          id="whatsappButton"
-          target="_blank">
-
-          FALAR COM A EQUIPA →
-
-        </a>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- =========================
-       FAQ
-  ========================= -->
-
-  <section class="section">
-
-    <div class="section-header">
-
-      <div class="eyebrow">
-        FAQ
-      </div>
-
-      <h2>
-        Algumas respostas antes de começares.
-      </h2>
-
-    </div>
-
-
-    <div class="faq">
-
-      <div class="faq-item">
-
-        <div class="faq-question">
-          Preciso de experiência em viagens?
-        </div>
-
-        <div class="faq-answer">
-          Não necessariamente. A apresentação serve precisamente
-          para explicar como funciona o modelo e o que é necessário
-          para começar.
-        </div>
-
-      </div>
-
-
-      <div class="faq-item">
-
-        <div class="faq-question">
-          Tenho de deixar o meu trabalho atual?
-        </div>
-
-        <div class="faq-answer">
-          Não. A atividade pode ser desenvolvida de forma
-          complementar, dependendo da disponibilidade e objetivos
-          de cada pessoa.
-        </div>
-
-      </div>
-
-
-      <div class="faq-item">
-
-        <div class="faq-question">
-          Quanto posso ganhar?
-        </div>
-
-        <div class="faq-answer">
-          Os resultados dependem de vários fatores, incluindo
-          dedicação, vendas, clientes e desenvolvimento da atividade.
-          Não existe um rendimento garantido.
-        </div>
-
-      </div>
-
-
-      <div class="faq-item">
-
-        <div class="faq-question">
-          Como descubro todos os detalhes?
-        </div>
-
-        <div class="faq-answer">
-          Depois de responderes ao questionário, podes deixar
-          os teus dados para receber mais informação e falar
-          diretamente com alguém da equipa.
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- =========================
-       FINAL CTA
-  ========================= -->
-
-  <section class="final-cta">
+  <div class="section-header">
 
     <div class="eyebrow">
-      O PRÓXIMO PASSO É TEU
+      FAQ
     </div>
 
     <h2>
-      Talvez esta seja a oportunidade que ainda não conhecias.
+      Algumas respostas antes de começares.
     </h2>
 
-    <p>
-      São apenas 5 perguntas. Descobre se faz sentido para ti.
-    </p>
-
-    <a href="#quiz" class="button">
-      FAZER O QUESTIONÁRIO →
-    </a>
-
-  </section>
+  </div>
 
 
-  <!-- =========================
-       FOOTER
-  ========================= -->
+  <div class="faq">
 
-  <footer>
+    <div class="faq-item">
 
-    <div>
-      © 2026 iCliGo
+      <div class="faq-question">
+        Preciso de experiência em viagens?
+      </div>
+
+      <div class="faq-answer">
+        Não necessariamente. A apresentação serve precisamente
+        para explicar como funciona o modelo e o que é necessário
+        para começar.
+      </div>
+
     </div>
 
-    <div>
-      Travel Partner
+
+    <div class="faq-item">
+
+      <div class="faq-question">
+        Tenho de deixar o meu trabalho atual?
+      </div>
+
+      <div class="faq-answer">
+        Não. A atividade pode ser desenvolvida de forma
+        complementar, dependendo da disponibilidade e objetivos
+        de cada pessoa.
+      </div>
+
     </div>
 
-  </footer>
+
+    <div class="faq-item">
+
+      <div class="faq-question">
+        Quanto posso ganhar?
+      </div>
+
+      <div class="faq-answer">
+        Os resultados dependem de vários fatores, incluindo
+        dedicação, vendas, clientes e desenvolvimento da atividade.
+        Não existe um rendimento garantido.
+      </div>
+
+    </div>
 
 
-  <!-- =========================
-       JAVASCRIPT
-  ========================= -->
+    <div class="faq-item">
 
-  <script>
+      <div class="faq-question">
+        Como descubro todos os detalhes?
+      </div>
 
-    /*
-    =====================================================
-    QUIZ
-    =====================================================
-    */
+      <div class="faq-answer">
+        Depois de responderes ao questionário, podes deixar
+        os teus dados para receber mais informação e falar
+        diretamente com alguém da equipa.
+      </div>
 
-    const questions = [
+    </div>
 
-      {
-        question:
-          "O que te levou a querer conhecer esta oportunidade?",
+  </div>
 
-        answers: [
-
-          {
-            text:
-              "Quero apenas perceber melhor como funciona",
-            points: 0
-          },
-
-          {
-            text:
-              "Gostava de encontrar uma fonte de rendimento adicional",
-            points: 1
-          },
-
-          {
-            text:
-              "Estou à procura de uma atividade que possa desenvolver a sério",
-            points: 2
-          }
-
-        ]
-      },
+</section>
 
 
-      {
-        question:
-          "Se encontrasses uma atividade que fizesse sentido para ti, quanto tempo estarias disposto a dedicar-lhe?",
+<!-- =====================================================
+     FINAL CTA
+===================================================== -->
 
-        answers: [
+<section class="final-cta">
 
-          {
-            text:
-              "Muito pouco, só ocasionalmente",
-            points: 0
-          },
+  <div class="eyebrow">
+    O PRÓXIMO PASSO É TEU
+  </div>
 
-          {
-            text:
-              "Algumas horas por semana",
-            points: 1
-          },
+  <h2>
+    Talvez esta seja a oportunidade que ainda não conhecias.
+  </h2>
 
-          {
-            text:
-              "Tenho disponibilidade para desenvolver algo de forma consistente",
-            points: 2
-          }
+  <p>
+    São apenas 5 perguntas. Descobre se faz sentido para ti.
+  </p>
 
-        ]
-      },
+  <a
+    href="#quiz"
+    class="button">
 
+    FAZER O QUESTIONÁRIO →
 
-      {
-        question:
-          "Qual destas situações descreve melhor o que procuras atualmente?",
+  </a>
 
-        answers: [
-
-          {
-            text:
-              "Estou satisfeito como estou e não procuro nenhuma mudança",
-            points: 0
-          },
-
-          {
-            text:
-              "Gostava de melhorar financeiramente, mas ainda estou a explorar opções",
-            points: 1
-          },
-
-          {
-            text:
-              "Quero criar uma nova fonte de rendimento e construir algo meu",
-            points: 2
-          }
-
-        ]
-      },
+</section>
 
 
-      {
-        question:
-          "Qual é a tua relação com viagens?",
+<!-- =====================================================
+     FOOTER
+===================================================== -->
 
-        answers: [
+<footer>
 
-          {
-            text:
-              "Viajo pouco e não é algo que me interesse muito",
-            points: 0
-          },
+  <div>
+    © 2026 iCliGo
+  </div>
 
-          {
-            text:
-              "Gosto de viajar e aproveito quando tenho oportunidade",
-            points: 1
-          },
+  <div>
+    Travel Partner
+  </div>
 
-          {
-            text:
-              "Viajar faz parte do meu estilo de vida e adoro recomendar destinos e experiências",
-            points: 2
-          }
-
-        ]
-      },
+</footer>
 
 
-      {
-        question:
-          "Se perceberes que o modelo faz sentido para ti, qual seria o teu próximo passo?",
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
 
-        answers: [
+<script>
 
-          {
-            text:
-              "Apenas quero receber informação",
-            points: 0
-          },
+  /* =========================
+     PERGUNTAS
+  ========================= */
 
-          {
-            text:
-              "Gostaria de falar com alguém para esclarecer algumas dúvidas",
-            points: 1
-          },
+  const questions = [
 
-          {
-            text:
-              "Quero marcar uma apresentação/conversa e perceber como posso começar",
-            points: 2
-          }
+    {
+      question:
+        "O que te levou a querer conhecer esta oportunidade?",
 
-        ]
-      }
+      answers: [
 
-    ];
+        {
+          text:
+            "Quero apenas perceber melhor como funciona",
+          points: 0
+        },
+
+        {
+          text:
+            "Gostava de encontrar uma fonte de rendimento adicional",
+          points: 1
+        },
+
+        {
+          text:
+            "Estou à procura de uma atividade que possa desenvolver a sério",
+          points: 2
+        }
+
+      ]
+    },
 
 
-    let currentQuestion = 0;
+    {
+      question:
+        "Se encontrasses uma atividade que fizesse sentido para ti, quanto tempo estarias disposto a dedicar-lhe?",
 
-    let totalScore = 0;
+      answers: [
 
-    let selectedAnswers = [];
+        {
+          text:
+            "Muito pouco, só ocasionalmente",
+          points: 0
+        },
+
+        {
+          text:
+            "Algumas horas por semana",
+          points: 1
+        },
+
+        {
+          text:
+            "Tenho disponibilidade para desenvolver algo de forma consistente",
+          points: 2
+        }
+
+      ]
+    },
 
 
-    /*
-    =====================================================
-    COMEÇAR
-    =====================================================
-    */
+    {
+      question:
+        "Qual destas situações descreve melhor o que procuras atualmente?",
 
-    function startQuiz() {
+      answers: [
 
-      document.getElementById("quizIntro").style.display = "none";
+        {
+          text:
+            "Estou satisfeito como estou e não procuro nenhuma mudança",
+          points: 0
+        },
 
-      document.getElementById("quizContent").style.display = "block";
+        {
+          text:
+            "Gostava de melhorar financeiramente, mas ainda estou a explorar opções",
+          points: 1
+        },
 
-      currentQuestion = 0;
+        {
+          text:
+            "Quero criar uma nova fonte de rendimento e construir algo meu",
+          points: 2
+        }
 
-      totalScore = 0;
+      ]
+    },
 
-      selectedAnswers = [];
 
-      showQuestion();
+    {
+      question:
+        "Qual é a tua relação com viagens?",
 
+      answers: [
+
+        {
+          text:
+            "Viajo pouco e não é algo que me interesse muito",
+          points: 0
+        },
+
+        {
+          text:
+            "Gosto de viajar e aproveito quando tenho oportunidade",
+          points: 1
+        },
+
+        {
+          text:
+            "Viajar faz parte do meu estilo de vida e adoro recomendar destinos e experiências",
+          points: 2
+        }
+
+      ]
+    },
+
+
+    {
+      question:
+        "Se perceberes que o modelo faz sentido para ti, qual seria o teu próximo passo?",
+
+      answers: [
+
+        {
+          text:
+            "Apenas quero receber informação",
+          points: 0
+        },
+
+        {
+          text:
+            "Gostaria de falar com alguém para esclarecer algumas dúvidas",
+          points: 1
+        },
+
+        {
+          text:
+            "Quero marcar uma apresentação/conversa e perceber como posso começar",
+          points: 2
+        }
+
+      ]
     }
 
-
-    /*
-    =====================================================
-    MOSTRAR PERGUNTA
-    =====================================================
-    */
-
-    function showQuestion() {
-
-      const question =
-        questions[currentQuestion];
-
-      const container =
-        document.getElementById("questionContainer");
+  ];
 
 
-      document.getElementById("questionCounter").innerText =
-        `${currentQuestion + 1} / ${questions.length}`;
+  /* =========================
+     VARIÁVEIS
+  ========================= */
+
+  let currentQuestion = 0;
+
+  let totalScore = 0;
+
+  let selectedAnswers = [];
 
 
-      document.getElementById("progressFill").style.width =
-        `${((currentQuestion + 1) / questions.length) * 100}%`;
+  /* =========================
+     COMEÇAR QUIZ
+  ========================= */
+
+  function startQuiz() {
+
+    document.getElementById("quizIntro").style.display = "none";
+
+    document.getElementById("quizContent").style.display = "block";
+
+    currentQuestion = 0;
+
+    totalScore = 0;
+
+    selectedAnswers = [];
+
+    showQuestion();
+
+  }
 
 
-      let html = `
+  /* =========================
+     MOSTRAR PERGUNTA
+  ========================= */
 
-        <h3 class="question">
-          ${question.question}
-        </h3>
+  function showQuestion() {
 
-        <div class="answers">
-      `;
+    const question =
+      questions[currentQuestion];
+
+    const container =
+      document.getElementById("questionContainer");
 
 
-      question.answers.forEach((answer, index) => {
+    document.getElementById("questionCounter").innerText =
+      `${currentQuestion + 1} / ${questions.length}`;
 
-        const letter =
-          String.fromCharCode(65 + index);
 
-        html += `
+    document.getElementById("progressFill").style.width =
+      `${((currentQuestion + 1) / questions.length) * 100}%`;
 
-          <button
-            type="button"
-            class="answer-card"
-            onclick="selectAnswer(${index})">
 
-            <span class="answer-letter">
-              ${letter}
-            </span>
+    let html = `
 
-            <span>
-              ${answer.text}
-            </span>
+      <h3 class="question">
+        ${question.question}
+      </h3>
 
-          </button>
+      <div class="answers">
 
-        `;
+    `;
 
-      });
+
+    question.answers.forEach((answer, index) => {
+
+      const letter =
+        String.fromCharCode(65 + index);
 
 
       html += `
-        </div>
+
+        <button
+          type="button"
+          class="answer-card"
+          onclick="selectAnswer(${index})">
+
+          <span class="answer-letter">
+            ${letter}
+          </span>
+
+          <span>
+            ${answer.text}
+          </span>
+
+        </button>
+
       `;
 
-
-      container.innerHTML = html;
-
-    }
+    });
 
 
-    /*
-    =====================================================
-    SELECIONAR RESPOSTA
-    =====================================================
-    */
+    html += `
 
-    function selectAnswer(answerIndex) {
+      </div>
 
-      const answer =
-        questions[currentQuestion].answers[answerIndex];
+    `;
 
 
-      totalScore += answer.points;
+    container.innerHTML = html;
+
+  }
 
 
-      selectedAnswers.push({
+  /* =========================
+     SELECIONAR RESPOSTA
+  ========================= */
 
-        question:
-          questions[currentQuestion].question,
+  function selectAnswer(index) {
 
-        answer:
-          answer.text,
-
-        points:
-          answer.points
-
-      });
+    const answer =
+      questions[currentQuestion].answers[index];
 
 
-      const cards =
-        document.querySelectorAll(".answer-card");
-
-      cards[answerIndex].classList.add("selected");
+    totalScore += answer.points;
 
 
-      setTimeout(() => {
+    selectedAnswers.push({
 
-        currentQuestion++;
+      question:
+        questions[currentQuestion].question,
 
+      answer:
+        answer.text,
 
-        if (currentQuestion < questions.length) {
+      points:
+        answer.points
 
-          showQuestion();
-
-        } else {
-
-          showContactForm();
-
-        }
-
-      }, 250);
-
-    }
+    });
 
 
-    /*
-    =====================================================
-    CONTACTO
-    =====================================================
-    */
-
-    function showContactForm() {
-
-      document.getElementById("quizContent").style.display = "none";
-
-      document.getElementById("contactForm").classList.add("active");
-
-    }
+    const cards =
+      document.querySelectorAll(".answer-card");
 
 
-    /*
-    =====================================================
-    ENVIAR LEAD
-    =====================================================
-    */
+    cards[index].classList.add("selected");
 
-    function submitLead(event) {
+
+    setTimeout(function() {
+
+      currentQuestion++;
+
+
+      if (currentQuestion < questions.length) {
+
+        showQuestion();
+
+      } else {
+
+        showContactForm();
+
+      }
+
+    }, 300);
+
+  }
+
+
+  /* =========================
+     MOSTRAR FORMULÁRIO
+  ========================= */
+
+  function showContactForm() {
+
+    document.getElementById("quizContent").style.display = "none";
+
+    document.getElementById("contactForm").classList.add("active");
+
+    window.scrollTo({
+      top:
+        document.getElementById("quiz").offsetTop - 30,
+
+      behavior:
+        "smooth"
+    });
+
+  }
+
+
+  /* =========================
+     SUBMETER FORMULÁRIO
+  ========================= */
+
+  document
+    .getElementById("leadForm")
+    .addEventListener("submit", function(event) {
 
       event.preventDefault();
 
@@ -1511,17 +1529,15 @@
         document.getElementById("email").value.trim();
 
 
-      /*
-      ================================================
-      PERFIL
-      ================================================
-      */
+      /* =========================
+         DETERMINAR PERFIL
+      ========================= */
 
-      let profile = "";
+      let profile;
 
-      let title = "";
+      let title;
 
-      let text = "";
+      let text;
 
 
       if (totalScore >= 8) {
@@ -1533,7 +1549,7 @@
           `Parece que existe um forte alinhamento, ${name}.`;
 
         text =
-          "Pelas tuas respostas, parece existir um bom ponto de partida para conheceres melhor o modelo iCliGo. O próximo passo é perceber como funciona na prática.";
+          "As tuas respostas mostram um elevado interesse em conhecer este modelo. O próximo passo é perceber como funciona na prática e esclarecer as tuas dúvidas.";
 
       }
 
@@ -1553,16 +1569,62 @@
       else {
 
         profile =
-          "PRIMEIRO CONTACTO";
+          "FASE DE EXPLORAÇÃO";
 
         title =
-          `Obrigado pela tua resposta, ${name}.`;
+          `Obrigado pelas tuas respostas, ${name}.`;
 
         text =
-          "Talvez ainda estejas numa fase de exploração. O melhor próximo passo é conheceres melhor o modelo antes de tomares qualquer decisão.";
+          "Parece que estás numa fase inicial de exploração. Conhecer melhor o modelo pode ajudar-te a perceber se esta oportunidade faz sentido para ti.";
 
       }
 
+
+      /* =========================
+         GUARDAR LEAD
+      ========================= */
+
+      const lead = {
+
+        name:
+          name,
+
+        whatsapp:
+          whatsapp,
+
+        email:
+          email,
+
+        score:
+          totalScore,
+
+        profile:
+          profile,
+
+        answers:
+          selectedAnswers,
+
+        date:
+          new Date().toISOString()
+
+      };
+
+
+      localStorage.setItem(
+        "icligoLead",
+        JSON.stringify(lead)
+      );
+
+
+      console.log(
+        "LEAD ICliGo:",
+        lead
+      );
+
+
+      /* =========================
+         MOSTRAR RESULTADO
+      ========================= */
 
       document.getElementById("contactForm").classList.remove("active");
 
@@ -1572,89 +1634,27 @@
       document.getElementById("resultProfile").innerText =
         profile;
 
+
       document.getElementById("resultTitle").innerText =
         title;
+
 
       document.getElementById("resultText").innerText =
         text;
 
 
-      /*
-      =====================================================
-      WHATSAPP
-      =====================================================
+      window.scrollTo({
+        top:
+          document.getElementById("quiz").offsetTop - 30,
 
-      IMPORTANTE:
-      Substituir SEU_NUMERO pela tua linha WhatsApp,
-      incluindo indicativo internacional.
+        behavior:
+          "smooth"
+      });
 
-      Exemplo:
-      351912345678
-      */
-
-      const whatsappNumber =
-        "SEU_NUMERO";
+    });
 
 
-      const message =
-
-        `Olá! Sou ${name}.
-
-Respondi ao questionário da iCliGo e gostaria de conhecer melhor a oportunidade.
-
-O meu nível de interesse foi ${totalScore}/10.
-
-WhatsApp: ${whatsapp}
-Email: ${email}`;
-
-
-      const whatsappURL =
-        `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
-
-
-      document.getElementById("whatsappButton").href =
-        whatsappURL;
-
-
-      /*
-      =====================================================
-      DADOS DO LEAD
-      =====================================================
-
-      Neste momento ficam guardados localmente
-      no navegador para podermos posteriormente
-      ligar a um sistema real de leads.
-
-      */
-
-      const lead = {
-
-        name: name,
-
-        whatsapp: whatsapp,
-
-        email: email,
-
-        score: totalScore,
-
-        answers: selectedAnswers,
-
-        createdAt:
-          new Date().toISOString()
-
-      };
-
-
-      console.log("NOVO LEAD:", lead);
-
-      localStorage.setItem(
-        "ultimoLeadICliGo",
-        JSON.stringify(lead)
-      );
-
-    }
-
-  </script>
+</script>
 
 </body>
 </html>
