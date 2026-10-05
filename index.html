@@ -4,429 +4,746 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Travel Partner iCliGo | Transforma viagens em oportunidade</title>
+  <title>iCliGo Travel Partner</title>
 
-  <meta name="description" content="Descobre como podes tornar-te Travel Partner iCliGo, rentabilizar as tuas próprias viagens e desenvolver uma atividade no setor das viagens.">
+  <meta
+    name="description"
+    content="Descobre como podes tornar-te Travel Partner iCliGo e desenvolver uma atividade no setor das viagens."
+  >
+
+  <!-- FONTS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700&family=Inter:wght@300;700&display=swap"
+    rel="stylesheet"
+  >
 
   <style>
+
+    /* =========================
+       RESET
+    ========================= */
+
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
-      font-family: Arial, Helvetica, sans-serif;
-      color: #172033;
+      font-family: 'Figtree', sans-serif;
+      font-weight: 400;
+      color: #151515;
       background: #ffffff;
       line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button,
+    input,
+    select {
+      font-family: inherit;
     }
 
     .container {
-      width: min(1100px, 90%);
-      margin: auto;
+      width: min(1120px, 90%);
+      margin: 0 auto;
     }
 
-    /* HEADER */
+
+    /* =========================
+       TYPOGRAPHY
+    ========================= */
+
+    h1,
+    h2,
+    h3,
+    .logo,
+    .button {
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+    }
+
+    .light-text {
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+    }
+
+
+    /* =========================
+       HEADER
+    ========================= */
 
     header {
-      padding: 24px 0;
-      border-bottom: 1px solid #eeeeee;
+      position: relative;
+      width: 100%;
+      padding: 28px 0;
+      background: #ffffff;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
 
     .logo {
-      font-size: 26px;
-      font-weight: 800;
-      color: #172033;
+      font-size: 25px;
+      letter-spacing: -1px;
     }
 
     .logo span {
-      color: #d5a84c;
+      color: #c8a15a;
     }
 
-    /* HERO */
+
+    /* =========================
+       HERO
+    ========================= */
 
     .hero {
-      padding: 90px 0 80px;
+      min-height: 720px;
+      display: flex;
+      align-items: center;
       text-align: center;
-      background: linear-gradient(180deg, #faf9f6 0%, #ffffff 100%);
+      background:
+        radial-gradient(
+          circle at 50% 20%,
+          rgba(200, 161, 90, 0.10),
+          transparent 45%
+        ),
+        #faf9f6;
+      padding: 100px 0;
+    }
+
+    .hero-content {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .hero-label {
+      display: inline-block;
+      margin-bottom: 28px;
+      padding: 8px 16px;
+      border: 1px solid #ded8ca;
+      border-radius: 100px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #80652f;
     }
 
     .hero h1 {
-      max-width: 850px;
-      margin: auto;
-      font-size: clamp(38px, 6vw, 68px);
-      line-height: 1.05;
-      letter-spacing: -2px;
+      font-size: clamp(42px, 7vw, 76px);
+      line-height: 1.02;
+      letter-spacing: -3px;
+      max-width: 900px;
+      margin: 0 auto;
     }
 
     .hero h1 span {
-      color: #d5a84c;
+      color: #c8a15a;
     }
 
-    .hero p {
-      max-width: 700px;
-      margin: 28px auto 35px;
+    .hero-description {
+      max-width: 690px;
+      margin: 30px auto 38px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
       font-size: 19px;
-      color: #596273;
+      line-height: 1.7;
+      color: #646464;
     }
 
     .button {
-      display: inline-block;
-      background: #172033;
-      color: white;
-      padding: 17px 30px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 700;
-      transition: 0.2s;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 56px;
+      padding: 0 30px;
+      border-radius: 6px;
+      background: #151515;
+      color: #ffffff;
+      font-size: 13px;
+      letter-spacing: 0.5px;
+      transition:
+        transform 0.2s ease,
+        background 0.2s ease;
     }
 
     .button:hover {
       transform: translateY(-2px);
-      background: #25304a;
+      background: #292929;
     }
 
-    /* HOW IT WORKS */
+
+    /* =========================
+       SECTION
+    ========================= */
 
     section {
-      padding: 80px 0;
+      padding: 110px 0;
     }
 
-    .section-title {
+    .section-heading {
       text-align: center;
-      margin-bottom: 50px;
+      max-width: 720px;
+      margin: 0 auto 65px;
     }
 
-    .section-title h2 {
-      font-size: 38px;
-      margin-bottom: 12px;
+    .section-heading h2 {
+      font-size: clamp(32px, 4vw, 48px);
+      line-height: 1.1;
+      letter-spacing: -1.8px;
+      margin-bottom: 18px;
     }
 
-    .section-title p {
-      color: #697386;
+    .section-heading p {
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      color: #707070;
+      font-size: 17px;
     }
+
+
+    /* =========================
+       HOW IT WORKS
+    ========================= */
 
     .steps {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 25px;
+      gap: 24px;
     }
 
     .step {
-      padding: 35px;
-      border: 1px solid #e8e8e8;
-      border-radius: 14px;
+      padding: 38px;
+      border: 1px solid #e9e6df;
+      border-radius: 12px;
       background: #ffffff;
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
     }
 
-    .number {
+    .step:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.06);
+    }
+
+    .step-number {
       width: 42px;
       height: 42px;
-      border-radius: 50%;
-      background: #f4ead4;
-      color: #a57920;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-weight: 800;
-      margin-bottom: 22px;
+      margin-bottom: 28px;
+      border-radius: 50%;
+      background: #f3ead9;
+      color: #866b35;
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 13px;
     }
 
     .step h3 {
-      font-size: 23px;
-      margin-bottom: 10px;
+      font-size: 22px;
+      margin-bottom: 12px;
     }
 
     .step p {
-      color: #697386;
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      color: #707070;
+      font-size: 15px;
+      line-height: 1.7;
     }
 
-    /* BENEFITS */
 
-    .benefits {
+    /* =========================
+       BENEFITS
+    ========================= */
+
+    .benefits-section {
       background: #faf9f6;
     }
 
-    .benefit-grid {
+    .benefits {
+      max-width: 900px;
+      margin: 0 auto;
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 18px;
-      max-width: 850px;
-      margin: auto;
+      gap: 16px;
     }
 
     .benefit {
-      background: white;
-      padding: 25px;
-      border-radius: 12px;
-      border: 1px solid #eeeeee;
+      padding: 30px;
+      background: #ffffff;
+      border: 1px solid #ece9e2;
+      border-radius: 10px;
     }
 
     .benefit h3 {
-      margin-bottom: 7px;
+      font-size: 18px;
+      margin-bottom: 8px;
     }
 
     .benefit p {
-      color: #697386;
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      color: #707070;
+      font-size: 15px;
     }
 
-    /* FORM */
+
+    /* =========================
+       FORM
+    ========================= */
 
     .form-section {
-      max-width: 700px;
-      margin: auto;
-      text-align: center;
+      max-width: 720px;
+      margin: 0 auto;
     }
 
     .form-box {
-      margin-top: 35px;
-      padding: 35px;
-      border: 1px solid #e7e7e7;
-      border-radius: 16px;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.06);
-      text-align: left;
+      padding: 42px;
+      border: 1px solid #e6e2da;
+      border-radius: 14px;
+      background: #ffffff;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.05);
+    }
+
+    .form-group {
+      margin-bottom: 22px;
     }
 
     label {
       display: block;
-      font-weight: 700;
-      margin-bottom: 7px;
+      margin-bottom: 8px;
+      font-weight: 600;
+      font-size: 14px;
     }
 
     input,
     select {
       width: 100%;
-      padding: 15px;
-      border: 1px solid #dcdcdc;
-      border-radius: 7px;
-      margin-bottom: 20px;
-      font-size: 16px;
+      height: 52px;
+      padding: 0 15px;
+      border: 1px solid #dcd9d2;
+      border-radius: 6px;
+      outline: none;
+      background: #ffffff;
+      color: #151515;
+      font-size: 15px;
+      transition: border 0.2s ease;
+    }
+
+    input:focus,
+    select:focus {
+      border-color: #b08a45;
     }
 
     .form-button {
       width: 100%;
       border: none;
       cursor: pointer;
-      font-size: 16px;
+      margin-top: 8px;
     }
 
-    .small-text {
-      margin-top: 15px;
-      font-size: 13px;
-      color: #8a919e;
+    .form-note {
+      margin-top: 18px;
       text-align: center;
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      font-size: 12px;
+      color: #909090;
     }
 
-    /* FAQ */
+
+    /* =========================
+       FAQ
+    ========================= */
 
     .faq {
-      max-width: 750px;
-      margin: auto;
+      max-width: 780px;
+      margin: 0 auto;
     }
 
     details {
-      border-bottom: 1px solid #e5e5e5;
-      padding: 20px 0;
+      border-bottom: 1px solid #e6e3dd;
+      padding: 24px 0;
     }
 
     summary {
       cursor: pointer;
+      list-style: none;
+      font-family: 'Inter', sans-serif;
       font-weight: 700;
-      font-size: 18px;
+      font-size: 17px;
+    }
+
+    summary::-webkit-details-marker {
+      display: none;
     }
 
     details p {
-      margin-top: 12px;
-      color: #697386;
+      margin-top: 15px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      font-size: 15px;
+      line-height: 1.7;
+      color: #707070;
     }
 
-    /* FINAL CTA */
+
+    /* =========================
+       FINAL CTA
+    ========================= */
 
     .final-cta {
-      background: #172033;
-      color: white;
+      padding: 100px 0;
+      background: #151515;
+      color: #ffffff;
       text-align: center;
     }
 
     .final-cta h2 {
-      font-size: 42px;
-      margin-bottom: 15px;
+      max-width: 800px;
+      margin: 0 auto 20px;
+      font-size: clamp(34px, 5vw, 52px);
+      line-height: 1.08;
+      letter-spacing: -2px;
     }
 
     .final-cta p {
-      color: #d9dce3;
-      margin-bottom: 30px;
+      max-width: 620px;
+      margin: 0 auto 35px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      color: #c7c7c7;
     }
 
     .final-cta .button {
-      background: #d5a84c;
-      color: #172033;
+      background: #c8a15a;
+      color: #151515;
     }
 
-    /* FOOTER */
+    .final-cta .button:hover {
+      background: #d6b776;
+    }
+
+
+    /* =========================
+       FOOTER
+    ========================= */
 
     footer {
       padding: 30px 0;
+      background: #111111;
+      color: #777777;
       text-align: center;
-      color: #89909c;
-      font-size: 13px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      font-size: 12px;
     }
 
-    /* MOBILE */
 
-    @media (max-width: 700px) {
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 760px) {
+
+      .container {
+        width: min(92%, 600px);
+      }
+
+      header {
+        padding: 22px 0;
+      }
 
       .hero {
-        padding: 65px 0;
+        min-height: auto;
+        padding: 80px 0 90px;
       }
 
       .hero h1 {
-        letter-spacing: -1px;
+        font-size: 44px;
+        letter-spacing: -2px;
       }
 
-      .steps,
-      .benefit-grid {
-        grid-template-columns: 1fr;
+      .hero-description {
+        font-size: 16px;
       }
 
       section {
-        padding: 60px 0;
+        padding: 80px 0;
+      }
+
+      .steps {
+        grid-template-columns: 1fr;
+      }
+
+      .benefits {
+        grid-template-columns: 1fr;
       }
 
       .form-box {
-        padding: 25px;
+        padding: 28px 22px;
+      }
+
+      .final-cta {
+        padding: 80px 0;
       }
 
       .final-cta h2 {
-        font-size: 32px;
+        font-size: 36px;
       }
+
     }
+
   </style>
 </head>
 
+
 <body>
 
+
+  <!-- =========================
+       HEADER
+  ========================= -->
+
   <header>
-    <div class="container">
-      <div class="logo">iCli<span>Go</span></div>
+
+    <div class="container header-inner">
+
+      <div class="logo">
+        iCli<span>Go</span>
+      </div>
+
     </div>
+
   </header>
 
 
-  <!-- HERO -->
+  <!-- =========================
+       HERO
+  ========================= -->
 
   <section class="hero">
+
     <div class="container">
 
-      <h1>
-        E se a tua paixão por viajar também pudesse
-        <span>gerar rendimento?</span>
-      </h1>
+      <div class="hero-content">
 
-      <p>
-        Descobre como podes tornar-te Travel Partner iCliGo,
-        rentabilizar as tuas próprias viagens e desenvolver
-        uma atividade no setor das viagens.
-      </p>
+        <div class="hero-label">
+          Travel Partner
+        </div>
 
-      <a href="#formulario" class="button">
-        QUERO SABER COMO FUNCIONA
-      </a>
+        <h1>
+          E se a tua paixão por viajar também pudesse
+          <span>gerar rendimento?</span>
+        </h1>
+
+        <p class="hero-description">
+          Descobre como podes tornar-te Travel Partner iCliGo,
+          rentabilizar as tuas próprias viagens e desenvolver
+          uma atividade no setor das viagens.
+        </p>
+
+        <a href="#formulario" class="button">
+          QUERO SABER COMO FUNCIONA
+        </a>
+
+      </div>
 
     </div>
+
   </section>
 
 
-  <!-- COMO FUNCIONA -->
+  <!-- =========================
+       HOW IT WORKS
+  ========================= -->
 
   <section>
+
     <div class="container">
 
-      <div class="section-title">
-        <h2>Como funciona?</h2>
-        <p>Uma forma simples de começar a explorar uma nova oportunidade.</p>
+      <div class="section-heading">
+
+        <h2>
+          Uma nova forma de viver o mundo das viagens.
+        </h2>
+
+        <p>
+          Começa de forma simples e desenvolve a atividade
+          ao teu próprio ritmo.
+        </p>
+
       </div>
+
 
       <div class="steps">
 
-        <div class="step">
-          <div class="number">1</div>
-          <h3>Viaja</h3>
-          <p>
-            Aproveita as vantagens de ter acesso a uma plataforma
-            dedicada a viagens e experiências.
-          </p>
-        </div>
 
         <div class="step">
-          <div class="number">2</div>
-          <h3>Recomenda</h3>
+
+          <div class="step-number">
+            01
+          </div>
+
+          <h3>
+            Viaja
+          </h3>
+
           <p>
-            Partilha viagens e experiências com pessoas da tua
-            rede e pode existir uma oportunidade de rendimento.
+            Explora viagens, destinos e experiências através
+            de uma plataforma dedicada ao setor.
           </p>
+
         </div>
 
+
         <div class="step">
-          <div class="number">3</div>
-          <h3>Constrói</h3>
+
+          <div class="step-number">
+            02
+          </div>
+
+          <h3>
+            Recomenda
+          </h3>
+
           <p>
-            Se fizer sentido para ti, podes desenvolver uma atividade
-            e construir a tua própria rede de Travel Partners.
+            Partilha as tuas experiências e recomenda viagens
+            a pessoas que procuram novas opções.
           </p>
+
         </div>
+
+
+        <div class="step">
+
+          <div class="step-number">
+            03
+          </div>
+
+          <h3>
+            Constrói
+          </h3>
+
+          <p>
+            Desenvolve uma atividade própria e, se fizer
+            sentido para ti, constrói a tua própria rede.
+          </p>
+
+        </div>
+
 
       </div>
 
     </div>
+
   </section>
 
 
-  <!-- PARA QUEM É -->
+  <!-- =========================
+       BENEFITS
+  ========================= -->
 
-  <section class="benefits">
+  <section class="benefits-section">
 
     <div class="container">
 
-      <div class="section-title">
-        <h2>Pode ser para ti se...</h2>
-        <p>Não precisas de experiência anterior no setor.</p>
+      <div class="section-heading">
+
+        <h2>
+          Pode ser para ti se...
+        </h2>
+
+        <p>
+          Não precisas de experiência anterior no setor das viagens.
+        </p>
+
       </div>
 
-      <div class="benefit-grid">
+
+      <div class="benefits">
+
 
         <div class="benefit">
-          <h3>💰 Procuras rendimento adicional</h3>
+
+          <h3>
+            Rendimento adicional
+          </h3>
+
           <p>
-            Queres explorar uma atividade complementar
-            ao teu trabalho atual.
+            Procuras uma atividade complementar que
+            possas desenvolver ao lado do teu trabalho atual.
           </p>
+
         </div>
 
-        <div class="benefit">
-          <h3>🌍 Adoras viajar</h3>
-          <p>
-            Gostas de descobrir destinos, experiências
-            e partilhar recomendações.
-          </p>
-        </div>
 
         <div class="benefit">
-          <h3>⏱️ Valorizas flexibilidade</h3>
+
+          <h3>
+            Gostas de viajar
+          </h3>
+
           <p>
-            Queres uma atividade que possa ser desenvolvida
-            de forma flexível.
+            Adoras descobrir novos destinos e partilhar
+            experiências com outras pessoas.
           </p>
+
         </div>
 
+
         <div class="benefit">
-          <h3>🚀 Queres construir algo</h3>
+
+          <h3>
+            Flexibilidade
+          </h3>
+
           <p>
-            Tens interesse em desenvolver uma rede e criar
-            uma atividade própria no setor das viagens.
+            Queres desenvolver uma atividade com liberdade
+            para definir quando e onde trabalhas.
           </p>
+
         </div>
+
+
+        <div class="benefit">
+
+          <h3>
+            Queres construir
+          </h3>
+
+          <p>
+            Tens vontade de desenvolver uma atividade própria
+            e criar uma rede ao longo do tempo.
+          </p>
+
+        </div>
+
 
       </div>
 
@@ -435,7 +752,9 @@
   </section>
 
 
-  <!-- FORMULÁRIO -->
+  <!-- =========================
+       FORM
+  ========================= -->
 
   <section id="formulario">
 
@@ -443,64 +762,100 @@
 
       <div class="form-section">
 
-        <div class="section-title">
-          <h2>Queres saber mais?</h2>
+
+        <div class="section-heading">
+
+          <h2>
+            Queres saber mais?
+          </h2>
 
           <p>
             Deixa os teus dados e entraremos em contacto
             para explicar como funciona.
           </p>
+
         </div>
+
 
         <div class="form-box">
 
           <form id="leadForm">
 
-            <label for="nome">Nome</label>
-            <input
-              type="text"
-              id="nome"
-              placeholder="O teu nome"
-              required
-            >
 
-            <label for="whatsapp">WhatsApp</label>
-            <input
-              type="tel"
-              id="whatsapp"
-              placeholder="+351 9XX XXX XXX"
-              required
-            >
+            <div class="form-group">
 
-            <label for="objetivo">O que procuras?</label>
+              <label for="nome">
+                Nome
+              </label>
 
-            <select id="objetivo" required>
+              <input
+                type="text"
+                id="nome"
+                name="nome"
+                placeholder="O teu nome"
+                required
+              >
 
-              <option value="">
-                Seleciona uma opção
-              </option>
+            </div>
 
-              <option>
-                Rendimento adicional
-              </option>
 
-              <option>
-                Viajar com vantagens
-              </option>
+            <div class="form-group">
 
-              <option>
-                Criar uma atividade própria
-              </option>
+              <label for="whatsapp">
+                WhatsApp
+              </label>
 
-              <option>
-                Conhecer melhor a oportunidade
-              </option>
+              <input
+                type="tel"
+                id="whatsapp"
+                name="whatsapp"
+                placeholder="+351 9XX XXX XXX"
+                required
+              >
 
-              <option>
-                Ainda não sei
-              </option>
+            </div>
 
-            </select>
+
+            <div class="form-group">
+
+              <label for="objetivo">
+                O que procuras?
+              </label>
+
+              <select
+                id="objetivo"
+                name="objetivo"
+                required
+              >
+
+                <option value="">
+                  Seleciona uma opção
+                </option>
+
+                <option value="Rendimento adicional">
+                  Rendimento adicional
+                </option>
+
+                <option value="Viajar com vantagens">
+                  Viajar com vantagens
+                </option>
+
+                <option value="Criar uma atividade própria">
+                  Criar uma atividade própria
+                </option>
+
+                <option value="Conhecer melhor a oportunidade">
+                  Conhecer melhor a oportunidade
+                </option>
+
+                <option value="Ainda não sei">
+                  Ainda não sei
+                </option>
+
+              </select>
+
+            </div>
+
 
             <button
               type="submit"
@@ -509,12 +864,15 @@
               QUERO SABER MAIS
             </button>
 
-          </form>
 
-          <p class="small-text">
-            Os teus dados serão utilizados apenas para entrar
-            em contacto contigo relativamente a esta oportunidade.
-          </p>
+            <p class="form-note">
+              Os teus dados serão utilizados apenas para
+              entrar em contacto contigo relativamente
+              a esta oportunidade.
+            </p>
+
+
+          </form>
 
         </div>
 
@@ -525,54 +883,84 @@
   </section>
 
 
-  <!-- FAQ -->
+  <!-- =========================
+       FAQ
+  ========================= -->
 
   <section>
 
     <div class="container">
 
-      <div class="section-title">
-        <h2>Perguntas frequentes</h2>
+      <div class="section-heading">
+
+        <h2>
+          Perguntas frequentes
+        </h2>
+
       </div>
+
 
       <div class="faq">
 
-        <details>
-          <summary>Preciso de experiência em viagens?</summary>
-
-          <p>
-            Não. A atividade foi pensada para pessoas que
-            querem aprender e desenvolver competências no setor.
-          </p>
-        </details>
 
         <details>
-          <summary>Posso começar em part-time?</summary>
+
+          <summary>
+            Preciso de experiência em viagens?
+          </summary>
 
           <p>
-            Sim. A atividade pode ser desenvolvida de forma
-            flexível, de acordo com a tua disponibilidade.
+            Não. Não é necessária experiência anterior
+            no setor das viagens para começar a conhecer
+            a atividade.
           </p>
+
         </details>
+
 
         <details>
-          <summary>Como funciona o rendimento?</summary>
+
+          <summary>
+            Posso começar em part-time?
+          </summary>
 
           <p>
-            O modelo de rendimento depende da atividade desenvolvida,
-            das vendas realizadas e da construção da rede.
-            Os resultados não são garantidos e variam de pessoa para pessoa.
+            Sim. A atividade pode ser desenvolvida de
+            forma flexível, de acordo com a tua disponibilidade.
           </p>
+
         </details>
+
 
         <details>
-          <summary>Tenho de deixar o meu trabalho atual?</summary>
+
+          <summary>
+            Como funciona o rendimento?
+          </summary>
 
           <p>
-            Não. Podes conhecer e desenvolver a atividade
-            inicialmente como uma atividade complementar.
+            O rendimento depende da atividade desenvolvida,
+            das vendas realizadas e, quando aplicável,
+            da construção da rede. Os resultados variam
+            de pessoa para pessoa e não são garantidos.
           </p>
+
         </details>
+
+
+        <details>
+
+          <summary>
+            Tenho de deixar o meu trabalho atual?
+          </summary>
+
+          <p>
+            Não. Podes começar por desenvolver a atividade
+            como complemento à tua situação profissional atual.
+          </p>
+
+        </details>
+
 
       </div>
 
@@ -581,13 +969,17 @@
   </section>
 
 
-  <!-- CTA FINAL -->
+  <!-- =========================
+       FINAL CTA
+  ========================= -->
 
   <section class="final-cta">
 
     <div class="container">
 
-      <h2>Pronto para descobrir como funciona?</h2>
+      <h2>
+        Pronto para descobrir como funciona?
+      </h2>
 
       <p>
         Dá o primeiro passo e recebe mais informação
@@ -603,10 +995,21 @@
   </section>
 
 
+  <!-- =========================
+       FOOTER
+  ========================= -->
+
   <footer>
-    © 2026 iCliGo Travel Partners. Todos os direitos reservados.
+
+    © 2026 iCliGo Travel Partners.
+    Todos os direitos reservados.
+
   </footer>
 
+
+  <!-- =========================
+       FORM SCRIPT
+  ========================= -->
 
   <script>
 
@@ -619,28 +1022,16 @@
         const nome =
           document.getElementById("nome").value;
 
-        const whatsapp =
-          document.getElementById("whatsapp").value;
-
-        const objetivo =
-          document.getElementById("objetivo").value;
-
-        /*
-          TEMPORÁRIO:
-          Aqui vamos ligar o formulário ao WhatsApp
-          depois de definires o número que vai receber
-          os leads.
-        */
-
         alert(
-          "Obrigado, " + nome +
-          "! Recebemos o teu interesse.\\n\\n" +
-          "Vamos entrar em contacto contigo."
+          "Obrigado, " +
+          nome +
+          "! Vamos entrar em contacto contigo."
         );
 
       });
 
   </script>
+
 
 </body>
 </html>
