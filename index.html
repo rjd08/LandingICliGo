@@ -2,34 +2,56 @@
 <html lang="pt">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
   <title>iCliGo | Travel Partner</title>
+
   <meta
     name="description"
     content="Descobre uma nova forma de viver as viagens e desenvolver uma atividade flexível no setor do turismo."
   >
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- FONTS -->
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
 
   <link
     href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600&family=Inter:wght@300;700&display=swap"
     rel="stylesheet"
   >
 
+
   <style>
+
     :root {
       --bg: #f5f5f7;
       --white: #ffffff;
+
       --black: #1d1d1f;
+
       --grey: #6e6e73;
       --light-grey: #86868b;
+
       --border: rgba(0, 0, 0, 0.09);
-      --soft: #fbfbfd;
+
       --blue: #0066cc;
+
       --radius: 28px;
     }
+
 
     * {
       box-sizing: border-box;
@@ -37,110 +59,195 @@
       padding: 0;
     }
 
+
     html {
       scroll-behavior: smooth;
     }
 
+
     body {
       font-family: "Figtree", sans-serif;
+
       background: var(--bg);
+
       color: var(--black);
+
       -webkit-font-smoothing: antialiased;
+
       overflow-x: hidden;
     }
+
 
     button,
     input {
       font-family: inherit;
     }
 
+
     button,
     a {
       -webkit-tap-highlight-color: transparent;
     }
 
+
     a {
       color: inherit;
     }
 
+
     .container {
-      width: min(1080px, calc(100% - 44px));
+      width: min(
+        1080px,
+        calc(100% - 44px)
+      );
+
       margin: 0 auto;
     }
 
-    /* HEADER */
+
+    /* ================================
+       HEADER
+    ================================= */
 
     header {
       position: fixed;
+
       top: 0;
       left: 0;
+
       width: 100%;
-      height: 62px;
+      height: 74px;
+
       z-index: 1000;
 
-      background: rgba(245, 245, 247, 0.82);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
+      background:
+        rgba(245, 245, 247, 0.82);
 
-      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      backdrop-filter:
+        blur(20px);
+
+      -webkit-backdrop-filter:
+        blur(20px);
+
+      border-bottom:
+        1px solid rgba(0, 0, 0, 0.05);
     }
+
 
     .header-inner {
       height: 100%;
-      width: min(1080px, calc(100% - 44px));
+
+      width: min(
+        1080px,
+        calc(100% - 44px)
+      );
+
       margin: auto;
 
       display: flex;
+
       align-items: center;
-      justify-content: space-between;
+
+      justify-content:
+        space-between;
     }
 
+
+    /* LOGO */
+
     .logo {
-      font-family: "Inter", sans-serif;
-      font-weight: 700;
-      font-size: 21px;
-      letter-spacing: -1px;
+      display: flex;
+
+      align-items: center;
+
+      text-decoration: none;
+
+      flex-shrink: 0;
     }
+
+
+    .logo img {
+      display: block;
+
+      width: 168px;
+
+      max-height: 48px;
+
+      object-fit: contain;
+
+      object-position: left center;
+
+      filter: invert(1);
+
+      transition:
+        opacity 0.25s ease;
+    }
+
+
+    .logo:hover img {
+      opacity: 0.75;
+    }
+
 
     .header-cta {
       border: none;
+
       background: var(--black);
+
       color: white;
 
-      padding: 10px 17px;
-      border-radius: 999px;
+      padding:
+        10px 17px;
+
+      border-radius:
+        999px;
 
       font-size: 12px;
+
       font-weight: 600;
+
       text-decoration: none;
 
       transition:
         transform 0.25s ease,
         opacity 0.25s ease;
     }
+
 
     .header-cta:hover {
       transform: scale(1.03);
+
       opacity: 0.9;
     }
 
-    /* BUTTONS */
+
+    /* ================================
+       BUTTONS
+    ================================= */
 
     .button {
       display: inline-flex;
+
       justify-content: center;
+
       align-items: center;
+
       gap: 8px;
 
       border: none;
-      border-radius: 999px;
 
-      padding: 15px 23px;
+      border-radius:
+        999px;
+
+      padding:
+        15px 23px;
 
       font-size: 15px;
+
       font-weight: 500;
 
       cursor: pointer;
+
       text-decoration: none;
 
       transition:
@@ -148,372 +255,606 @@
         opacity 0.25s ease;
     }
 
+
     .button:hover {
-      transform: translateY(-2px);
+      transform:
+        translateY(-2px);
     }
+
 
     .button-dark {
       background: var(--black);
+
       color: white;
     }
+
 
     .button-blue {
       background: var(--blue);
+
       color: white;
     }
 
-    /* HERO */
+
+    /* ================================
+       HERO
+    ================================= */
 
     .hero {
       min-height: 100vh;
 
       display: flex;
+
       align-items: center;
+
       justify-content: center;
 
       text-align: center;
 
-      padding: 140px 0 100px;
+      padding:
+        150px 0 100px;
 
       background:
+
         radial-gradient(
           circle at 50% 45%,
           rgba(255,255,255,0.95),
           rgba(245,245,247,0) 45%
         ),
+
         var(--bg);
     }
 
+
     .hero-inner {
       max-width: 940px;
+
       margin: auto;
     }
+
 
     .hero-eyebrow {
       font-size: 18px;
+
       font-weight: 500;
+
       color: var(--grey);
+
       margin-bottom: 22px;
     }
 
+
     .hero h1 {
-      font-family: "Inter", sans-serif;
-      font-size: clamp(55px, 8.2vw, 100px);
+      font-family:
+        "Inter",
+        sans-serif;
+
+      font-size:
+        clamp(
+          55px,
+          8.2vw,
+          100px
+        );
+
       line-height: 0.94;
+
       letter-spacing: -6px;
+
       font-weight: 700;
 
       max-width: 950px;
+
       margin: auto;
     }
+
 
     .hero-gradient {
       display: block;
 
-      background: linear-gradient(
-        90deg,
-        #1d1d1f,
-        #6e6e73
-      );
+      background:
+        linear-gradient(
+          90deg,
+          #1d1d1f,
+          #6e6e73
+        );
 
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      -webkit-background-clip:
+        text;
+
+      -webkit-text-fill-color:
+        transparent;
+
+      background-clip:
+        text;
     }
+
 
     .hero-description {
       max-width: 650px;
-      margin: 35px auto 0;
+
+      margin:
+        35px auto 0;
 
       font-size: 20px;
+
       line-height: 1.5;
+
       font-weight: 300;
+
       color: var(--grey);
     }
+
 
     .hero-actions {
       margin-top: 37px;
 
       display: flex;
+
       justify-content: center;
+
       align-items: center;
+
       gap: 22px;
     }
 
+
     .text-link {
       color: var(--blue);
+
       text-decoration: none;
+
       font-size: 16px;
     }
 
+
     .text-link:hover {
-      text-decoration: underline;
+      text-decoration:
+        underline;
     }
+
 
     .hero-note {
       margin-top: 22px;
+
       font-size: 12px;
+
       color: var(--light-grey);
     }
 
-    /* INTRO */
+
+    /* ================================
+       INTRO
+    ================================= */
 
     .intro {
-      padding: 150px 0;
+      padding:
+        150px 0;
+
       background: white;
+
       text-align: center;
     }
 
+
     .eyebrow {
       color: var(--grey);
+
       font-size: 16px;
+
       font-weight: 500;
+
       margin-bottom: 20px;
     }
 
+
     .big-title {
-      font-family: "Inter", sans-serif;
+      font-family:
+        "Inter",
+        sans-serif;
 
       max-width: 900px;
+
       margin: auto;
 
-      font-size: clamp(42px, 6vw, 72px);
+      font-size:
+        clamp(
+          42px,
+          6vw,
+          72px
+        );
+
       line-height: 1;
-      letter-spacing: -4px;
+
+      letter-spacing:
+        -4px;
     }
+
 
     .big-description {
       max-width: 660px;
-      margin: 30px auto 0;
+
+      margin:
+        30px auto 0;
 
       font-size: 20px;
+
       line-height: 1.55;
 
       color: var(--grey);
+
       font-weight: 300;
     }
 
-    /* JOURNEY */
+
+    /* ================================
+       JOURNEY
+    ================================= */
 
     .journey {
-      padding: 130px 0;
+      padding:
+        130px 0;
     }
+
 
     .journey-header {
       margin-bottom: 65px;
     }
 
+
     .section-title {
-      font-family: "Inter", sans-serif;
-      font-size: clamp(40px, 5vw, 64px);
+      font-family:
+        "Inter",
+        sans-serif;
+
+      font-size:
+        clamp(
+          40px,
+          5vw,
+          64px
+        );
+
       line-height: 1;
-      letter-spacing: -3px;
+
+      letter-spacing:
+        -3px;
 
       max-width: 720px;
     }
 
+
     .journey-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
       gap: 18px;
     }
 
+
     .journey-card {
       background: white;
-      border-radius: var(--radius);
 
-      padding: 42px 35px;
-      min-height: 380px;
+      border-radius:
+        var(--radius);
+
+      padding:
+        42px 35px;
+
+      min-height:
+        380px;
 
       display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+
+      flex-direction:
+        column;
+
+      justify-content:
+        space-between;
 
       transition:
         transform 0.35s ease,
         box-shadow 0.35s ease;
     }
 
+
     .journey-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 25px 70px rgba(0,0,0,0.07);
+      transform:
+        translateY(-6px);
+
+      box-shadow:
+        0 25px 70px
+        rgba(0,0,0,0.07);
     }
 
+
     .card-number {
-      color: var(--light-grey);
+      color:
+        var(--light-grey);
+
       font-size: 13px;
     }
 
+
     .journey-card h3 {
-      font-family: "Inter", sans-serif;
+      font-family:
+        "Inter",
+        sans-serif;
+
       font-size: 36px;
-      letter-spacing: -2px;
+
+      letter-spacing:
+        -2px;
+
       margin-bottom: 13px;
     }
 
+
     .journey-card p {
       color: var(--grey);
+
       line-height: 1.55;
+
       font-weight: 300;
     }
 
-    /* DARK SECTION */
+
+    /* ================================
+       DARK SECTION
+    ================================= */
 
     .possibility {
       background: #000;
+
       color: white;
 
-      padding: 160px 0;
+      padding:
+        160px 0;
+
       text-align: center;
     }
+
 
     .possibility .eyebrow {
       color: #86868b;
     }
 
-    .possibility-title {
-      font-family: "Inter", sans-serif;
 
-      font-size: clamp(48px, 7vw, 86px);
+    .possibility-title {
+      font-family:
+        "Inter",
+        sans-serif;
+
+      font-size:
+        clamp(
+          48px,
+          7vw,
+          86px
+        );
+
       line-height: 0.97;
-      letter-spacing: -5px;
+
+      letter-spacing:
+        -5px;
 
       max-width: 930px;
+
       margin: auto;
     }
 
+
     .possibility-description {
       max-width: 680px;
-      margin: 35px auto 0;
+
+      margin:
+        35px auto 0;
 
       color: #a1a1a6;
 
       font-size: 20px;
+
       line-height: 1.5;
+
       font-weight: 300;
     }
 
-    /* WHO */
+
+    /* ================================
+       WHO
+    ================================= */
 
     .who {
-      padding: 140px 0;
+      padding:
+        140px 0;
+
       background: white;
     }
 
+
     .who-header {
       max-width: 750px;
+
       margin-bottom: 70px;
     }
 
+
     .who-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+
+      grid-template-columns:
+        1fr 1fr;
+
       gap: 1px;
 
-      border-top: 1px solid var(--border);
+      border-top:
+        1px solid var(--border);
     }
 
+
     .who-item {
-      padding: 38px 35px 38px 0;
-      border-bottom: 1px solid var(--border);
+      padding:
+        38px 35px
+        38px 0;
+
+      border-bottom:
+        1px solid var(--border);
     }
+
 
     .who-item:nth-child(even) {
       padding-left: 35px;
     }
 
+
     .who-item h3 {
       font-size: 22px;
+
       margin-bottom: 10px;
+
       font-weight: 500;
     }
 
+
     .who-item p {
       color: var(--grey);
+
       line-height: 1.5;
+
       font-weight: 300;
+
       max-width: 420px;
     }
 
-    /* QUIZ */
+
+    /* ================================
+       QUIZ
+    ================================= */
 
     .quiz-section {
       min-height: 90vh;
 
       display: flex;
+
       align-items: center;
 
-      padding: 130px 0;
+      padding:
+        130px 0;
 
       background: var(--bg);
     }
 
+
     .quiz-shell {
-      width: min(760px, 100%);
+      width:
+        min(
+          760px,
+          100%
+        );
+
       margin: auto;
     }
 
+
     .quiz-top {
       display: flex;
-      justify-content: space-between;
+
+      justify-content:
+        space-between;
+
+      gap: 20px;
 
       margin-bottom: 20px;
 
       font-size: 13px;
+
       color: var(--grey);
     }
 
+
     .progress-track {
       height: 3px;
+
       width: 100%;
 
       background: #dedede;
 
-      border-radius: 999px;
+      border-radius:
+        999px;
+
       overflow: hidden;
 
       margin-bottom: 55px;
     }
 
+
     .progress-bar {
       height: 100%;
+
       width: 20%;
 
-      background: var(--black);
+      background:
+        var(--black);
 
-      transition: width 0.4s ease;
+      transition:
+        width 0.4s ease;
     }
 
-    .question-title {
-      font-family: "Inter", sans-serif;
 
-      font-size: clamp(36px, 5vw, 55px);
+    .question-title {
+      font-family:
+        "Inter",
+        sans-serif;
+
+      font-size:
+        clamp(
+          36px,
+          5vw,
+          55px
+        );
+
       line-height: 1.05;
-      letter-spacing: -2.7px;
+
+      letter-spacing:
+        -2.7px;
 
       margin-bottom: 40px;
     }
 
+
     .answers {
       display: grid;
+
       gap: 12px;
     }
+
 
     .answer {
       width: 100%;
 
-      border: 1px solid var(--border);
-      border-radius: 18px;
+      border:
+        1px solid
+        var(--border);
 
-      background: rgba(255,255,255,0.72);
+      border-radius:
+        18px;
 
-      padding: 21px 22px;
+      background:
+        rgba(
+          255,
+          255,
+          255,
+          0.72
+        );
+
+      padding:
+        21px 22px;
 
       text-align: left;
 
       color: var(--black);
 
       font-size: 16px;
+
       line-height: 1.4;
 
       cursor: pointer;
@@ -524,398 +865,671 @@
         transform 0.2s ease;
     }
 
+
     .answer:hover {
-      border-color: rgba(0,0,0,0.35);
-      transform: translateY(-1px);
+      border-color:
+        rgba(
+          0,
+          0,
+          0,
+          0.35
+        );
+
+      transform:
+        translateY(-1px);
     }
 
+
     .answer.selected {
-      background: var(--black);
-      border-color: var(--black);
+      background:
+        var(--black);
+
+      border-color:
+        var(--black);
+
       color: white;
     }
 
+
     .quiz-actions {
       margin-top: 27px;
+
       display: flex;
-      justify-content: flex-end;
+
+      justify-content:
+        flex-end;
     }
+
 
     #nextButton {
       display: none;
     }
 
-    /* CONTACT */
+
+    /* ================================
+       CONTACT
+    ================================= */
 
     .contact-section {
       min-height: 90vh;
 
       display: none;
+
       align-items: center;
 
-      padding: 130px 0;
+      padding:
+        130px 0;
 
       background: white;
     }
 
+
     .contact-shell {
       max-width: 720px;
+
       margin: auto;
     }
 
+
     .contact-progress {
       color: var(--grey);
+
       font-size: 13px;
+
       margin-bottom: 35px;
     }
 
-    .contact-question {
-      font-family: "Inter", sans-serif;
 
-      font-size: clamp(42px, 6vw, 65px);
+    .contact-question {
+      font-family:
+        "Inter",
+        sans-serif;
+
+      font-size:
+        clamp(
+          42px,
+          6vw,
+          65px
+        );
+
       line-height: 1;
-      letter-spacing: -3.5px;
+
+      letter-spacing:
+        -3.5px;
 
       margin-bottom: 45px;
     }
+
 
     .field-wrap {
       position: relative;
     }
 
+
     .large-input {
       width: 100%;
 
       border: none;
-      border-bottom: 2px solid #d2d2d7;
 
-      background: transparent;
+      border-bottom:
+        2px solid #d2d2d7;
 
-      padding: 15px 0 18px;
+      background:
+        transparent;
 
-      font-family: "Inter", sans-serif;
-      font-size: clamp(25px, 4vw, 38px);
+      padding:
+        15px 0 18px;
+
+      font-family:
+        "Inter",
+        sans-serif;
+
+      font-size:
+        clamp(
+          25px,
+          4vw,
+          38px
+        );
+
       font-weight: 300;
 
       color: var(--black);
 
       outline: none;
 
-      transition: border-color 0.25s ease;
+      transition:
+        border-color
+        0.25s ease;
     }
+
 
     .large-input::placeholder {
       color: #c5c5c8;
     }
 
+
     .large-input:focus {
-      border-color: var(--black);
+      border-color:
+        var(--black);
     }
+
 
     .contact-actions {
       display: flex;
-      justify-content: space-between;
+
+      justify-content:
+        space-between;
+
       align-items: center;
 
       margin-top: 38px;
     }
 
+
     .back-button {
       border: none;
-      background: transparent;
+
+      background:
+        transparent;
 
       color: var(--grey);
 
       cursor: pointer;
+
       font-size: 14px;
     }
 
+
     .privacy {
       max-width: 470px;
+
       margin-top: 30px;
 
       font-size: 12px;
+
       line-height: 1.5;
 
-      color: var(--light-grey);
+      color:
+        var(--light-grey);
     }
 
-    /* RESULT */
+
+    /* ================================
+       RESULT
+    ================================= */
 
     .result-section {
       min-height: 90vh;
 
       display: none;
+
       align-items: center;
 
       background: #000;
+
       color: white;
 
-      padding: 130px 0;
+      padding:
+        130px 0;
 
       text-align: center;
     }
 
+
     .result-inner {
       max-width: 760px;
+
       margin: auto;
     }
 
+
     .result-check {
       width: 60px;
+
       height: 60px;
 
       border-radius: 50%;
 
       background: white;
+
       color: black;
 
       display: flex;
-      align-items: center;
-      justify-content: center;
 
-      margin: 0 auto 35px;
+      align-items: center;
+
+      justify-content:
+        center;
+
+      margin:
+        0 auto 35px;
 
       font-size: 25px;
     }
 
-    .result-title {
-      font-family: "Inter", sans-serif;
 
-      font-size: clamp(48px, 7vw, 80px);
+    .result-title {
+      font-family:
+        "Inter",
+        sans-serif;
+
+      font-size:
+        clamp(
+          48px,
+          7vw,
+          80px
+        );
+
       line-height: 0.98;
-      letter-spacing: -4px;
+
+      letter-spacing:
+        -4px;
 
       margin-bottom: 28px;
     }
+
 
     .result-description {
       color: #a1a1a6;
 
       max-width: 600px;
+
       margin: auto;
 
       font-size: 19px;
+
       line-height: 1.5;
 
       font-weight: 300;
     }
 
-    /* FAQ */
+
+    /* ================================
+       FAQ
+    ================================= */
 
     .faq-section {
-      padding: 140px 0;
+      padding:
+        140px 0;
+
       background: white;
     }
 
+
     .faq-wrapper {
       max-width: 850px;
+
       margin: auto;
     }
 
-    .faq-title {
-      font-family: "Inter", sans-serif;
 
-      font-size: clamp(42px, 6vw, 65px);
-      letter-spacing: -3px;
+    .faq-title {
+      font-family:
+        "Inter",
+        sans-serif;
+
+      font-size:
+        clamp(
+          42px,
+          6vw,
+          65px
+        );
+
+      letter-spacing:
+        -3px;
 
       margin-bottom: 65px;
     }
 
+
     .faq-item {
-      border-top: 1px solid var(--border);
-      padding: 27px 0;
+      border-top:
+        1px solid
+        var(--border);
+
+      padding:
+        27px 0;
     }
+
 
     .faq-question {
       font-size: 20px;
+
       font-weight: 500;
+
       margin-bottom: 10px;
     }
 
+
     .faq-answer {
       color: var(--grey);
+
       line-height: 1.6;
+
       font-weight: 300;
+
       max-width: 720px;
     }
 
-    /* FINAL */
+
+    /* ================================
+       FINAL CTA
+    ================================= */
 
     .final {
-      padding: 160px 0;
+      padding:
+        160px 0;
 
       text-align: center;
 
       background: var(--bg);
     }
 
-    .final h2 {
-      font-family: "Inter", sans-serif;
 
-      font-size: clamp(48px, 7vw, 82px);
+    .final h2 {
+      font-family:
+        "Inter",
+        sans-serif;
+
+      font-size:
+        clamp(
+          48px,
+          7vw,
+          82px
+        );
+
       line-height: 0.97;
-      letter-spacing: -5px;
+
+      letter-spacing:
+        -5px;
 
       max-width: 900px;
+
       margin: auto;
     }
 
+
     .final p {
       max-width: 570px;
-      margin: 28px auto 35px;
+
+      margin:
+        28px auto 35px;
 
       color: var(--grey);
 
       font-size: 19px;
+
       line-height: 1.5;
     }
 
-    /* FOOTER */
+
+    /* ================================
+       FOOTER
+    ================================= */
 
     footer {
-      padding: 35px 0;
+      padding:
+        35px 0;
 
-      border-top: 1px solid var(--border);
+      border-top:
+        1px solid
+        var(--border);
 
       background: var(--bg);
 
-      color: var(--light-grey);
+      color:
+        var(--light-grey);
 
       font-size: 12px;
     }
 
+
     .footer-inner {
       display: flex;
-      justify-content: space-between;
+
+      justify-content:
+        space-between;
+
+      align-items: center;
+
       gap: 20px;
     }
 
-    /* REVEAL */
+
+    /* ================================
+       SCROLL REVEAL
+    ================================= */
 
     .reveal {
       opacity: 0;
-      transform: translateY(25px);
+
+      transform:
+        translateY(25px);
 
       transition:
         opacity 0.8s ease,
         transform 0.8s ease;
     }
 
+
     .reveal.visible {
       opacity: 1;
-      transform: translateY(0);
+
+      transform:
+        translateY(0);
     }
 
-    /* MOBILE */
 
-    @media (max-width: 800px) {
+    /* ================================
+       MOBILE
+    ================================= */
+
+    @media
+    (max-width: 800px) {
 
       .container,
       .header-inner {
-        width: min(100% - 30px, 1080px);
+
+        width:
+          min(
+            calc(100% - 30px),
+            1080px
+          );
+
       }
 
+
+      header {
+        height: 68px;
+      }
+
+
+      .logo img {
+        width: 138px;
+
+        max-height: 42px;
+      }
+
+
+      .header-cta {
+        padding:
+          9px 14px;
+
+        font-size: 11px;
+      }
+
+
       .hero {
-        padding-top: 125px;
+        padding-top:
+          125px;
+
         min-height: 92vh;
       }
 
+
       .hero h1 {
-        letter-spacing: -3.5px;
+        letter-spacing:
+          -3.5px;
       }
+
 
       .hero-description {
         font-size: 18px;
       }
 
+
       .hero-actions {
-        flex-direction: column;
+        flex-direction:
+          column;
+
         gap: 18px;
       }
+
 
       .intro,
       .journey,
       .who,
       .faq-section,
       .final {
-        padding: 100px 0;
+
+        padding:
+          100px 0;
+
       }
+
 
       .big-title,
       .section-title,
       .possibility-title,
       .faq-title,
       .final h2 {
-        letter-spacing: -2.5px;
+
+        letter-spacing:
+          -2.5px;
+
       }
 
+
       .journey-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns:
+          1fr;
       }
+
 
       .journey-card {
         min-height: 310px;
       }
 
+
       .possibility {
-        padding: 110px 0;
+        padding:
+          110px 0;
       }
 
+
       .who-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns:
+          1fr;
       }
+
 
       .who-item,
       .who-item:nth-child(even) {
-        padding: 30px 0;
+
+        padding:
+          30px 0;
+
       }
+
 
       .quiz-section,
       .contact-section {
+
         min-height: 100vh;
-        padding: 100px 0 70px;
+
+        padding:
+          100px 0 70px;
+
       }
+
+
+      .quiz-top {
+        font-size: 12px;
+      }
+
 
       .question-title,
       .contact-question {
-        letter-spacing: -2px;
+
+        letter-spacing:
+          -2px;
+
       }
+
 
       .contact-actions {
-        align-items: flex-end;
+        align-items:
+          flex-end;
       }
 
+
       .footer-inner {
-        flex-direction: column;
+        flex-direction:
+          column;
+
+        align-items:
+          flex-start;
       }
 
     }
+
   </style>
 </head>
 
+
 <body>
 
-  <!-- HEADER -->
+
+  <!-- ================================
+       HEADER
+  ================================= -->
 
   <header>
+
     <div class="header-inner">
 
-      <div class="logo">
-        iCliGo
-      </div>
+      <a
+        href="#"
+        class="logo"
+        aria-label="iCliGo Travel Partners"
+      >
 
-      <a href="#quiz" class="header-cta">
+        <img
+          src="ICLIGO-LOGO.png"
+          alt="iCliGo Travel Partners"
+        >
+
+      </a>
+
+
+      <a
+        href="#quiz"
+        class="header-cta"
+      >
         Descobrir
       </a>
 
     </div>
+
   </header>
 
 
-  <!-- HERO -->
-
   <main>
+
+
+    <!-- ================================
+         HERO
+    ================================= -->
 
     <section class="hero">
 
@@ -927,31 +1541,52 @@
             Torna-te Travel Partner.
           </div>
 
+
           <h1>
+
             Viajar pode ser
+
             <span class="hero-gradient">
               mais do que viajar.
             </span>
+
           </h1>
 
+
           <p class="hero-description">
+
             Descobre uma forma diferente de viver o setor das viagens:
             aproveita as tuas próprias experiências, recomenda a outras
             pessoas e desenvolve uma atividade ao teu ritmo.
+
           </p>
+
 
           <div class="hero-actions">
 
-            <a href="#quiz" class="button button-dark">
+            <a
+              href="#quiz"
+              class="button button-dark"
+            >
+
               Descobrir a oportunidade
-              <span>→</span>
+
+              <span>
+                →
+              </span>
+
             </a>
 
-            <a href="#como-funciona" class="text-link">
+
+            <a
+              href="#como-funciona"
+              class="text-link"
+            >
               Como funciona ›
             </a>
 
           </div>
+
 
           <div class="hero-note">
             Demora menos de 2 minutos.
@@ -964,9 +1599,14 @@
     </section>
 
 
-    <!-- INTRO -->
+    <!-- ================================
+         INTRO
+    ================================= -->
 
-    <section class="intro reveal" id="como-funciona">
+    <section
+      class="intro reveal"
+      id="como-funciona"
+    >
 
       <div class="container">
 
@@ -974,14 +1614,22 @@
           Uma oportunidade no setor das viagens.
         </div>
 
+
         <h2 class="big-title">
-          Faz mais com aquilo que já gostas de fazer.
+
+          Faz mais com aquilo
+          que já gostas de fazer.
+
         </h2>
 
+
         <p class="big-description">
-          O modelo Travel Partner permite-te explorar o setor das viagens
-          de uma forma flexível — começando pelas tuas próprias experiências
-          e evoluindo de acordo com os teus objetivos.
+
+          O modelo Travel Partner permite-te explorar o setor
+          das viagens de uma forma flexível — começando pelas
+          tuas próprias experiências e evoluindo de acordo com
+          os teus objetivos.
+
         </p>
 
       </div>
@@ -989,7 +1637,9 @@
     </section>
 
 
-    <!-- JOURNEY -->
+    <!-- ================================
+         JOURNEY
+    ================================= -->
 
     <section class="journey">
 
@@ -1001,6 +1651,7 @@
             Simples de perceber.
           </div>
 
+
           <h2 class="section-title">
             Viaja. Recomenda. Constrói.
           </h2>
@@ -1010,11 +1661,13 @@
 
         <div class="journey-grid">
 
+
           <article class="journey-card reveal">
 
             <div class="card-number">
               01
             </div>
+
 
             <div>
 
@@ -1022,9 +1675,12 @@
                 Viaja.
               </h3>
 
+
               <p>
-                Utiliza as ferramentas disponíveis para explorar e organizar
-                as tuas próprias viagens.
+
+                Utiliza as ferramentas disponíveis para
+                explorar e organizar as tuas próprias viagens.
+
               </p>
 
             </div>
@@ -1038,15 +1694,19 @@
               02
             </div>
 
+
             <div>
 
               <h3>
                 Recomenda.
               </h3>
 
+
               <p>
-                Partilha destinos, experiências e soluções de viagem com
-                outras pessoas.
+
+                Partilha destinos, experiências e soluções
+                de viagem com outras pessoas.
+
               </p>
 
             </div>
@@ -1060,20 +1720,26 @@
               03
             </div>
 
+
             <div>
 
               <h3>
                 Constrói.
               </h3>
 
+
               <p>
-                Se quiseres ir mais longe, desenvolve a atividade comercial
-                e constrói algo teu ao longo do tempo.
+
+                Se quiseres ir mais longe, desenvolve a
+                atividade comercial e constrói algo teu
+                ao longo do tempo.
+
               </p>
 
             </div>
 
           </article>
+
 
         </div>
 
@@ -1082,7 +1748,9 @@
     </section>
 
 
-    <!-- POSSIBILITY -->
+    <!-- ================================
+         DARK SECTION
+    ================================= -->
 
     <section class="possibility reveal">
 
@@ -1092,16 +1760,25 @@
           Tu decides até onde queres ir.
         </div>
 
+
         <h2 class="possibility-title">
+
           Começa pelas viagens.
           <br>
+
           Evolui ao teu ritmo.
+
         </h2>
 
+
         <p class="possibility-description">
-          Não precisas de mudar a tua vida de um dia para o outro.
-          Podes conhecer o modelo, perceber como funciona e decidir
-          se é algo que queres desenvolver.
+
+          Não precisas de mudar a tua vida de um dia
+          para o outro.
+
+          Podes conhecer o modelo, perceber como funciona
+          e decidir se é algo que queres desenvolver.
+
         </p>
 
       </div>
@@ -1109,7 +1786,9 @@
     </section>
 
 
-    <!-- WHO -->
+    <!-- ================================
+         WHO
+    ================================= -->
 
     <section class="who">
 
@@ -1121,6 +1800,7 @@
             Pode fazer sentido para ti se...
           </div>
 
+
           <h2 class="section-title">
             Procuras algo diferente.
           </h2>
@@ -1130,15 +1810,19 @@
 
         <div class="who-grid">
 
+
           <div class="who-item reveal">
 
             <h3>
               Gostas de viajar.
             </h3>
 
+
             <p>
-              Tens interesse por destinos, experiências e pelo mundo
-              das viagens.
+
+              Tens interesse por destinos, experiências
+              e pelo mundo das viagens.
+
             </p>
 
           </div>
@@ -1150,9 +1834,12 @@
               Procuras rendimento adicional.
             </h3>
 
+
             <p>
-              Gostarias de explorar uma atividade complementar ligada
-              a um setor que já conheces enquanto consumidor.
+
+              Gostarias de explorar uma atividade complementar
+              ligada a um setor que já conheces enquanto consumidor.
+
             </p>
 
           </div>
@@ -1164,9 +1851,12 @@
               Valorizas flexibilidade.
             </h3>
 
+
             <p>
-              Queres algo que possa ser desenvolvido de acordo com a tua
-              disponibilidade.
+
+              Queres algo que possa ser desenvolvido de acordo
+              com a tua disponibilidade.
+
             </p>
 
           </div>
@@ -1178,12 +1868,16 @@
               Queres construir algo.
             </h3>
 
+
             <p>
-              Tens vontade de aprender, desenvolver competências e explorar
-              uma atividade própria.
+
+              Tens vontade de aprender, desenvolver competências
+              e explorar uma atividade própria.
+
             </p>
 
           </div>
+
 
         </div>
 
@@ -1192,9 +1886,14 @@
     </section>
 
 
-    <!-- QUIZ -->
+    <!-- ================================
+         QUIZ
+    ================================= -->
 
-    <section class="quiz-section" id="quiz">
+    <section
+      class="quiz-section"
+      id="quiz"
+    >
 
       <div class="container">
 
@@ -1206,17 +1905,26 @@
               Vamos perceber se faz sentido para ti.
             </span>
 
+
             <span id="questionCounter">
               1 de 5
             </span>
 
           </div>
 
+
           <div class="progress-track">
-            <div class="progress-bar" id="progressBar"></div>
+
+            <div
+              class="progress-bar"
+              id="progressBar"
+            ></div>
+
           </div>
 
+
           <div id="quizContainer"></div>
+
 
           <div class="quiz-actions">
 
@@ -1237,21 +1945,34 @@
     </section>
 
 
-    <!-- PROGRESSIVE CONTACT FORM -->
+    <!-- ================================
+         CONTACT
+    ================================= -->
 
-    <section class="contact-section" id="contact">
+    <section
+      class="contact-section"
+      id="contact"
+    >
 
       <div class="container">
 
         <div class="contact-shell">
 
-          <div class="contact-progress" id="contactProgress">
+          <div
+            class="contact-progress"
+            id="contactProgress"
+          >
             Passo 1 de 3
           </div>
 
-          <h2 class="contact-question" id="contactQuestion">
+
+          <h2
+            class="contact-question"
+            id="contactQuestion"
+          >
             Como te podemos chamar?
           </h2>
+
 
           <div class="field-wrap">
 
@@ -1265,6 +1986,7 @@
 
           </div>
 
+
           <div class="contact-actions">
 
             <button
@@ -1276,6 +1998,7 @@
               ← Voltar
             </button>
 
+
             <button
               class="button button-dark"
               id="contactNext"
@@ -1286,10 +2009,19 @@
 
           </div>
 
-          <p class="privacy" id="privacyText" style="display:none;">
-            Ao enviar os teus dados autorizas o contacto relativamente
-            a esta oportunidade. Os teus dados serão utilizados apenas
+
+          <p
+            class="privacy"
+            id="privacyText"
+            style="display:none;"
+          >
+
+            Ao enviar os teus dados autorizas o contacto
+            relativamente a esta oportunidade.
+
+            Os teus dados serão utilizados apenas
             para este fim.
+
           </p>
 
         </div>
@@ -1299,9 +2031,14 @@
     </section>
 
 
-    <!-- RESULT -->
+    <!-- ================================
+         RESULT
+    ================================= -->
 
-    <section class="result-section" id="result">
+    <section
+      class="result-section"
+      id="result"
+    >
 
       <div class="container">
 
@@ -1311,11 +2048,19 @@
             ✓
           </div>
 
-          <h2 class="result-title" id="resultTitle">
+
+          <h2
+            class="result-title"
+            id="resultTitle"
+          >
             Recebemos os teus dados.
           </h2>
 
-          <p class="result-description" id="resultText">
+
+          <p
+            class="result-description"
+            id="resultText"
+          >
             Vamos entrar em contacto contigo.
           </p>
 
@@ -1326,7 +2071,9 @@
     </section>
 
 
-    <!-- FAQ -->
+    <!-- ================================
+         FAQ
+    ================================= -->
 
     <section class="faq-section">
 
@@ -1337,6 +2084,7 @@
           <div class="eyebrow">
             Perguntas frequentes.
           </div>
+
 
           <h2 class="faq-title">
             O essencial, sem complicações.
@@ -1349,10 +2097,14 @@
               Preciso de experiência em turismo?
             </div>
 
+
             <div class="faq-answer">
+
               Não. Não precisas de experiência anterior no setor.
-              O objetivo é aprender o funcionamento do modelo e utilizar
-              as ferramentas e sistemas disponibilizados.
+
+              O objetivo é aprender o funcionamento do modelo
+              e utilizar as ferramentas e sistemas disponibilizados.
+
             </div>
 
           </div>
@@ -1364,9 +2116,14 @@
               Tenho de deixar o meu trabalho?
             </div>
 
+
             <div class="faq-answer">
-              Não. A atividade pode ser desenvolvida inicialmente em
-              paralelo com o teu trabalho ou outras responsabilidades.
+
+              Não.
+
+              A atividade pode ser desenvolvida inicialmente
+              em paralelo com o teu trabalho ou outras responsabilidades.
+
             </div>
 
           </div>
@@ -1378,10 +2135,15 @@
               Quanto posso ganhar?
             </div>
 
+
             <div class="faq-answer">
-              Não existe um rendimento garantido. Os resultados dependem,
-              entre outros fatores, da atividade desenvolvida, do tempo
-              dedicado e dos resultados comerciais obtidos.
+
+              Não existe um rendimento garantido.
+
+              Os resultados dependem, entre outros fatores,
+              da atividade desenvolvida, do tempo dedicado
+              e dos resultados comerciais obtidos.
+
             </div>
 
           </div>
@@ -1393,10 +2155,19 @@
               Quanto custa começar?
             </div>
 
+
             <div class="faq-answer">
-              O investimento inicial para começar como Travel Partner iCliGo
-              é de <strong>349€</strong>, correspondente à licença de acesso
-              ao modelo e às ferramentas disponibilizadas.
+
+              O investimento inicial para começar como
+              Travel Partner iCliGo é de
+
+              <strong>
+                349€
+              </strong>,
+
+              correspondente à licença de acesso ao modelo
+              e às ferramentas disponibilizadas.
+
             </div>
 
           </div>
@@ -1408,10 +2179,14 @@
               Como começo?
             </div>
 
+
             <div class="faq-answer">
-              Primeiro conheces o modelo, esclareces as tuas dúvidas e
-              percebes se faz sentido para os teus objetivos. Só depois
-              decides se queres avançar.
+
+              Primeiro conheces o modelo, esclareces as tuas
+              dúvidas e percebes se faz sentido para os teus objetivos.
+
+              Só depois decides se queres avançar.
+
             </div>
 
           </div>
@@ -1423,22 +2198,34 @@
     </section>
 
 
-    <!-- FINAL CTA -->
+    <!-- ================================
+         FINAL CTA
+    ================================= -->
 
     <section class="final">
 
       <div class="container">
 
         <h2>
-          Talvez esteja na altura de viajar de forma diferente.
+
+          Talvez esteja na altura
+          de viajar de forma diferente.
+
         </h2>
 
+
         <p>
-          Responde a cinco perguntas e percebe se a oportunidade
-          Travel Partner pode fazer sentido para ti.
+
+          Responde a cinco perguntas e percebe se
+          a oportunidade Travel Partner pode fazer sentido para ti.
+
         </p>
 
-        <a href="#quiz" class="button button-dark">
+
+        <a
+          href="#quiz"
+          class="button button-dark"
+        >
           Descobrir a oportunidade →
         </a>
 
@@ -1446,10 +2233,13 @@
 
     </section>
 
+
   </main>
 
 
-  <!-- FOOTER -->
+  <!-- ================================
+       FOOTER
+  ================================= -->
 
   <footer>
 
@@ -1460,6 +2250,7 @@
         <span>
           © 2026 iCliGo
         </span>
+
 
         <span>
           Travel Partner
@@ -1472,315 +2263,482 @@
   </footer>
 
 
+  <!-- ================================
+       JAVASCRIPT
+  ================================= -->
+
   <script>
 
-    /* ========================================
+
+    /* ================================
        GOOGLE SHEETS
-    ======================================== */
+    ================================= */
 
     const GOOGLE_SCRIPT_URL =
       "https://script.google.com/macros/s/AKfycbyVEGLswtrRbbkY6Pm6SL0mxmh3xwlWtLuKAPqK62nqB94cWEbYftpCKKdS9MxKy1S9Ug/exec";
 
 
-    /* ========================================
-       QUIZ DATA
-    ======================================== */
+    /* ================================
+       QUIZ
+    ================================= */
 
     const questions = [
 
       {
+
         question:
           "O que te levou a querer conhecer esta oportunidade?",
 
         answers: [
 
           {
+
             text:
               "Quero apenas perceber melhor como funciona",
-            score: 0
+
+            score:
+              0
+
           },
 
           {
+
             text:
               "Gostava de encontrar uma fonte de rendimento adicional",
-            score: 1
+
+            score:
+              1
+
           },
 
           {
+
             text:
               "Estou à procura de uma atividade que possa desenvolver a sério",
-            score: 2
+
+            score:
+              2
+
           }
 
         ]
+
       },
 
 
       {
+
         question:
           "Quanto tempo estarias disposto a dedicar a uma atividade que fizesse sentido para ti?",
 
         answers: [
 
           {
+
             text:
               "Muito pouco, apenas ocasionalmente",
-            score: 0
+
+            score:
+              0
+
           },
 
           {
+
             text:
               "Algumas horas por semana",
-            score: 1
+
+            score:
+              1
+
           },
 
           {
+
             text:
               "Tenho disponibilidade para desenvolver algo de forma consistente",
-            score: 2
+
+            score:
+              2
+
           }
 
         ]
+
       },
 
 
       {
+
         question:
           "O que procuras neste momento?",
 
         answers: [
 
           {
+
             text:
               "Estou satisfeito como estou e não procuro nenhuma mudança",
-            score: 0
+
+            score:
+              0
+
           },
 
           {
+
             text:
               "Gostava de melhorar financeiramente, mas ainda estou a explorar opções",
-            score: 1
+
+            score:
+              1
+
           },
 
           {
+
             text:
               "Quero criar uma nova fonte de rendimento e construir algo meu",
-            score: 2
+
+            score:
+              2
+
           }
 
         ]
+
       },
 
 
       {
+
         question:
           "Qual é a tua relação com viagens?",
 
         answers: [
 
           {
+
             text:
               "Viajo pouco e não é algo que me interesse muito",
-            score: 0
+
+            score:
+              0
+
           },
 
           {
+
             text:
               "Gosto de viajar e aproveito quando tenho oportunidade",
-            score: 1
+
+            score:
+              1
+
           },
 
           {
+
             text:
               "Viajar faz parte do meu estilo de vida e adoro recomendar experiências",
-            score: 2
+
+            score:
+              2
+
           }
 
         ]
+
       },
 
 
       {
+
         question:
           "Se perceberes que o modelo faz sentido, o que gostarias de fazer?",
 
         answers: [
 
           {
+
             text:
               "Apenas receber mais informação",
-            score: 0
+
+            score:
+              0
+
           },
 
           {
+
             text:
               "Falar com alguém para esclarecer algumas dúvidas",
-            score: 1
+
+            score:
+              1
+
           },
 
           {
+
             text:
               "Ter uma conversa e perceber como posso começar",
-            score: 2
+
+            score:
+              2
+
           }
 
         ]
+
       }
 
     ];
 
 
-    /* ========================================
-       QUIZ STATE
-    ======================================== */
+    let currentQuestion =
+      0;
 
-    let currentQuestion = 0;
-    let totalScore = 0;
-    let selectedAnswer = null;
-    let quizAnswers = [];
+    let totalScore =
+      0;
+
+    let selectedAnswer =
+      null;
+
+    let quizAnswers =
+      [];
 
 
     const quizContainer =
-      document.getElementById("quizContainer");
+      document.getElementById(
+        "quizContainer"
+      );
+
 
     const nextButton =
-      document.getElementById("nextButton");
+      document.getElementById(
+        "nextButton"
+      );
+
 
     const progressBar =
-      document.getElementById("progressBar");
+      document.getElementById(
+        "progressBar"
+      );
+
 
     const questionCounter =
-      document.getElementById("questionCounter");
+      document.getElementById(
+        "questionCounter"
+      );
 
 
-    /* ========================================
-       RENDER QUESTION
-    ======================================== */
+    /* ================================
+       RENDER QUIZ
+    ================================= */
 
     function renderQuestion() {
 
       const question =
         questions[currentQuestion];
 
-      selectedAnswer = null;
 
-      nextButton.style.display = "none";
+      selectedAnswer =
+        null;
+
+
+      nextButton.style.display =
+        "none";
+
 
       progressBar.style.width =
-        ((currentQuestion + 1) / questions.length * 100) + "%";
+        (
+          (
+            currentQuestion + 1
+          )
+          /
+          questions.length
+          *
+          100
+        )
+        +
+        "%";
+
 
       questionCounter.textContent =
         `${currentQuestion + 1} de ${questions.length}`;
 
 
-      quizContainer.innerHTML = `
+      quizContainer.innerHTML =
+        `
 
-        <h2 class="question-title">
-          ${question.question}
-        </h2>
+          <h2 class="question-title">
 
-        <div class="answers">
+            ${question.question}
 
-          ${question.answers.map((answer, index) => `
+          </h2>
 
-            <button
-              type="button"
-              class="answer"
-              data-index="${index}"
-            >
-              ${answer.text}
-            </button>
 
-          `).join("")}
+          <div class="answers">
 
-        </div>
+            ${
 
-      `;
+              question.answers
+                .map(
+                  (
+                    answer,
+                    index
+                  ) => `
+
+                    <button
+
+                      type="button"
+
+                      class="answer"
+
+                      data-index="${index}"
+
+                    >
+
+                      ${answer.text}
+
+                    </button>
+
+                  `
+                )
+                .join("")
+
+            }
+
+          </div>
+
+        `;
 
 
       document
-        .querySelectorAll(".answer")
-        .forEach(button => {
+        .querySelectorAll(
+          ".answer"
+        )
+        .forEach(
+          button => {
 
-          button.addEventListener("click", () => {
+            button.addEventListener(
+              "click",
+              () => {
 
-            document
-              .querySelectorAll(".answer")
-              .forEach(item => {
-                item.classList.remove("selected");
-              });
+                document
+                  .querySelectorAll(
+                    ".answer"
+                  )
+                  .forEach(
+                    item => {
 
-            button.classList.add("selected");
+                      item
+                        .classList
+                        .remove(
+                          "selected"
+                        );
 
-            selectedAnswer =
-              Number(button.dataset.index);
+                    }
+                  );
 
-            nextButton.style.display =
-              "inline-flex";
 
-          });
+                button
+                  .classList
+                  .add(
+                    "selected"
+                  );
 
-        });
+
+                selectedAnswer =
+                  Number(
+                    button.dataset.index
+                  );
+
+
+                nextButton.style.display =
+                  "inline-flex";
+
+              }
+            );
+
+          }
+        );
 
     }
 
 
-    /* ========================================
+    /* ================================
        NEXT QUESTION
-    ======================================== */
+    ================================= */
 
-    nextButton.addEventListener("click", () => {
+    nextButton.addEventListener(
+      "click",
+      () => {
 
-      if (selectedAnswer === null) {
-        return;
+        if (
+          selectedAnswer === null
+        ) {
+          return;
+        }
+
+
+        const selected =
+          questions[currentQuestion]
+            .answers[selectedAnswer];
+
+
+        totalScore +=
+          selected.score;
+
+
+        quizAnswers.push({
+
+          question:
+            questions[currentQuestion]
+              .question,
+
+          answer:
+            selected.text,
+
+          score:
+            selected.score
+
+        });
+
+
+        currentQuestion++;
+
+
+        if (
+          currentQuestion
+          <
+          questions.length
+        ) {
+
+          renderQuestion();
+
+        } else {
+
+          openContactForm();
+
+        }
+
       }
+    );
 
 
-      const selected =
-        questions[currentQuestion]
-          .answers[selectedAnswer];
-
-
-      totalScore += selected.score;
-
-
-      quizAnswers.push({
-
-        question:
-          questions[currentQuestion].question,
-
-        answer:
-          selected.text,
-
-        score:
-          selected.score
-
-      });
-
-
-      currentQuestion++;
-
-
-      if (currentQuestion < questions.length) {
-
-        renderQuestion();
-
-      } else {
-
-        openContactForm();
-
-      }
-
-    });
-
-
-    /* ========================================
+    /* ================================
        PROFILE
-    ======================================== */
+    ================================= */
 
-    function getProfile(score) {
+    function getProfile(
+      score
+    ) {
 
-      if (score >= 8) {
+      if (
+        score >= 8
+      ) {
 
         return {
 
@@ -1795,7 +2753,9 @@
       }
 
 
-      if (score >= 4) {
+      if (
+        score >= 4
+      ) {
 
         return {
 
@@ -1823,95 +2783,181 @@
     }
 
 
-    /* ========================================
-       CONTACT FORM
-    ======================================== */
+    /* ================================
+       CONTACT STEPS
+    ================================= */
 
     const contactSteps = [
 
       {
-        key: "name",
-        question: "Como te podemos chamar?",
-        placeholder: "O teu nome",
-        type: "text",
-        autocomplete: "name"
+
+        key:
+          "name",
+
+        question:
+          "Como te podemos chamar?",
+
+        placeholder:
+          "O teu nome",
+
+        type:
+          "text",
+
+        autocomplete:
+          "name"
+
       },
 
-      {
-        key: "whatsapp",
-        question: "Qual é o teu WhatsApp?",
-        placeholder: "+351 900 000 000",
-        type: "tel",
-        autocomplete: "tel"
-      },
 
       {
-        key: "email",
-        question: "E o teu email?",
-        placeholder: "nome@email.com",
-        type: "email",
-        autocomplete: "email"
+
+        key:
+          "whatsapp",
+
+        question:
+          "Qual é o teu WhatsApp?",
+
+        placeholder:
+          "+351 900 000 000",
+
+        type:
+          "tel",
+
+        autocomplete:
+          "tel"
+
+      },
+
+
+      {
+
+        key:
+          "email",
+
+        question:
+          "E o teu email?",
+
+        placeholder:
+          "nome@email.com",
+
+        type:
+          "email",
+
+        autocomplete:
+          "email"
+
       }
 
     ];
 
 
-    let contactStep = 0;
+    let contactStep =
+      0;
 
 
     const contactData = {
-      name: "",
-      whatsapp: "",
-      email: ""
+
+      name:
+        "",
+
+      whatsapp:
+        "",
+
+      email:
+        ""
+
     };
 
 
     const contactSection =
-      document.getElementById("contact");
+      document.getElementById(
+        "contact"
+      );
+
 
     const contactProgress =
-      document.getElementById("contactProgress");
+      document.getElementById(
+        "contactProgress"
+      );
+
 
     const contactQuestion =
-      document.getElementById("contactQuestion");
+      document.getElementById(
+        "contactQuestion"
+      );
+
 
     const contactInput =
-      document.getElementById("contactInput");
+      document.getElementById(
+        "contactInput"
+      );
+
 
     const contactNext =
-      document.getElementById("contactNext");
+      document.getElementById(
+        "contactNext"
+      );
+
 
     const contactBack =
-      document.getElementById("contactBack");
+      document.getElementById(
+        "contactBack"
+      );
+
 
     const privacyText =
-      document.getElementById("privacyText");
+      document.getElementById(
+        "privacyText"
+      );
 
+
+    /* ================================
+       OPEN CONTACT
+    ================================= */
 
     function openContactForm() {
 
       document
-        .getElementById("quiz")
-        .style.display = "none";
+        .getElementById(
+          "quiz"
+        )
+        .style
+        .display =
+          "none";
+
 
       contactSection.style.display =
         "flex";
 
-      contactStep = 0;
+
+      contactStep =
+        0;
+
 
       renderContactStep();
 
-      contactSection.scrollIntoView({
-        behavior: "smooth"
-      });
+
+      contactSection
+        .scrollIntoView({
+
+          behavior:
+            "smooth"
+
+        });
 
     }
 
 
+    /* ================================
+       CONTACT STEP
+    ================================= */
+
     function renderContactStep() {
 
       const step =
-        contactSteps[contactStep];
+        contactSteps[
+          contactStep
+        ];
 
 
       contactProgress.textContent =
@@ -1935,19 +2981,35 @@
 
 
       contactInput.value =
-        contactData[step.key] || "";
+        contactData[
+          step.key
+        ]
+        ||
+        "";
 
 
       contactBack.style.visibility =
+
         contactStep === 0
-          ? "hidden"
-          : "visible";
+
+          ?
+
+          "hidden"
+
+          :
+
+          "visible";
 
 
-      if (contactStep === contactSteps.length - 1) {
+      if (
+        contactStep
+        ===
+        contactSteps.length - 1
+      ) {
 
         contactNext.textContent =
           "Enviar →";
+
 
         privacyText.style.display =
           "block";
@@ -1957,29 +3019,46 @@
         contactNext.textContent =
           "Continuar →";
 
+
         privacyText.style.display =
           "none";
 
       }
 
 
-      setTimeout(() => {
-        contactInput.focus();
-      }, 150);
+      setTimeout(
+        () => {
+
+          contactInput.focus();
+
+        },
+        150
+      );
 
     }
 
 
+    /* ================================
+       VALIDATION
+    ================================= */
+
     function validateCurrentField() {
 
       const step =
-        contactSteps[contactStep];
+        contactSteps[
+          contactStep
+        ];
+
 
       const value =
-        contactInput.value.trim();
+        contactInput
+          .value
+          .trim();
 
 
-      if (!value) {
+      if (
+        !value
+      ) {
 
         contactInput.focus();
 
@@ -1989,11 +3068,18 @@
 
 
       if (
-        step.type === "email" &&
+
+        step.type === "email"
+
+        &&
+
         !contactInput.checkValidity()
+
       ) {
 
-        contactInput.reportValidity();
+        contactInput
+          .reportValidity();
+
 
         return false;
 
@@ -2005,31 +3091,53 @@
     }
 
 
+    /* ================================
+       CONTACT NEXT
+    ================================= */
+
     contactNext.addEventListener(
+
       "click",
+
       async () => {
 
-        if (!validateCurrentField()) {
+
+        if (
+          !validateCurrentField()
+        ) {
+
           return;
+
         }
 
 
         const step =
-          contactSteps[contactStep];
+          contactSteps[
+            contactStep
+          ];
 
 
-        contactData[step.key] =
-          contactInput.value.trim();
+        contactData[
+          step.key
+        ] =
+          contactInput
+            .value
+            .trim();
 
 
         if (
-          contactStep <
+
+          contactStep
+          <
           contactSteps.length - 1
+
         ) {
 
           contactStep++;
 
+
           renderContactStep();
+
 
           return;
 
@@ -2039,63 +3147,100 @@
         await submitLead();
 
       }
+
     );
 
 
+    /* ================================
+       CONTACT BACK
+    ================================= */
+
     contactBack.addEventListener(
+
       "click",
+
       () => {
 
-        if (contactStep === 0) {
+
+        if (
+          contactStep === 0
+        ) {
+
           return;
+
         }
 
 
         const currentStep =
-          contactSteps[contactStep];
+          contactSteps[
+            contactStep
+          ];
 
 
-        contactData[currentStep.key] =
-          contactInput.value.trim();
+        contactData[
+          currentStep.key
+        ] =
+          contactInput
+            .value
+            .trim();
 
 
         contactStep--;
 
+
         renderContactStep();
 
       }
+
     );
 
 
+    /* ENTER KEY */
+
     contactInput.addEventListener(
+
       "keydown",
+
       event => {
 
-        if (event.key === "Enter") {
+
+        if (
+          event.key === "Enter"
+        ) {
 
           event.preventDefault();
+
 
           contactNext.click();
 
         }
 
       }
+
     );
 
 
-    /* ========================================
-       SEND TO GOOGLE SHEETS
-    ======================================== */
+    /* ================================
+       GOOGLE SHEETS
+    ================================= */
 
-    async function sendLeadToGoogleSheets(lead) {
+    async function
+    sendLeadToGoogleSheets(
+      lead
+    ) {
 
       const formData =
         new URLSearchParams();
 
 
       formData.append(
+
         "data",
-        JSON.stringify(lead)
+
+        JSON.stringify(
+          lead
+        )
+
       );
 
 
@@ -2107,9 +3252,11 @@
 
           {
 
-            method: "POST",
+            method:
+              "POST",
 
-            mode: "no-cors",
+            mode:
+              "no-cors",
 
             headers: {
 
@@ -2133,11 +3280,18 @@
 
         return true;
 
-      } catch (error) {
+      }
+
+      catch (
+        error
+      ) {
 
         console.error(
+
           "Erro ao enviar lead:",
+
           error
+
         );
 
 
@@ -2148,20 +3302,24 @@
     }
 
 
-    /* ========================================
+    /* ================================
        SUBMIT LEAD
-    ======================================== */
+    ================================= */
 
     async function submitLead() {
 
-      contactNext.disabled = true;
+      contactNext.disabled =
+        true;
+
 
       contactNext.textContent =
         "A enviar...";
 
 
       const profile =
-        getProfile(totalScore);
+        getProfile(
+          totalScore
+        );
 
 
       const lead = {
@@ -2185,14 +3343,20 @@
           quizAnswers,
 
         date:
-          new Date().toISOString()
+          new Date()
+            .toISOString()
 
       };
 
 
       localStorage.setItem(
+
         "icligo_last_lead",
-        JSON.stringify(lead)
+
+        JSON.stringify(
+          lead
+        )
+
       );
 
 
@@ -2206,17 +3370,23 @@
 
 
       const resultSection =
-        document.getElementById("result");
+        document.getElementById(
+          "result"
+        );
 
 
       document
-        .getElementById("resultTitle")
+        .getElementById(
+          "resultTitle"
+        )
         .textContent =
           `Obrigado, ${contactData.name}.`;
 
 
       document
-        .getElementById("resultText")
+        .getElementById(
+          "resultText"
+        )
         .textContent =
           profile.text;
 
@@ -2225,12 +3395,18 @@
         "flex";
 
 
-      resultSection.scrollIntoView({
-        behavior: "smooth"
-      });
+      resultSection
+        .scrollIntoView({
+
+          behavior:
+            "smooth"
+
+        });
 
 
-      contactNext.disabled = false;
+      contactNext.disabled =
+        false;
+
 
       contactNext.textContent =
         "Enviar →";
@@ -2238,56 +3414,75 @@
     }
 
 
-    /* ========================================
-       SCROLL REVEAL
-    ======================================== */
+    /* ================================
+       SCROLL ANIMATIONS
+    ================================= */
 
     const observer =
       new IntersectionObserver(
 
         entries => {
 
-          entries.forEach(entry => {
+          entries.forEach(
+            entry => {
 
-            if (entry.isIntersecting) {
+              if (
+                entry.isIntersecting
+              ) {
 
-              entry.target
-                .classList
-                .add("visible");
-
-              observer.unobserve(
                 entry.target
-              );
+                  .classList
+                  .add(
+                    "visible"
+                  );
+
+
+                observer
+                  .unobserve(
+                    entry.target
+                  );
+
+              }
 
             }
-
-          });
+          );
 
         },
 
         {
-          threshold: 0.12
+
+          threshold:
+            0.12
+
         }
 
       );
 
 
     document
-      .querySelectorAll(".reveal")
-      .forEach(element => {
+      .querySelectorAll(
+        ".reveal"
+      )
+      .forEach(
+        element => {
 
-        observer.observe(element);
+          observer.observe(
+            element
+          );
 
-      });
+        }
+      );
 
 
-    /* ========================================
+    /* ================================
        START
-    ======================================== */
+    ================================= */
 
     renderQuestion();
 
+
   </script>
+
 
 </body>
 </html>
