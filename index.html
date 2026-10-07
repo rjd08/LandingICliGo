@@ -33,25 +33,18 @@
     rel="stylesheet"
   >
 
-
   <style>
 
     :root {
       --bg: #f5f5f7;
       --white: #ffffff;
-
       --black: #1d1d1f;
-
       --grey: #6e6e73;
       --light-grey: #86868b;
-
       --border: rgba(0, 0, 0, 0.09);
-
       --blue: #0066cc;
-
       --radius: 28px;
     }
-
 
     * {
       box-sizing: border-box;
@@ -59,51 +52,36 @@
       padding: 0;
     }
 
-
     html {
       scroll-behavior: smooth;
     }
 
-
     body {
       font-family: "Figtree", sans-serif;
-
       background: var(--bg);
-
       color: var(--black);
-
       -webkit-font-smoothing: antialiased;
-
       overflow-x: hidden;
     }
-
 
     button,
     input {
       font-family: inherit;
     }
 
-
     button,
     a {
       -webkit-tap-highlight-color: transparent;
     }
 
-
     a {
       color: inherit;
     }
 
-
     .container {
-      width: min(
-        1080px,
-        calc(100% - 44px)
-      );
-
+      width: min(1080px, calc(100% - 44px));
       margin: 0 auto;
     }
-
 
     /* ================================
        HEADER
@@ -111,7 +89,6 @@
 
     header {
       position: fixed;
-
       top: 0;
       left: 0;
 
@@ -120,90 +97,63 @@
 
       z-index: 1000;
 
-      background:
-        rgba(245, 245, 247, 0.82);
+      background: rgba(245, 245, 247, 0.82);
 
-      backdrop-filter:
-        blur(20px);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
 
-      -webkit-backdrop-filter:
-        blur(20px);
-
-      border-bottom:
-        1px solid rgba(0, 0, 0, 0.05);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     }
-
 
     .header-inner {
       height: 100%;
 
-      width: min(
-        1080px,
-        calc(100% - 44px)
-      );
-
+      width: min(1080px, calc(100% - 44px));
       margin: auto;
 
       display: flex;
-
       align-items: center;
-
-      justify-content:
-        space-between;
+      justify-content: space-between;
     }
-
 
     /* LOGO */
 
     .logo {
       display: flex;
-
       align-items: center;
-
       text-decoration: none;
-
       flex-shrink: 0;
     }
-
 
     .logo img {
       display: block;
 
       width: 168px;
-
       max-height: 48px;
 
       object-fit: contain;
-
       object-position: left center;
 
       filter: invert(1);
 
-      transition:
-        opacity 0.25s ease;
+      transition: opacity 0.25s ease;
     }
-
 
     .logo:hover img {
       opacity: 0.75;
     }
 
-
     .header-cta {
       border: none;
 
       background: var(--black);
-
       color: white;
 
-      padding:
-        10px 17px;
+      padding: 10px 17px;
 
-      border-radius:
-        999px;
+      border-radius: 999px;
 
       font-size: 12px;
-
       font-weight: 600;
 
       text-decoration: none;
@@ -213,13 +163,10 @@
         opacity 0.25s ease;
     }
 
-
     .header-cta:hover {
       transform: scale(1.03);
-
       opacity: 0.9;
     }
-
 
     /* ================================
        BUTTONS
@@ -229,25 +176,19 @@
       display: inline-flex;
 
       justify-content: center;
-
       align-items: center;
 
       gap: 8px;
 
       border: none;
+      border-radius: 999px;
 
-      border-radius:
-        999px;
-
-      padding:
-        15px 23px;
+      padding: 15px 23px;
 
       font-size: 15px;
-
       font-weight: 500;
 
       cursor: pointer;
-
       text-decoration: none;
 
       transition:
@@ -255,26 +196,41 @@
         opacity 0.25s ease;
     }
 
-
     .button:hover {
-      transform:
-        translateY(-2px);
+      transform: translateY(-2px);
     }
-
 
     .button-dark {
       background: var(--black);
-
       color: white;
     }
 
+    /* HERO MAIN BUTTON */
 
-    .button-blue {
-      background: var(--blue);
+    .hero-main-button {
+      padding: 17px 30px;
 
-      color: white;
+      font-size: 16px;
+      font-weight: 500;
+
+      box-shadow:
+        0 8px 30px rgba(0, 0, 0, 0.08);
     }
 
+    .hero-main-button span {
+      display: inline-block;
+
+      transition:
+        transform 0.25s ease;
+    }
+
+    .hero-main-button:hover {
+      transform: translateY(-2px);
+    }
+
+    .hero-main-button:hover span {
+      transform: translateX(4px);
+    }
 
     /* ================================
        HERO
@@ -286,13 +242,11 @@
       display: flex;
 
       align-items: center;
-
       justify-content: center;
 
       text-align: center;
 
-      padding:
-        150px 0 100px;
+      padding: 150px 0 100px;
 
       background:
 
@@ -305,17 +259,13 @@
         var(--bg);
     }
 
-
     .hero-inner {
       max-width: 940px;
-
       margin: auto;
     }
 
-
     .hero-eyebrow {
       font-size: 18px;
-
       font-weight: 500;
 
       color: var(--grey);
@@ -323,18 +273,10 @@
       margin-bottom: 22px;
     }
 
-
     .hero h1 {
-      font-family:
-        "Inter",
-        sans-serif;
+      font-family: "Inter", sans-serif;
 
-      font-size:
-        clamp(
-          55px,
-          8.2vw,
-          100px
-        );
+      font-size: clamp(55px, 8.2vw, 100px);
 
       line-height: 0.94;
 
@@ -347,7 +289,6 @@
       margin: auto;
     }
 
-
     .hero-gradient {
       display: block;
 
@@ -358,25 +299,18 @@
           #6e6e73
         );
 
-      -webkit-background-clip:
-        text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
 
-      -webkit-text-fill-color:
-        transparent;
-
-      background-clip:
-        text;
+      background-clip: text;
     }
-
 
     .hero-description {
       max-width: 650px;
 
-      margin:
-        35px auto 0;
+      margin: 35px auto 0;
 
       font-size: 20px;
-
       line-height: 1.5;
 
       font-weight: 300;
@@ -384,57 +318,34 @@
       color: var(--grey);
     }
 
-
     .hero-actions {
-      margin-top: 37px;
+      margin-top: 40px;
 
       display: flex;
 
       justify-content: center;
-
       align-items: center;
-
-      gap: 22px;
     }
-
-
-    .text-link {
-      color: var(--blue);
-
-      text-decoration: none;
-
-      font-size: 16px;
-    }
-
-
-    .text-link:hover {
-      text-decoration:
-        underline;
-    }
-
 
     .hero-note {
-      margin-top: 22px;
+      margin-top: 20px;
 
       font-size: 12px;
 
       color: var(--light-grey);
     }
 
-
     /* ================================
        INTRO
     ================================= */
 
     .intro {
-      padding:
-        150px 0;
+      padding: 150px 0;
 
       background: white;
 
       text-align: center;
     }
-
 
     .eyebrow {
       color: var(--grey);
@@ -446,35 +357,24 @@
       margin-bottom: 20px;
     }
 
-
     .big-title {
-      font-family:
-        "Inter",
-        sans-serif;
+      font-family: "Inter", sans-serif;
 
       max-width: 900px;
 
       margin: auto;
 
-      font-size:
-        clamp(
-          42px,
-          6vw,
-          72px
-        );
+      font-size: clamp(42px, 6vw, 72px);
 
       line-height: 1;
 
-      letter-spacing:
-        -4px;
+      letter-spacing: -4px;
     }
-
 
     .big-description {
       max-width: 660px;
 
-      margin:
-        30px auto 0;
+      margin: 30px auto 0;
 
       font-size: 20px;
 
@@ -485,110 +385,81 @@
       font-weight: 300;
     }
 
-
     /* ================================
        JOURNEY
     ================================= */
 
     .journey {
-      padding:
-        130px 0;
+      padding: 130px 0;
     }
-
 
     .journey-header {
       margin-bottom: 65px;
     }
 
-
     .section-title {
-      font-family:
-        "Inter",
-        sans-serif;
+      font-family: "Inter", sans-serif;
 
-      font-size:
-        clamp(
-          40px,
-          5vw,
-          64px
-        );
+      font-size: clamp(40px, 5vw, 64px);
 
       line-height: 1;
 
-      letter-spacing:
-        -3px;
+      letter-spacing: -3px;
 
       max-width: 720px;
     }
 
-
     .journey-grid {
       display: grid;
 
-      grid-template-columns:
-        repeat(3, 1fr);
+      grid-template-columns: repeat(3, 1fr);
 
       gap: 18px;
     }
 
-
     .journey-card {
       background: white;
 
-      border-radius:
-        var(--radius);
+      border-radius: var(--radius);
 
-      padding:
-        42px 35px;
+      padding: 42px 35px;
 
-      min-height:
-        380px;
+      min-height: 380px;
 
       display: flex;
 
-      flex-direction:
-        column;
+      flex-direction: column;
 
-      justify-content:
-        space-between;
+      justify-content: space-between;
 
       transition:
         transform 0.35s ease,
         box-shadow 0.35s ease;
     }
 
-
     .journey-card:hover {
-      transform:
-        translateY(-6px);
+      transform: translateY(-6px);
 
       box-shadow:
         0 25px 70px
         rgba(0,0,0,0.07);
     }
 
-
     .card-number {
-      color:
-        var(--light-grey);
+      color: var(--light-grey);
 
       font-size: 13px;
     }
 
-
     .journey-card h3 {
-      font-family:
-        "Inter",
-        sans-serif;
+      font-family: "Inter", sans-serif;
 
       font-size: 36px;
 
-      letter-spacing:
-        -2px;
+      letter-spacing: -2px;
 
       margin-bottom: 13px;
     }
-
 
     .journey-card p {
       color: var(--grey);
@@ -597,7 +468,6 @@
 
       font-weight: 300;
     }
-
 
     /* ================================
        DARK SECTION
@@ -608,46 +478,33 @@
 
       color: white;
 
-      padding:
-        160px 0;
+      padding: 160px 0;
 
       text-align: center;
     }
-
 
     .possibility .eyebrow {
       color: #86868b;
     }
 
-
     .possibility-title {
-      font-family:
-        "Inter",
-        sans-serif;
+      font-family: "Inter", sans-serif;
 
-      font-size:
-        clamp(
-          48px,
-          7vw,
-          86px
-        );
+      font-size: clamp(48px, 7vw, 86px);
 
       line-height: 0.97;
 
-      letter-spacing:
-        -5px;
+      letter-spacing: -5px;
 
       max-width: 930px;
 
       margin: auto;
     }
 
-
     .possibility-description {
       max-width: 680px;
 
-      margin:
-        35px auto 0;
+      margin: 35px auto 0;
 
       color: #a1a1a6;
 
@@ -658,25 +515,21 @@
       font-weight: 300;
     }
 
-
     /* ================================
        WHO
     ================================= */
 
     .who {
-      padding:
-        140px 0;
+      padding: 140px 0;
 
       background: white;
     }
-
 
     .who-header {
       max-width: 750px;
 
       margin-bottom: 70px;
     }
-
 
     .who-grid {
       display: grid;
@@ -690,7 +543,6 @@
         1px solid var(--border);
     }
 
-
     .who-item {
       padding:
         38px 35px
@@ -700,11 +552,9 @@
         1px solid var(--border);
     }
 
-
     .who-item:nth-child(even) {
       padding-left: 35px;
     }
-
 
     .who-item h3 {
       font-size: 22px;
@@ -713,7 +563,6 @@
 
       font-weight: 500;
     }
-
 
     .who-item p {
       color: var(--grey);
@@ -724,7 +573,6 @@
 
       max-width: 420px;
     }
-
 
     /* ================================
        QUIZ
@@ -737,29 +585,21 @@
 
       align-items: center;
 
-      padding:
-        130px 0;
+      padding: 130px 0;
 
       background: var(--bg);
     }
 
-
     .quiz-shell {
-      width:
-        min(
-          760px,
-          100%
-        );
+      width: min(760px, 100%);
 
       margin: auto;
     }
 
-
     .quiz-top {
       display: flex;
 
-      justify-content:
-        space-between;
+      justify-content: space-between;
 
       gap: 20px;
 
@@ -770,7 +610,6 @@
       color: var(--grey);
     }
 
-
     .progress-track {
       height: 3px;
 
@@ -778,55 +617,41 @@
 
       background: #dedede;
 
-      border-radius:
-        999px;
+      border-radius: 999px;
 
       overflow: hidden;
 
       margin-bottom: 55px;
     }
 
-
     .progress-bar {
       height: 100%;
 
       width: 20%;
 
-      background:
-        var(--black);
+      background: var(--black);
 
       transition:
         width 0.4s ease;
     }
 
-
     .question-title {
-      font-family:
-        "Inter",
-        sans-serif;
+      font-family: "Inter", sans-serif;
 
-      font-size:
-        clamp(
-          36px,
-          5vw,
-          55px
-        );
+      font-size: clamp(36px, 5vw, 55px);
 
       line-height: 1.05;
 
-      letter-spacing:
-        -2.7px;
+      letter-spacing: -2.7px;
 
       margin-bottom: 40px;
     }
-
 
     .answers {
       display: grid;
 
       gap: 12px;
     }
-
 
     .answer {
       width: 100%;
@@ -835,8 +660,7 @@
         1px solid
         var(--border);
 
-      border-radius:
-        18px;
+      border-radius: 18px;
 
       background:
         rgba(
@@ -846,8 +670,7 @@
           0.72
         );
 
-      padding:
-        21px 22px;
+      padding: 21px 22px;
 
       text-align: left;
 
@@ -865,7 +688,6 @@
         transform 0.2s ease;
     }
 
-
     .answer:hover {
       border-color:
         rgba(
@@ -875,36 +697,28 @@
           0.35
         );
 
-      transform:
-        translateY(-1px);
+      transform: translateY(-1px);
     }
 
-
     .answer.selected {
-      background:
-        var(--black);
+      background: var(--black);
 
-      border-color:
-        var(--black);
+      border-color: var(--black);
 
       color: white;
     }
-
 
     .quiz-actions {
       margin-top: 27px;
 
       display: flex;
 
-      justify-content:
-        flex-end;
+      justify-content: flex-end;
     }
-
 
     #nextButton {
       display: none;
     }
-
 
     /* ================================
        CONTACT
@@ -917,19 +731,16 @@
 
       align-items: center;
 
-      padding:
-        130px 0;
+      padding: 130px 0;
 
       background: white;
     }
-
 
     .contact-shell {
       max-width: 720px;
 
       margin: auto;
     }
-
 
     .contact-progress {
       color: var(--grey);
@@ -939,32 +750,21 @@
       margin-bottom: 35px;
     }
 
-
     .contact-question {
-      font-family:
-        "Inter",
-        sans-serif;
+      font-family: "Inter", sans-serif;
 
-      font-size:
-        clamp(
-          42px,
-          6vw,
-          65px
-        );
+      font-size: clamp(42px, 6vw, 65px);
 
       line-height: 1;
 
-      letter-spacing:
-        -3.5px;
+      letter-spacing: -3.5px;
 
       margin-bottom: 45px;
     }
 
-
     .field-wrap {
       position: relative;
     }
-
 
     .large-input {
       width: 100%;
@@ -974,22 +774,13 @@
       border-bottom:
         2px solid #d2d2d7;
 
-      background:
-        transparent;
+      background: transparent;
 
-      padding:
-        15px 0 18px;
+      padding: 15px 0 18px;
 
-      font-family:
-        "Inter",
-        sans-serif;
+      font-family: "Inter", sans-serif;
 
-      font-size:
-        clamp(
-          25px,
-          4vw,
-          38px
-        );
+      font-size: clamp(25px, 4vw, 38px);
 
       font-weight: 300;
 
@@ -998,39 +789,31 @@
       outline: none;
 
       transition:
-        border-color
-        0.25s ease;
+        border-color 0.25s ease;
     }
-
 
     .large-input::placeholder {
       color: #c5c5c8;
     }
 
-
     .large-input:focus {
-      border-color:
-        var(--black);
+      border-color: var(--black);
     }
-
 
     .contact-actions {
       display: flex;
 
-      justify-content:
-        space-between;
+      justify-content: space-between;
 
       align-items: center;
 
       margin-top: 38px;
     }
 
-
     .back-button {
       border: none;
 
-      background:
-        transparent;
+      background: transparent;
 
       color: var(--grey);
 
@@ -1038,7 +821,6 @@
 
       font-size: 14px;
     }
-
 
     .privacy {
       max-width: 470px;
@@ -1049,10 +831,8 @@
 
       line-height: 1.5;
 
-      color:
-        var(--light-grey);
+      color: var(--light-grey);
     }
-
 
     /* ================================
        RESULT
@@ -1069,19 +849,16 @@
 
       color: white;
 
-      padding:
-        130px 0;
+      padding: 130px 0;
 
       text-align: center;
     }
-
 
     .result-inner {
       max-width: 760px;
 
       margin: auto;
     }
-
 
     .result-check {
       width: 60px;
@@ -1098,36 +875,24 @@
 
       align-items: center;
 
-      justify-content:
-        center;
+      justify-content: center;
 
-      margin:
-        0 auto 35px;
+      margin: 0 auto 35px;
 
       font-size: 25px;
     }
 
-
     .result-title {
-      font-family:
-        "Inter",
-        sans-serif;
+      font-family: "Inter", sans-serif;
 
-      font-size:
-        clamp(
-          48px,
-          7vw,
-          80px
-        );
+      font-size: clamp(48px, 7vw, 80px);
 
       line-height: 0.98;
 
-      letter-spacing:
-        -4px;
+      letter-spacing: -4px;
 
       margin-bottom: 28px;
     }
-
 
     .result-description {
       color: #a1a1a6;
@@ -1143,18 +908,15 @@
       font-weight: 300;
     }
 
-
     /* ================================
        FAQ
     ================================= */
 
     .faq-section {
-      padding:
-        140px 0;
+      padding: 140px 0;
 
       background: white;
     }
-
 
     .faq-wrapper {
       max-width: 850px;
@@ -1162,35 +924,22 @@
       margin: auto;
     }
 
-
     .faq-title {
-      font-family:
-        "Inter",
-        sans-serif;
+      font-family: "Inter", sans-serif;
 
-      font-size:
-        clamp(
-          42px,
-          6vw,
-          65px
-        );
+      font-size: clamp(42px, 6vw, 65px);
 
-      letter-spacing:
-        -3px;
+      letter-spacing: -3px;
 
       margin-bottom: 65px;
     }
 
-
     .faq-item {
       border-top:
-        1px solid
-        var(--border);
+        1px solid var(--border);
 
-      padding:
-        27px 0;
+      padding: 27px 0;
     }
-
 
     .faq-question {
       font-size: 20px;
@@ -1199,7 +948,6 @@
 
       margin-bottom: 10px;
     }
-
 
     .faq-answer {
       color: var(--grey);
@@ -1211,49 +959,36 @@
       max-width: 720px;
     }
 
-
     /* ================================
        FINAL CTA
     ================================= */
 
     .final {
-      padding:
-        160px 0;
+      padding: 160px 0;
 
       text-align: center;
 
       background: var(--bg);
     }
 
-
     .final h2 {
-      font-family:
-        "Inter",
-        sans-serif;
+      font-family: "Inter", sans-serif;
 
-      font-size:
-        clamp(
-          48px,
-          7vw,
-          82px
-        );
+      font-size: clamp(48px, 7vw, 82px);
 
       line-height: 0.97;
 
-      letter-spacing:
-        -5px;
+      letter-spacing: -5px;
 
       max-width: 900px;
 
       margin: auto;
     }
 
-
     .final p {
       max-width: 570px;
 
-      margin:
-        28px auto 35px;
+      margin: 28px auto 35px;
 
       color: var(--grey);
 
@@ -1262,39 +997,32 @@
       line-height: 1.5;
     }
 
-
     /* ================================
        FOOTER
     ================================= */
 
     footer {
-      padding:
-        35px 0;
+      padding: 35px 0;
 
       border-top:
-        1px solid
-        var(--border);
+        1px solid var(--border);
 
       background: var(--bg);
 
-      color:
-        var(--light-grey);
+      color: var(--light-grey);
 
       font-size: 12px;
     }
 
-
     .footer-inner {
       display: flex;
 
-      justify-content:
-        space-between;
+      justify-content: space-between;
 
       align-items: center;
 
       gap: 20px;
     }
-
 
     /* ================================
        SCROLL REVEAL
@@ -1311,7 +1039,6 @@
         transform 0.8s ease;
     }
 
-
     .reveal.visible {
       opacity: 1;
 
@@ -1319,166 +1046,119 @@
         translateY(0);
     }
 
-
     /* ================================
        MOBILE
     ================================= */
 
-    @media
-    (max-width: 800px) {
+    @media (max-width: 800px) {
 
       .container,
       .header-inner {
-
         width:
           min(
             calc(100% - 30px),
             1080px
           );
-
       }
-
 
       header {
         height: 68px;
       }
 
-
       .logo img {
         width: 138px;
-
         max-height: 42px;
       }
 
-
       .header-cta {
-        padding:
-          9px 14px;
+        padding: 9px 14px;
 
         font-size: 11px;
       }
 
-
       .hero {
-        padding-top:
-          125px;
+        padding-top: 125px;
 
         min-height: 92vh;
       }
 
-
       .hero h1 {
-        letter-spacing:
-          -3.5px;
+        letter-spacing: -3.5px;
       }
-
 
       .hero-description {
         font-size: 18px;
       }
 
+      .hero-main-button {
+        width: 100%;
 
-      .hero-actions {
-        flex-direction:
-          column;
+        max-width: 310px;
 
-        gap: 18px;
+        padding: 17px 24px;
       }
-
 
       .intro,
       .journey,
       .who,
       .faq-section,
       .final {
-
-        padding:
-          100px 0;
-
+        padding: 100px 0;
       }
-
 
       .big-title,
       .section-title,
       .possibility-title,
       .faq-title,
       .final h2 {
-
-        letter-spacing:
-          -2.5px;
-
+        letter-spacing: -2.5px;
       }
-
 
       .journey-grid {
-        grid-template-columns:
-          1fr;
+        grid-template-columns: 1fr;
       }
-
 
       .journey-card {
         min-height: 310px;
       }
 
-
       .possibility {
-        padding:
-          110px 0;
+        padding: 110px 0;
       }
-
 
       .who-grid {
-        grid-template-columns:
-          1fr;
+        grid-template-columns: 1fr;
       }
-
 
       .who-item,
       .who-item:nth-child(even) {
-
-        padding:
-          30px 0;
-
+        padding: 30px 0;
       }
-
 
       .quiz-section,
       .contact-section {
-
         min-height: 100vh;
 
-        padding:
-          100px 0 70px;
-
+        padding: 100px 0 70px;
       }
-
 
       .quiz-top {
         font-size: 12px;
       }
 
-
       .question-title,
       .contact-question {
-
-        letter-spacing:
-          -2px;
-
+        letter-spacing: -2px;
       }
-
 
       .contact-actions {
-        align-items:
-          flex-end;
+        align-items: flex-end;
       }
 
-
       .footer-inner {
-        flex-direction:
-          column;
+        flex-direction: column;
 
-        align-items:
-          flex-start;
+        align-items: flex-start;
       }
 
     }
@@ -1486,13 +1166,9 @@
   </style>
 </head>
 
-
 <body>
 
-
-  <!-- ================================
-       HEADER
-  ================================= -->
+  <!-- HEADER -->
 
   <header>
 
@@ -1511,7 +1187,6 @@
 
       </a>
 
-
       <a
         href="#quiz"
         class="header-cta"
@@ -1526,10 +1201,7 @@
 
   <main>
 
-
-    <!-- ================================
-         HERO
-    ================================= -->
+    <!-- HERO -->
 
     <section class="hero">
 
@@ -1541,7 +1213,6 @@
             Torna-te Travel Partner.
           </div>
 
-
           <h1>
 
             Viajar pode ser
@@ -1552,7 +1223,6 @@
 
           </h1>
 
-
           <p class="hero-description">
 
             Descobre uma forma diferente de viver o setor das viagens:
@@ -1561,15 +1231,14 @@
 
           </p>
 
-
           <div class="hero-actions">
 
             <a
               href="#quiz"
-              class="button button-dark"
+              class="button button-dark hero-main-button"
             >
 
-              Descobrir a oportunidade
+              Ver se faz sentido para mim
 
               <span>
                 →
@@ -1577,16 +1246,7 @@
 
             </a>
 
-
-            <a
-              href="#como-funciona"
-              class="text-link"
-            >
-              Como funciona ›
-            </a>
-
           </div>
-
 
           <div class="hero-note">
             Demora menos de 2 minutos.
@@ -1599,9 +1259,7 @@
     </section>
 
 
-    <!-- ================================
-         INTRO
-    ================================= -->
+    <!-- INTRO -->
 
     <section
       class="intro reveal"
@@ -1614,21 +1272,15 @@
           Uma oportunidade no setor das viagens.
         </div>
 
-
         <h2 class="big-title">
-
-          Faz mais com aquilo
-          que já gostas de fazer.
-
+          Faz mais com aquilo que já gostas de fazer.
         </h2>
-
 
         <p class="big-description">
 
-          O modelo Travel Partner permite-te explorar o setor
-          das viagens de uma forma flexível — começando pelas
-          tuas próprias experiências e evoluindo de acordo com
-          os teus objetivos.
+          O modelo Travel Partner permite-te explorar o setor das viagens
+          de uma forma flexível — começando pelas tuas próprias experiências
+          e evoluindo de acordo com os teus objetivos.
 
         </p>
 
@@ -1637,9 +1289,7 @@
     </section>
 
 
-    <!-- ================================
-         JOURNEY
-    ================================= -->
+    <!-- JOURNEY -->
 
     <section class="journey">
 
@@ -1651,16 +1301,13 @@
             Simples de perceber.
           </div>
 
-
           <h2 class="section-title">
             Viaja. Recomenda. Constrói.
           </h2>
 
         </div>
 
-
         <div class="journey-grid">
-
 
           <article class="journey-card reveal">
 
@@ -1668,13 +1315,11 @@
               01
             </div>
 
-
             <div>
 
               <h3>
                 Viaja.
               </h3>
-
 
               <p>
 
@@ -1694,13 +1339,11 @@
               02
             </div>
 
-
             <div>
 
               <h3>
                 Recomenda.
               </h3>
-
 
               <p>
 
@@ -1720,13 +1363,11 @@
               03
             </div>
 
-
             <div>
 
               <h3>
                 Constrói.
               </h3>
-
 
               <p>
 
@@ -1740,7 +1381,6 @@
 
           </article>
 
-
         </div>
 
       </div>
@@ -1748,9 +1388,7 @@
     </section>
 
 
-    <!-- ================================
-         DARK SECTION
-    ================================= -->
+    <!-- DARK SECTION -->
 
     <section class="possibility reveal">
 
@@ -1759,7 +1397,6 @@
         <div class="eyebrow">
           Tu decides até onde queres ir.
         </div>
-
 
         <h2 class="possibility-title">
 
@@ -1770,11 +1407,9 @@
 
         </h2>
 
-
         <p class="possibility-description">
 
-          Não precisas de mudar a tua vida de um dia
-          para o outro.
+          Não precisas de mudar a tua vida de um dia para o outro.
 
           Podes conhecer o modelo, perceber como funciona
           e decidir se é algo que queres desenvolver.
@@ -1786,9 +1421,7 @@
     </section>
 
 
-    <!-- ================================
-         WHO
-    ================================= -->
+    <!-- WHO -->
 
     <section class="who">
 
@@ -1800,23 +1433,19 @@
             Pode fazer sentido para ti se...
           </div>
 
-
           <h2 class="section-title">
             Procuras algo diferente.
           </h2>
 
         </div>
 
-
         <div class="who-grid">
-
 
           <div class="who-item reveal">
 
             <h3>
               Gostas de viajar.
             </h3>
-
 
             <p>
 
@@ -1834,7 +1463,6 @@
               Procuras rendimento adicional.
             </h3>
 
-
             <p>
 
               Gostarias de explorar uma atividade complementar
@@ -1850,7 +1478,6 @@
             <h3>
               Valorizas flexibilidade.
             </h3>
-
 
             <p>
 
@@ -1868,7 +1495,6 @@
               Queres construir algo.
             </h3>
 
-
             <p>
 
               Tens vontade de aprender, desenvolver competências
@@ -1878,7 +1504,6 @@
 
           </div>
 
-
         </div>
 
       </div>
@@ -1886,9 +1511,7 @@
     </section>
 
 
-    <!-- ================================
-         QUIZ
-    ================================= -->
+    <!-- QUIZ -->
 
     <section
       class="quiz-section"
@@ -1905,13 +1528,11 @@
               Vamos perceber se faz sentido para ti.
             </span>
 
-
             <span id="questionCounter">
               1 de 5
             </span>
 
           </div>
-
 
           <div class="progress-track">
 
@@ -1922,9 +1543,7 @@
 
           </div>
 
-
           <div id="quizContainer"></div>
-
 
           <div class="quiz-actions">
 
@@ -1945,9 +1564,7 @@
     </section>
 
 
-    <!-- ================================
-         CONTACT
-    ================================= -->
+    <!-- CONTACT -->
 
     <section
       class="contact-section"
@@ -1965,14 +1582,12 @@
             Passo 1 de 3
           </div>
 
-
           <h2
             class="contact-question"
             id="contactQuestion"
           >
             Como te podemos chamar?
           </h2>
-
 
           <div class="field-wrap">
 
@@ -1986,7 +1601,6 @@
 
           </div>
 
-
           <div class="contact-actions">
 
             <button
@@ -1998,7 +1612,6 @@
               ← Voltar
             </button>
 
-
             <button
               class="button button-dark"
               id="contactNext"
@@ -2008,7 +1621,6 @@
             </button>
 
           </div>
-
 
           <p
             class="privacy"
@@ -2031,9 +1643,7 @@
     </section>
 
 
-    <!-- ================================
-         RESULT
-    ================================= -->
+    <!-- RESULT -->
 
     <section
       class="result-section"
@@ -2048,14 +1658,12 @@
             ✓
           </div>
 
-
           <h2
             class="result-title"
             id="resultTitle"
           >
             Recebemos os teus dados.
           </h2>
-
 
           <p
             class="result-description"
@@ -2071,9 +1679,7 @@
     </section>
 
 
-    <!-- ================================
-         FAQ
-    ================================= -->
+    <!-- FAQ -->
 
     <section class="faq-section">
 
@@ -2085,7 +1691,6 @@
             Perguntas frequentes.
           </div>
 
-
           <h2 class="faq-title">
             O essencial, sem complicações.
           </h2>
@@ -2096,7 +1701,6 @@
             <div class="faq-question">
               Preciso de experiência em turismo?
             </div>
-
 
             <div class="faq-answer">
 
@@ -2116,7 +1720,6 @@
               Tenho de deixar o meu trabalho?
             </div>
 
-
             <div class="faq-answer">
 
               Não.
@@ -2134,7 +1737,6 @@
             <div class="faq-question">
               Quanto posso ganhar?
             </div>
-
 
             <div class="faq-answer">
 
@@ -2154,7 +1756,6 @@
             <div class="faq-question">
               Quanto custa começar?
             </div>
-
 
             <div class="faq-answer">
 
@@ -2179,7 +1780,6 @@
               Como começo?
             </div>
 
-
             <div class="faq-answer">
 
               Primeiro conheces o modelo, esclareces as tuas
@@ -2198,9 +1798,7 @@
     </section>
 
 
-    <!-- ================================
-         FINAL CTA
-    ================================= -->
+    <!-- FINAL CTA -->
 
     <section class="final">
 
@@ -2213,7 +1811,6 @@
 
         </h2>
 
-
         <p>
 
           Responde a cinco perguntas e percebe se
@@ -2221,25 +1818,21 @@
 
         </p>
 
-
         <a
           href="#quiz"
           class="button button-dark"
         >
-          Descobrir a oportunidade →
+          Ver se faz sentido para mim →
         </a>
 
       </div>
 
     </section>
 
-
   </main>
 
 
-  <!-- ================================
-       FOOTER
-  ================================= -->
+  <!-- FOOTER -->
 
   <footer>
 
@@ -2250,7 +1843,6 @@
         <span>
           © 2026 iCliGo
         </span>
-
 
         <span>
           Travel Partner
@@ -2263,293 +1855,206 @@
   </footer>
 
 
-  <!-- ================================
-       JAVASCRIPT
-  ================================= -->
+  <!-- JAVASCRIPT -->
 
   <script>
 
-
-    /* ================================
-       GOOGLE SHEETS
-    ================================= */
+    /* GOOGLE SHEETS */
 
     const GOOGLE_SCRIPT_URL =
       "https://script.google.com/macros/s/AKfycbyVEGLswtrRbbkY6Pm6SL0mxmh3xwlWtLuKAPqK62nqB94cWEbYftpCKKdS9MxKy1S9Ug/exec";
 
 
-    /* ================================
-       QUIZ
-    ================================= */
+    /* QUIZ */
 
     const questions = [
 
       {
-
         question:
           "O que te levou a querer conhecer esta oportunidade?",
 
         answers: [
 
           {
-
             text:
               "Quero apenas perceber melhor como funciona",
 
-            score:
-              0
-
+            score: 0
           },
 
           {
-
             text:
               "Gostava de encontrar uma fonte de rendimento adicional",
 
-            score:
-              1
-
+            score: 1
           },
 
           {
-
             text:
               "Estou à procura de uma atividade que possa desenvolver a sério",
 
-            score:
-              2
-
+            score: 2
           }
 
         ]
-
       },
 
 
       {
-
         question:
           "Quanto tempo estarias disposto a dedicar a uma atividade que fizesse sentido para ti?",
 
         answers: [
 
           {
-
             text:
               "Muito pouco, apenas ocasionalmente",
 
-            score:
-              0
-
+            score: 0
           },
 
           {
-
             text:
               "Algumas horas por semana",
 
-            score:
-              1
-
+            score: 1
           },
 
           {
-
             text:
               "Tenho disponibilidade para desenvolver algo de forma consistente",
 
-            score:
-              2
-
+            score: 2
           }
 
         ]
-
       },
 
 
       {
-
         question:
           "O que procuras neste momento?",
 
         answers: [
 
           {
-
             text:
               "Estou satisfeito como estou e não procuro nenhuma mudança",
 
-            score:
-              0
-
+            score: 0
           },
 
           {
-
             text:
               "Gostava de melhorar financeiramente, mas ainda estou a explorar opções",
 
-            score:
-              1
-
+            score: 1
           },
 
           {
-
             text:
               "Quero criar uma nova fonte de rendimento e construir algo meu",
 
-            score:
-              2
-
+            score: 2
           }
 
         ]
-
       },
 
 
       {
-
         question:
           "Qual é a tua relação com viagens?",
 
         answers: [
 
           {
-
             text:
               "Viajo pouco e não é algo que me interesse muito",
 
-            score:
-              0
-
+            score: 0
           },
 
           {
-
             text:
               "Gosto de viajar e aproveito quando tenho oportunidade",
 
-            score:
-              1
-
+            score: 1
           },
 
           {
-
             text:
               "Viajar faz parte do meu estilo de vida e adoro recomendar experiências",
 
-            score:
-              2
-
+            score: 2
           }
 
         ]
-
       },
 
 
       {
-
         question:
           "Se perceberes que o modelo faz sentido, o que gostarias de fazer?",
 
         answers: [
 
           {
-
             text:
               "Apenas receber mais informação",
 
-            score:
-              0
-
+            score: 0
           },
 
           {
-
             text:
               "Falar com alguém para esclarecer algumas dúvidas",
 
-            score:
-              1
-
+            score: 1
           },
 
           {
-
             text:
               "Ter uma conversa e perceber como posso começar",
 
-            score:
-              2
-
+            score: 2
           }
 
         ]
-
       }
 
     ];
 
 
-    let currentQuestion =
-      0;
-
-    let totalScore =
-      0;
-
-    let selectedAnswer =
-      null;
-
-    let quizAnswers =
-      [];
+    let currentQuestion = 0;
+    let totalScore = 0;
+    let selectedAnswer = null;
+    let quizAnswers = [];
 
 
     const quizContainer =
-      document.getElementById(
-        "quizContainer"
-      );
-
+      document.getElementById("quizContainer");
 
     const nextButton =
-      document.getElementById(
-        "nextButton"
-      );
-
+      document.getElementById("nextButton");
 
     const progressBar =
-      document.getElementById(
-        "progressBar"
-      );
-
+      document.getElementById("progressBar");
 
     const questionCounter =
-      document.getElementById(
-        "questionCounter"
-      );
+      document.getElementById("questionCounter");
 
-
-    /* ================================
-       RENDER QUIZ
-    ================================= */
 
     function renderQuestion() {
 
       const question =
         questions[currentQuestion];
 
-
       selectedAnswer =
         null;
 
-
       nextButton.style.display =
         "none";
-
 
       progressBar.style.width =
         (
@@ -2564,7 +2069,6 @@
         +
         "%";
 
-
       questionCounter.textContent =
         `${currentQuestion + 1} de ${questions.length}`;
 
@@ -2573,42 +2077,24 @@
         `
 
           <h2 class="question-title">
-
             ${question.question}
-
           </h2>
-
 
           <div class="answers">
 
-            ${
+            ${question.answers.map(
+              (answer, index) => `
 
-              question.answers
-                .map(
-                  (
-                    answer,
-                    index
-                  ) => `
+                <button
+                  type="button"
+                  class="answer"
+                  data-index="${index}"
+                >
+                  ${answer.text}
+                </button>
 
-                    <button
-
-                      type="button"
-
-                      class="answer"
-
-                      data-index="${index}"
-
-                    >
-
-                      ${answer.text}
-
-                    </button>
-
-                  `
-                )
-                .join("")
-
-            }
+              `
+            ).join("")}
 
           </div>
 
@@ -2616,61 +2102,45 @@
 
 
       document
-        .querySelectorAll(
-          ".answer"
-        )
-        .forEach(
-          button => {
+        .querySelectorAll(".answer")
+        .forEach(button => {
 
-            button.addEventListener(
-              "click",
-              () => {
+          button.addEventListener(
+            "click",
+            () => {
 
-                document
-                  .querySelectorAll(
-                    ".answer"
-                  )
-                  .forEach(
-                    item => {
+              document
+                .querySelectorAll(".answer")
+                .forEach(item => {
 
-                      item
-                        .classList
-                        .remove(
-                          "selected"
-                        );
+                  item
+                    .classList
+                    .remove("selected");
 
-                    }
-                  );
+                });
 
 
-                button
-                  .classList
-                  .add(
-                    "selected"
-                  );
+              button
+                .classList
+                .add("selected");
 
 
-                selectedAnswer =
-                  Number(
-                    button.dataset.index
-                  );
+              selectedAnswer =
+                Number(
+                  button.dataset.index
+                );
 
 
-                nextButton.style.display =
-                  "inline-flex";
+              nextButton.style.display =
+                "inline-flex";
 
-              }
-            );
+            }
+          );
 
-          }
-        );
+        });
 
     }
 
-
-    /* ================================
-       NEXT QUESTION
-    ================================= */
 
     nextButton.addEventListener(
       "click",
@@ -2728,9 +2198,7 @@
     );
 
 
-    /* ================================
-       PROFILE
-    ================================= */
+    /* PROFILE */
 
     function getProfile(
       score
@@ -2783,14 +2251,11 @@
     }
 
 
-    /* ================================
-       CONTACT STEPS
-    ================================= */
+    /* CONTACT */
 
     const contactSteps = [
 
       {
-
         key:
           "name",
 
@@ -2805,12 +2270,10 @@
 
         autocomplete:
           "name"
-
       },
 
 
       {
-
         key:
           "whatsapp",
 
@@ -2825,12 +2288,10 @@
 
         autocomplete:
           "tel"
-
       },
 
 
       {
-
         key:
           "email",
 
@@ -2845,82 +2306,49 @@
 
         autocomplete:
           "email"
-
       }
 
     ];
 
 
-    let contactStep =
-      0;
+    let contactStep = 0;
 
 
     const contactData = {
 
-      name:
-        "",
-
-      whatsapp:
-        "",
-
-      email:
-        ""
+      name: "",
+      whatsapp: "",
+      email: ""
 
     };
 
 
     const contactSection =
-      document.getElementById(
-        "contact"
-      );
-
+      document.getElementById("contact");
 
     const contactProgress =
-      document.getElementById(
-        "contactProgress"
-      );
-
+      document.getElementById("contactProgress");
 
     const contactQuestion =
-      document.getElementById(
-        "contactQuestion"
-      );
-
+      document.getElementById("contactQuestion");
 
     const contactInput =
-      document.getElementById(
-        "contactInput"
-      );
-
+      document.getElementById("contactInput");
 
     const contactNext =
-      document.getElementById(
-        "contactNext"
-      );
-
+      document.getElementById("contactNext");
 
     const contactBack =
-      document.getElementById(
-        "contactBack"
-      );
-
+      document.getElementById("contactBack");
 
     const privacyText =
-      document.getElementById(
-        "privacyText"
-      );
+      document.getElementById("privacyText");
 
-
-    /* ================================
-       OPEN CONTACT
-    ================================= */
 
     function openContactForm() {
 
       document
-        .getElementById(
-          "quiz"
-        )
+        .getElementById("quiz")
         .style
         .display =
           "none";
@@ -2947,10 +2375,6 @@
 
     }
 
-
-    /* ================================
-       CONTACT STEP
-    ================================= */
 
     function renderContactStep() {
 
@@ -2992,13 +2416,9 @@
 
         contactStep === 0
 
-          ?
+          ? "hidden"
 
-          "hidden"
-
-          :
-
-          "visible";
+          : "visible";
 
 
       if (
@@ -3038,10 +2458,6 @@
     }
 
 
-    /* ================================
-       VALIDATION
-    ================================= */
-
     function validateCurrentField() {
 
       const step =
@@ -3056,9 +2472,7 @@
           .trim();
 
 
-      if (
-        !value
-      ) {
+      if (!value) {
 
         contactInput.focus();
 
@@ -3068,13 +2482,9 @@
 
 
       if (
-
         step.type === "email"
-
         &&
-
         !contactInput.checkValidity()
-
       ) {
 
         contactInput
@@ -3091,16 +2501,11 @@
     }
 
 
-    /* ================================
-       CONTACT NEXT
-    ================================= */
-
     contactNext.addEventListener(
 
       "click",
 
       async () => {
-
 
         if (
           !validateCurrentField()
@@ -3126,18 +2531,14 @@
 
 
         if (
-
           contactStep
           <
           contactSteps.length - 1
-
         ) {
 
           contactStep++;
 
-
           renderContactStep();
-
 
           return;
 
@@ -3151,16 +2552,11 @@
     );
 
 
-    /* ================================
-       CONTACT BACK
-    ================================= */
-
     contactBack.addEventListener(
 
       "click",
 
       () => {
-
 
         if (
           contactStep === 0
@@ -3195,21 +2591,17 @@
     );
 
 
-    /* ENTER KEY */
-
     contactInput.addEventListener(
 
       "keydown",
 
       event => {
 
-
         if (
           event.key === "Enter"
         ) {
 
           event.preventDefault();
-
 
           contactNext.click();
 
@@ -3220,12 +2612,9 @@
     );
 
 
-    /* ================================
-       GOOGLE SHEETS
-    ================================= */
+    /* GOOGLE SHEETS */
 
-    async function
-    sendLeadToGoogleSheets(
+    async function sendLeadToGoogleSheets(
       lead
     ) {
 
@@ -3287,11 +2676,8 @@
       ) {
 
         console.error(
-
           "Erro ao enviar lead:",
-
           error
-
         );
 
 
@@ -3302,9 +2688,7 @@
     }
 
 
-    /* ================================
-       SUBMIT LEAD
-    ================================= */
+    /* SUBMIT LEAD */
 
     async function submitLead() {
 
@@ -3414,9 +2798,7 @@
     }
 
 
-    /* ================================
-       SCROLL ANIMATIONS
-    ================================= */
+    /* SCROLL ANIMATIONS */
 
     const observer =
       new IntersectionObserver(
@@ -3432,9 +2814,7 @@
 
                 entry.target
                   .classList
-                  .add(
-                    "visible"
-                  );
+                  .add("visible");
 
 
                 observer
@@ -3450,19 +2830,14 @@
         },
 
         {
-
-          threshold:
-            0.12
-
+          threshold: 0.12
         }
 
       );
 
 
     document
-      .querySelectorAll(
-        ".reveal"
-      )
+      .querySelectorAll(".reveal")
       .forEach(
         element => {
 
@@ -3474,15 +2849,11 @@
       );
 
 
-    /* ================================
-       START
-    ================================= */
+    /* START */
 
     renderQuestion();
 
-
   </script>
-
 
 </body>
 </html>
