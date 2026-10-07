@@ -1,9 +1,5 @@
 <!DOCTYPE html>
 <html lang="pt">
-  <link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/intl-tel-input@25.12.2/build/css/intlTelInput.css"
->
 <head>
   <meta charset="UTF-8">
 
@@ -35,6 +31,13 @@
     rel="stylesheet"
   >
 
+  <!-- INTERNATIONAL PHONE INPUT -->
+
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/intl-tel-input@25.12.2/build/css/intlTelInput.css"
+  >
+
   <style>
 
     :root {
@@ -44,8 +47,8 @@
       --grey: #6e6e73;
       --light-grey: #86868b;
       --border: rgba(0, 0, 0, 0.09);
-      --blue: #0066cc;
       --radius: 28px;
+      --error: #c9342f;
     }
 
     * {
@@ -193,6 +196,12 @@
 
     .button:hover {
       transform: translateY(-2px);
+    }
+
+    .button:disabled {
+      opacity: 0.6;
+      cursor: default;
+      transform: none;
     }
 
     .button-dark {
@@ -744,6 +753,53 @@
 
     .large-input:focus {
       border-color: var(--black);
+    }
+
+    /* INTERNATIONAL PHONE */
+
+    .iti {
+      width: 100%;
+    }
+
+    .iti input.large-input {
+      width: 100%;
+    }
+
+    .iti__country-container {
+      padding-bottom: 2px;
+    }
+
+    .iti__selected-country {
+      background: transparent;
+    }
+
+    .iti__selected-dial-code {
+      font-size: 17px;
+      color: var(--grey);
+    }
+
+    .iti__dropdown-content {
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      overflow: hidden;
+
+      box-shadow:
+        0 20px 60px rgba(0,0,0,0.14);
+    }
+
+    .field-error {
+      display: none;
+
+      margin-top: 12px;
+
+      color: var(--error);
+
+      font-size: 13px;
+      line-height: 1.4;
+    }
+
+    .field-error.visible {
+      display: block;
     }
 
     .contact-actions {
@@ -1572,6 +1628,11 @@
             placeholder="O teu nome"
           >
 
+          <div
+            class="field-error"
+            id="fieldError"
+          ></div>
+
           <div class="contact-actions">
 
             <button
@@ -1865,6 +1926,13 @@
   </footer>
 
 
+  <!-- INTERNATIONAL PHONE LIBRARY -->
+
+  <script
+    src="https://cdn.jsdelivr.net/npm/intl-tel-input@25.12.2/build/js/intlTelInput.min.js"
+  ></script>
+
+
   <script>
 
     /* GOOGLE SHEETS */
@@ -2043,8 +2111,7 @@
       const question =
         questions[currentQuestion];
 
-      selectedAnswer =
-        null;
+      selectedAnswer = null;
 
       nextButton.style.display =
         "none";
@@ -2253,7 +2320,7 @@
       {
         key: "whatsapp",
         question: "Qual é o teu WhatsApp?",
-        placeholder: "+351 900 000 000",
+        placeholder: "912 345 678",
         type: "tel",
         autocomplete: "tel"
       },
@@ -2270,6 +2337,12 @@
 
 
     let contactStep = 0;
+
+    let phoneInput = null;
+
+    let phoneCountry = "";
+
+    let phoneCountryIso = "pt";
 
 
     const contactData = {
@@ -2299,6 +2372,141 @@
 
     const privacyText =
       document.getElementById("privacyText");
+
+    const fieldError =
+      document.getElementById("fieldError");
+
+
+    function showFieldError(message) {
+
+      fieldError.textContent =
+        message;
+
+      fieldError.classList.add(
+        "visible"
+      );
+
+    }
+
+
+    function hideFieldError() {
+
+      fieldError.textContent = "";
+
+      fieldError.classList.remove(
+        "visible"
+      );
+
+    }
+
+
+    function destroyPhoneInput() {
+
+      if (!phoneInput) {
+        return;
+      }
+
+
+      const countryData =
+        phoneInput
+          .getSelectedCountryData();
+
+
+      if (
+        countryData &&
+        countryData.iso2
+      ) {
+
+        phoneCountryIso =
+          countryData.iso2;
+
+        phoneCountry =
+          countryData.name || "";
+
+      }
+
+
+      phoneInput.destroy();
+
+      phoneInput = null;
+
+    }
+
+
+    function initialisePhoneInput() {
+
+      if (phoneInput) {
+        return;
+      }
+
+
+      phoneInput =
+        window.intlTelInput(
+
+          contactInput,
+
+          {
+
+            initialCountry:
+              phoneCountryIso || "pt",
+
+            separateDialCode:
+              true,
+
+            strictMode:
+              true,
+
+            nationalMode:
+              true,
+
+            autoPlaceholder:
+              "aggressive",
+
+            loadUtils: () =>
+              import(
+                "https://cdn.jsdelivr.net/npm/intl-tel-input@25.12.2/build/js/utils.js"
+              )
+
+          }
+
+        );
+
+
+      if (
+        contactData.whatsapp
+      ) {
+
+        phoneInput.setNumber(
+          contactData.whatsapp
+        );
+
+      }
+
+
+      contactInput.addEventListener(
+        "countrychange",
+        () => {
+
+          if (!phoneInput) {
+            return;
+          }
+
+
+          const data =
+            phoneInput
+              .getSelectedCountryData();
+
+
+          phoneCountry =
+            data.name || "";
+
+          phoneCountryIso =
+            data.iso2 || "";
+
+        }
+      );
+
+    }
 
 
     function openContactForm() {
@@ -2334,10 +2542,26 @@
 
     function renderContactStep() {
 
+      hideFieldError();
+
+      contactInput.setCustomValidity("");
+
+
       const step =
         contactSteps[
           contactStep
         ];
+
+
+      if (
+        step.key !== "whatsapp"
+        &&
+        phoneInput
+      ) {
+
+        destroyPhoneInput();
+
+      }
 
 
       contactProgress.textContent =
@@ -2360,12 +2584,43 @@
         step.autocomplete;
 
 
-      contactInput.value =
-        contactData[
-          step.key
-        ]
-        ||
-        "";
+      if (
+        step.key === "whatsapp"
+      ) {
+
+        contactInput.value = "";
+
+        setTimeout(
+          () => {
+
+            initialisePhoneInput();
+
+            contactInput.focus();
+
+          },
+          50
+        );
+
+      } else {
+
+        contactInput.value =
+          contactData[
+            step.key
+          ]
+          ||
+          "";
+
+
+        setTimeout(
+          () => {
+
+            contactInput.focus();
+
+          },
+          100
+        );
+
+      }
 
 
       contactBack.style.visibility =
@@ -2401,20 +2656,15 @@
 
       }
 
-
-      setTimeout(
-        () => {
-
-          contactInput.focus();
-
-        },
-        150
-      );
-
     }
 
 
     function validateCurrentField() {
+
+      hideFieldError();
+
+      contactInput.setCustomValidity("");
+
 
       const step =
         contactSteps[
@@ -2428,7 +2678,13 @@
           .trim();
 
 
+      /* EMPTY */
+
       if (!value) {
+
+        showFieldError(
+          "Preenche este campo para continuar."
+        );
 
         contactInput.focus();
 
@@ -2437,15 +2693,86 @@
       }
 
 
+      /* NAME */
+
       if (
-        step.type === "email"
-        &&
-        !contactInput.checkValidity()
+        step.key === "name"
       ) {
 
-        contactInput.reportValidity();
+        if (
+          value.length < 2
+        ) {
 
-        return false;
+          showFieldError(
+            "Introduz o teu nome."
+          );
+
+          contactInput.focus();
+
+          return false;
+
+        }
+
+      }
+
+
+      /* WHATSAPP */
+
+      if (
+        step.key === "whatsapp"
+      ) {
+
+        if (!phoneInput) {
+
+          showFieldError(
+            "Não foi possível validar o número. Tenta novamente."
+          );
+
+          return false;
+
+        }
+
+
+        if (
+          !phoneInput.isValidNumber()
+        ) {
+
+          showFieldError(
+            "Introduz um número de WhatsApp válido para o país selecionado."
+          );
+
+          contactInput.focus();
+
+          return false;
+
+        }
+
+      }
+
+
+      /* EMAIL */
+
+      if (
+        step.key === "email"
+      ) {
+
+        const emailPattern =
+          /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+
+        if (
+          !emailPattern.test(value)
+        ) {
+
+          showFieldError(
+            "Introduz um endereço de email válido."
+          );
+
+          contactInput.focus();
+
+          return false;
+
+        }
 
       }
 
@@ -2453,6 +2780,18 @@
       return true;
 
     }
+
+
+    contactInput.addEventListener(
+      "input",
+      () => {
+
+        hideFieldError();
+
+        contactInput.setCustomValidity("");
+
+      }
+    );
 
 
     contactNext.addEventListener(
@@ -2474,12 +2813,36 @@
           ];
 
 
-        contactData[
-          step.key
-        ] =
-          contactInput
-            .value
-            .trim();
+        if (
+          step.key === "whatsapp"
+        ) {
+
+          const countryData =
+            phoneInput
+              .getSelectedCountryData();
+
+
+          contactData.whatsapp =
+            phoneInput.getNumber();
+
+
+          phoneCountry =
+            countryData.name || "";
+
+
+          phoneCountryIso =
+            countryData.iso2 || "";
+
+        } else {
+
+          contactData[
+            step.key
+          ] =
+            contactInput
+              .value
+              .trim();
+
+        }
 
 
         if (
@@ -2523,12 +2886,47 @@
           ];
 
 
-        contactData[
-          currentStep.key
-        ] =
-          contactInput
-            .value
-            .trim();
+        if (
+          currentStep.key ===
+          "whatsapp"
+          &&
+          phoneInput
+        ) {
+
+          const countryData =
+            phoneInput
+              .getSelectedCountryData();
+
+
+          if (
+            contactInput
+              .value
+              .trim()
+          ) {
+
+            contactData.whatsapp =
+              phoneInput.getNumber();
+
+          }
+
+
+          phoneCountry =
+            countryData.name || "";
+
+
+          phoneCountryIso =
+            countryData.iso2 || "";
+
+        } else {
+
+          contactData[
+            currentStep.key
+          ] =
+            contactInput
+              .value
+              .trim();
+
+        }
 
 
         contactStep--;
@@ -2661,6 +3059,12 @@
         whatsapp:
           contactData.whatsapp,
 
+        country:
+          phoneCountry,
+
+        countryIso:
+          phoneCountryIso,
+
         email:
           contactData.email,
 
@@ -2691,9 +3095,37 @@
       );
 
 
-      await sendLeadToGoogleSheets(
-        lead
-      );
+      const sent =
+        await sendLeadToGoogleSheets(
+          lead
+        );
+
+
+      if (!sent) {
+
+        contactNext.disabled =
+          false;
+
+
+        contactNext.textContent =
+          "Enviar →";
+
+
+        showFieldError(
+          "Não foi possível enviar os teus dados. Tenta novamente."
+        );
+
+
+        return;
+
+      }
+
+
+      if (phoneInput) {
+
+        destroyPhoneInput();
+
+      }
 
 
       contactSection.style.display =
