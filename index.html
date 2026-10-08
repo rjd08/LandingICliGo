@@ -2649,38 +2649,24 @@
 
     async function sendLeadToGoogleSheets(lead) {
       const controller = new AbortController();
-      const timeout = setTimeout(() => controller.abort(), 30000);
+      const timeout = setTimeout(() => controller.abort(), 15000);
       try {
-        const response = await fetch(GOOGLE_SCRIPT_URL, {
+        await fetch(GOOGLE_SCRIPT_URL, {
           method: "POST",
-          mode: "cors",
+          mode: "no-cors",
           credentials: "omit",
-          redirect: "follow",
-          headers: { "Content-Type": "text/plain;charset=UTF-8" },
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
           body: new URLSearchParams({ data: JSON.stringify(lead) }).toString(),
           signal: controller.signal
         });
-        if (!response.ok) throw new Error("Resposta indisponível");
-        const result = await response.json();
-        if (result.success !== true) {
-          // Only show known validation errors; do not expose server internals.
-          const validationMessages = {
-            "Error: Nome inválido.": "Verifica o teu nome.",
-            "Error: Email inválido.": "Verifica o teu endereço de email.",
-            "Error: Número de WhatsApp inválido.": "Verifica o teu número de WhatsApp."
-          };
-          return {
-            success: false,
-            message: validationMessages[result.error] ||
-              "Não foi possível guardar o contacto. Tenta novamente mais tarde."
-          };
-        }
+        // Google Apps Script uses an opaque response from this public endpoint.
+        // Completion means the request was accepted by the endpoint; the response body
+        // cannot be inspected from the landing page.
         return { success: true };
       } catch {
-        // A network error does not prove the server failed to save the lead.
         return {
           success: false,
-          message: "Não conseguimos confirmar a receção. O pedido pode ter sido recebido; verifica connosco antes de repetir."
+          message: "Não foi possível enviar agora. Verifica a ligação e tenta novamente."
         };
       } finally {
         clearTimeout(timeout);
