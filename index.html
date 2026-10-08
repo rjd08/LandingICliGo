@@ -2644,75 +2644,71 @@
     );
 
 
-    async function sendLeadToGoogleSheets(
-      lead
-    ) {
+    // JSONP: Apps Script cannot expose a custom Access-Control-Allow-Origin header.
+    // We only mark a lead as sent after confirming its submissionId in the Sheet.
+    function checkLeadWasSaved(submissionId) {
+      return new Promise(resolve => {
+        const callbackName =
+          "__icligoSaved_" + crypto.randomUUID().replace(/-/g, "");
+        const script = document.createElement("script");
+        const checkUrl = new URL(GOOGLE_SCRIPT_URL);
+        checkUrl.searchParams.set("action", "check");
+        checkUrl.searchParams.set("submissionId", submissionId);
+        checkUrl.searchParams.set("callback", callbackName);
+        checkUrl.searchParams.set("_", String(Date.now()));
 
-      const formData =
-        new URLSearchParams();
+        let finished = false;
+        const cleanup = saved => {
+          if (finished) return;
+          finished = true;
+          clearTimeout(timeout);
+          script.remove();
+          delete window[callbackName];
+          resolve(saved);
+        };
+        const timeout = setTimeout(() => cleanup(false), 5000);
+        window[callbackName] = result => {
+          cleanup(
+            !!result && result.success === true &&
+            result.saved === true && result.submissionId === submissionId
+          );
+        };
+        script.onerror = () => cleanup(false);
+        script.src = checkUrl.toString();
+        document.head.appendChild(script);
+      });
+    }
 
-
-      formData.append(
-
-        "data",
-
-        JSON.stringify(
-          lead
-        )
-
-      );
-
+    async function sendLeadToGoogleSheets(lead) {
+      const formData = new URLSearchParams();
+      formData.append("data", JSON.stringify(lead));
 
       try {
+        // "no-cors" returns an opaque response; a resolved fetch is NOT
+        // confirmation of a successful write.
+        await fetch(GOOGLE_SCRIPT_URL, {
+          method: "POST",
+          mode: "no-cors",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          },
+          body: formData.toString()
+        });
 
-        await fetch(
-
-          GOOGLE_SCRIPT_URL,
-
-          {
-
-            method:
-              "POST",
-
-            mode:
-              "no-cors",
-
-            headers: {
-
-              "Content-Type":
-                "application/x-www-form-urlencoded"
-
-            },
-
-            body:
-              formData.toString()
-
+        for (let attempt = 0; attempt < 4; attempt++) {
+          // Allow Apps Script/Sheets a short period to complete the write.
+          await new Promise(resolve => setTimeout(resolve, attempt === 0 ? 700 : 1200));
+          if (await checkLeadWasSaved(lead.submissionId)) {
+            return true;
           }
+        }
 
-        );
-
-
-        console.log(
-          "Lead enviada para Google Sheets."
-        );
-
-
-        return true;
-
-      }
-
-      catch (error) {
-
-        console.error(
-          "Erro ao enviar lead:",
-          error
-        );
-
-
+        console.error("Não foi possível confirmar a gravação da lead.");
         return false;
-
+      } catch (error) {
+        console.error("Erro ao enviar lead:", error);
+        return false;
       }
-
     }
 
 
@@ -2732,7 +2728,30 @@
         );
 
 
+      // Reutiliza o mesmo ID em tentativas repetidas e evita duplicados.
+      const fingerprint = [
+        contactData.name.trim().toLowerCase(),
+        contactData.email.trim().toLowerCase(),
+        contactData.whatsapp
+      ].join("|");
+      let pending = null;
+      try {
+        pending = JSON.parse(sessionStorage.getItem("icligo_pending_submission"));
+      } catch (error) {
+        pending = null;
+      }
+      const submissionId = (
+        pending && pending.fingerprint === fingerprint &&
+        /^[0-9a-f-]{36}$/i.test(pending.submissionId)
+      ) ? pending.submissionId : crypto.randomUUID();
+      sessionStorage.setItem(
+        "icligo_pending_submission",
+        JSON.stringify({ fingerprint, submissionId })
+      );
+
       const lead = {
+
+        submissionId: submissionId,
 
         name:
           contactData.name,
@@ -2765,17 +2784,6 @@
       };
 
 
-      localStorage.setItem(
-
-        "icligo_last_lead",
-
-        JSON.stringify(
-          lead
-        )
-
-      );
-
-
       const sent =
         await sendLeadToGoogleSheets(
           lead
@@ -2801,6 +2809,10 @@
 
       }
 
+
+      // Persistir como concluída apenas depois de verificar o Sheet.
+      localStorage.setItem("icligo_last_lead", JSON.stringify(lead));
+      sessionStorage.removeItem("icligo_pending_submission");
 
       if (phoneInput) {
 
