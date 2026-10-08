@@ -2644,219 +2644,96 @@
     );
 
 
-    async function sendLeadToGoogleSheets(
-      lead
-    ) {
+    let leadSending = false;
+    let leadSaved = false;
 
-      const formData =
-        new URLSearchParams();
-
-
-      formData.append(
-
-        "data",
-
-        JSON.stringify(
-          lead
-        )
-
-      );
-
-
+    async function sendLeadToGoogleSheets(lead) {
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), 30000);
       try {
-
-        await fetch(
-
-          GOOGLE_SCRIPT_URL,
-
-          {
-
-            method:
-              "POST",
-
-            mode:
-              "no-cors",
-
-            headers: {
-
-              "Content-Type":
-                "application/x-www-form-urlencoded"
-
-            },
-
-            body:
-              formData.toString()
-
-          }
-
-        );
-
-
-        console.log(
-          "Lead enviada para Google Sheets."
-        );
-
-
-        return true;
-
+        const response = await fetch(GOOGLE_SCRIPT_URL, {
+          method: "POST",
+          mode: "cors",
+          credentials: "omit",
+          redirect: "follow",
+          headers: { "Content-Type": "text/plain;charset=UTF-8" },
+          body: new URLSearchParams({ data: JSON.stringify(lead) }).toString(),
+          signal: controller.signal
+        });
+        if (!response.ok) throw new Error("Resposta indisponível");
+        const result = await response.json();
+        if (result.success !== true) {
+          // Only show known validation errors; do not expose server internals.
+          const validationMessages = {
+            "Error: Nome inválido.": "Verifica o teu nome.",
+            "Error: Email inválido.": "Verifica o teu endereço de email.",
+            "Error: Número de WhatsApp inválido.": "Verifica o teu número de WhatsApp."
+          };
+          return {
+            success: false,
+            message: validationMessages[result.error] ||
+              "Não foi possível guardar o contacto. Tenta novamente mais tarde."
+          };
+        }
+        return { success: true };
+      } catch {
+        // A network error does not prove the server failed to save the lead.
+        return {
+          success: false,
+          message: "Não conseguimos confirmar a receção. O pedido pode ter sido recebido; verifica connosco antes de repetir."
+        };
+      } finally {
+        clearTimeout(timeout);
       }
-
-      catch (error) {
-
-        console.error(
-          "Erro ao enviar lead:",
-          error
-        );
-
-
-        return false;
-
-      }
-
     }
-
 
     async function submitLead() {
-
-      contactNext.disabled =
-        true;
-
-
-      contactNext.textContent =
-        "A enviar...";
-
-
-      const profile =
-        getProfile(
-          totalScore
-        );
-
-
+      if (leadSending || leadSaved) return;
+      leadSending = true;
+      contactNext.disabled = true;
+      contactBack.disabled = true;
+      contactInput.disabled = true;
+      contactNext.textContent = "A enviar...";
+      const profile = getProfile(totalScore);
       const lead = {
-
-        name:
-          contactData.name,
-
-        whatsapp:
-          contactData.whatsapp,
-
-        country:
-          phoneCountry,
-
-        countryIso:
-          phoneCountryIso,
-
-        email:
-          contactData.email,
-
-        score:
-          totalScore,
-
-        profile:
-          profile.name,
-
-        answers:
-          quizAnswers,
-
-        date:
-          new Date()
-            .toISOString()
-
+        name: contactData.name,
+        whatsapp: contactData.whatsapp,
+        country: phoneCountry,
+        countryIso: phoneCountryIso,
+        email: contactData.email,
+        score: totalScore,
+        profile: profile.name,
+        answers: quizAnswers,
+        date: new Date().toISOString()
       };
 
+      try {
+        const result = await sendLeadToGoogleSheets(lead);
+        if (!result.success) {
+          showFieldError(result.message);
+          return;
+        }
 
-      localStorage.setItem(
+        leadSaved = true;
+        // A confirmed save is the only source of the Meta Lead event.
+        // No names, contact details, answers or scores are passed to Meta.
+        window.dispatchEvent(new Event("icligo:lead-saved"));
 
-        "icligo_last_lead",
-
-        JSON.stringify(
-          lead
-        )
-
-      );
-
-
-      const sent =
-        await sendLeadToGoogleSheets(
-          lead
-        );
-
-
-      if (!sent) {
-
-        contactNext.disabled =
-          false;
-
-
-        contactNext.textContent =
-          "Enviar →";
-
-
-        showFieldError(
-          "Não foi possível enviar os teus dados. Tenta novamente."
-        );
-
-
-        return;
-
+        if (phoneInput) destroyPhoneInput();
+        contactSection.style.display = "none";
+        const resultSection = document.getElementById("result");
+        document.getElementById("resultTitle").textContent = `Obrigado, ${contactData.name}.`;
+        document.getElementById("resultText").textContent = profile.text;
+        resultSection.style.display = "flex";
+        resultSection.scrollIntoView({ behavior: "smooth" });
+      } finally {
+        leadSending = false;
+        contactNext.disabled = leadSaved;
+        contactBack.disabled = false;
+        contactInput.disabled = false;
+        contactNext.textContent = leadSaved ? "Enviado" : "Enviar →";
       }
-
-
-      if (phoneInput) {
-
-        destroyPhoneInput();
-
-      }
-
-
-      contactSection.style.display =
-        "none";
-
-
-      const resultSection =
-        document.getElementById(
-          "result"
-        );
-
-
-      document
-        .getElementById(
-          "resultTitle"
-        )
-        .textContent =
-          `Obrigado, ${contactData.name}.`;
-
-
-      document
-        .getElementById(
-          "resultText"
-        )
-        .textContent =
-          profile.text;
-
-
-      resultSection.style.display =
-        "flex";
-
-
-      resultSection
-        .scrollIntoView({
-
-          behavior:
-            "smooth"
-
-        });
-
-
-      contactNext.disabled =
-        false;
-
-
-      contactNext.textContent =
-        "Enviar →";
-
     }
-
 
     const observer =
       new IntersectionObserver(
@@ -2937,7 +2814,7 @@
   </style>
   <section id="marketing-consent" role="region" aria-labelledby="marketing-consent-title" hidden>
     <h2 id="marketing-consent-title">Medição de publicidade</h2>
-    <p>Com a tua autorização, usamos o Píxel da Meta para medir visitas provenientes dos
+    <p>Com a tua autorização, usamos o Píxel da Meta para medir visitas e pedidos de contacto provenientes dos
       nossos anúncios. A Meta recebe informações da visita e do navegador e pode
       associá-las à tua conta. Podes recusar e continuar a usar o site e o formulário.</p>
     <p>A tua escolha fica guardada neste navegador durante 180 dias.
@@ -2956,6 +2833,8 @@
       const panel = document.getElementById('marketing-consent');
       const preferences = document.getElementById('marketing-preferences');
       let started = false;
+      let currentChoice = savedChoice();
+      let leadEventSent = false;
 
       function savedChoice() {
         try {
@@ -2989,6 +2868,7 @@
       }
 
       function choose(choice) {
+        currentChoice = choice;
         try { localStorage.setItem(KEY, JSON.stringify({choice, at: Date.now()})); }
         catch { /* Consent still applies to this page when storage is unavailable. */ }
         panel.hidden = true;
@@ -3010,6 +2890,7 @@
       window.addEventListener('storage', event => {
         if (event.key !== KEY) return;
         const choice = savedChoice();
+        currentChoice = choice;
         if (choice !== 'accepted' && started && window.fbq) window.fbq('consent', 'revoke');
         if (choice === 'accepted') {
           if (started) window.fbq('consent', 'grant');
@@ -3017,7 +2898,12 @@
         }
         panel.hidden = Boolean(choice);
       });
-      const choice = savedChoice();
+      window.addEventListener('icligo:lead-saved', () => {
+        if (currentChoice !== 'accepted' || !started || !window.fbq || leadEventSent) return;
+        leadEventSent = true;
+        window.fbq('track', 'Lead');
+      });
+      const choice = currentChoice;
       if (choice === 'accepted') startPixel();
       panel.hidden = Boolean(choice);
     })();
