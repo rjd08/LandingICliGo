@@ -1627,6 +1627,7 @@
         <span>
           Travel Partner
         </span>
+        <button type="button" id="marketing-preferences">Preferências de privacidade</button>
 
       </div>
 
@@ -2908,6 +2909,118 @@
 
     renderQuestion();
 
+  </script>
+
+
+  <!-- Meta Pixel: loaded only after the visitor accepts marketing measurement. -->
+  <style>
+    #marketing-consent[hidden] { display: none !important; }
+    #marketing-consent {
+      position: fixed; inset: auto 16px 16px; z-index: 10000;
+      max-width: 680px; margin: 0 auto; padding: 22px;
+      background: #fff; color: #1d1d1f; border: 1px solid #d2d2d7;
+      border-radius: 18px; box-shadow: 0 8px 40px #0002;
+      max-height: calc(100dvh - 32px); overflow: auto;
+    }
+    #marketing-consent h2 { font-size: 19px; margin: 0 0 10px; }
+    #marketing-consent p { font-size: 14px; line-height: 1.5; margin: 0 0 14px; }
+    #marketing-consent .consent-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+    #marketing-consent button, #marketing-preferences {
+      font: inherit; cursor: pointer; padding: 10px 16px; border-radius: 10px;
+      background: #fff; color: #1d1d1f; border: 1px solid #777;
+    }
+    #marketing-consent button { flex: 1; min-width: 150px; }
+    #marketing-consent button:focus-visible, #marketing-preferences:focus-visible {
+      outline: 3px solid #1769aa; outline-offset: 3px;
+    }
+    #marketing-preferences { font-size: 12px; }
+  </style>
+  <section id="marketing-consent" role="region" aria-labelledby="marketing-consent-title" hidden>
+    <h2 id="marketing-consent-title">Medição de publicidade</h2>
+    <p>Com a tua autorização, usamos o Píxel da Meta para medir visitas provenientes dos
+      nossos anúncios. A Meta recebe informações da visita e do navegador e pode
+      associá-las à tua conta. Podes recusar e continuar a usar o site e o formulário.</p>
+    <p>A tua escolha fica guardada neste navegador durante 180 dias.
+      Podes alterá-la em «Preferências de privacidade», no rodapé.
+      <a href="https://www.facebook.com/privacy/policy/" target="_blank" rel="noopener noreferrer">Política de privacidade da Meta</a>.</p>
+    <div class="consent-actions">
+      <button type="button" id="marketing-reject">Recusar</button>
+      <button type="button" id="marketing-accept">Aceitar medição</button>
+    </div>
+  </section>
+  <script id="marketing-pixel-script">
+    (() => {
+      const PIXEL_ID = '2096854337865456';
+      const KEY = 'bianca_marketing_consent_v1';
+      const MAX_AGE = 180 * 24 * 60 * 60 * 1000;
+      const panel = document.getElementById('marketing-consent');
+      const preferences = document.getElementById('marketing-preferences');
+      let started = false;
+
+      function savedChoice() {
+        try {
+          const saved = JSON.parse(localStorage.getItem(KEY));
+          if (saved && ['accepted', 'rejected'].includes(saved.choice)
+              && Number.isFinite(saved.at) && saved.at <= Date.now()
+              && Date.now() - saved.at < MAX_AGE) return saved.choice;
+        } catch { /* A blocked store must not prevent access to the form. */ }
+        return null;
+      }
+
+      function startPixel() {
+        if (started) return;
+        started = true;
+        // Meta's base queue; no request or cookie is made before consent.
+        const fbq = window.fbq = window.fbq || function () {
+          fbq.callMethod ? fbq.callMethod.apply(fbq, arguments) : fbq.queue.push(arguments);
+        };
+        window._fbq = window._fbq || fbq;
+        fbq.push = fbq;
+        fbq.loaded = true;
+        fbq.version = '2.0';
+        fbq.queue = fbq.queue || [];
+        fbq('consent', 'grant');
+        fbq('init', PIXEL_ID);
+        fbq('track', 'PageView');
+        const script = document.createElement('script');
+        script.async = true;
+        script.src = 'https://connect.facebook.net/en_US/fbevents.js';
+        document.head.appendChild(script);
+      }
+
+      function choose(choice) {
+        try { localStorage.setItem(KEY, JSON.stringify({choice, at: Date.now()})); }
+        catch { /* Consent still applies to this page when storage is unavailable. */ }
+        panel.hidden = true;
+        if (choice === 'accepted') {
+          if (started) window.fbq('consent', 'grant');
+          else startPixel();
+        } else if (started && window.fbq) {
+          window.fbq('consent', 'revoke');
+        }
+        preferences.focus();
+      }
+
+      document.getElementById('marketing-accept').addEventListener('click', () => choose('accepted'));
+      document.getElementById('marketing-reject').addEventListener('click', () => choose('rejected'));
+      preferences.addEventListener('click', () => {
+        panel.hidden = false;
+        document.getElementById('marketing-reject').focus();
+      });
+      window.addEventListener('storage', event => {
+        if (event.key !== KEY) return;
+        const choice = savedChoice();
+        if (choice !== 'accepted' && started && window.fbq) window.fbq('consent', 'revoke');
+        if (choice === 'accepted') {
+          if (started) window.fbq('consent', 'grant');
+          else startPixel();
+        }
+        panel.hidden = Boolean(choice);
+      });
+      const choice = savedChoice();
+      if (choice === 'accepted') startPixel();
+      panel.hidden = Boolean(choice);
+    })();
   </script>
 
 </body>
